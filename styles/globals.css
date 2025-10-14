@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0b1220;
+  --fg: #e5e7eb;
+}
+
+html, body, #__next {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.container {
+  @apply mx-auto max-w-6xl px-4;
+}
+
+.section {
+  @apply py-16 md:py-24;
+}

@@ -1,0 +1,158 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Install NPM dependencies",
+			"type": "shell",
+			"command": "npm install",
+			"args": [],
+			"problemMatcher": [
+				"$eslint-stylish"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Build Next.js project",
+			"type": "shell",
+			"command": "npm run build",
+			"args": [],
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Export Next.js static site",
+			"type": "shell",
+			"command": "npm run export",
+			"args": [],
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Install missing deps",
+			"type": "shell",
+			"command": "npm install @hookform/resolvers",
+			"args": [],
+			"problemMatcher": [
+				"$eslint-stylish"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Type check",
+			"type": "shell",
+			"command": "npm run type-check",
+			"args": [],
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Re-run build",
+			"type": "shell",
+			"command": "npm run build",
+			"args": [],
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Restart dev to load env",
+			"type": "shell",
+			"command": "powershell -NoProfile -Command \"Get-Process node -ErrorAction SilentlyContinue | Stop-Process -Force; npm run dev\"",
+			"args": [],
+			"isBackground": true,
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Rebuild after Drive improvements",
+			"type": "shell",
+			"command": "npm run build",
+			"args": [],
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Restart dev server",
+			"type": "shell",
+			"command": "powershell -NoProfile -Command \"Get-Process node -ErrorAction SilentlyContinue | Stop-Process -Force; npm run dev\"",
+			"args": [],
+			"isBackground": true,
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Install Next 15",
+			"type": "shell",
+			"command": "npm install",
+			"args": [],
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Build with Next 15",
+			"type": "shell",
+			"command": "npm run build",
+			"args": [],
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Clean Next cache",
+			"type": "shell",
+			"command": "powershell -NoProfile -Command \"Remove-Item -Recurse -Force .next -ErrorAction SilentlyContinue\"",
+			"args": [],
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Rebuild after instrumentation stub",
+			"type": "shell",
+			"command": "npm run build",
+			"args": [],
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Restart dev server (Next 15)",
+			"type": "shell",
+			"command": "powershell -NoProfile -Command \"Get-Process node -ErrorAction SilentlyContinue | Stop-Process -Force; npm run dev\"",
+			"args": [],
+			"isBackground": true,
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Rebuild after gallery fixes",
+			"type": "shell",
+			"command": "npm run build",
+			"args": [],
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		}
+	]
+}
