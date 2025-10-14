@@ -59,6 +59,9 @@ Add into `.env.local` for local dev and set as Actions secrets for CI:
   - Example: `git switch -c feat/politica-privacidad-link`
 - Use small, descriptive commits; prefer conventional commit messages.
 - PRs should describe user-facing changes and any config or env impacts.
+ - After merging to `main`, delete the feature branch:
+   - Preferred: enable "Automatically delete head branches" in GitHub repo settings.
+   - Otherwise: delete manually (local: `git branch -d <branch>`; remote: `git push origin --delete <branch>`).
 
 ## Maintenance Notes
 - If images fail to load from Drive, verify folder sharing and API enablement. Check browser console for detailed error (we log response snippet).
