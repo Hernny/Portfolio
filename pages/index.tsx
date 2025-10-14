@@ -1,6 +1,6 @@
 import { Layout } from '../components/Layout';
 import { Hero } from '../components/home/Hero';
-import { GoogleGallery } from '../components/gallery/GoogleGallery';
+import { Gallery } from '../components/gallery/GoogleGallery';
 import { About } from '../components/profile/About';
 import { Skills } from '../components/profile/Skills';
 import { Experience } from '../components/profile/Experience';
@@ -19,7 +19,7 @@ export default function HomePage() {
       <Experience />
   <Projects />
   <Certifications />
-      <GoogleGallery />
+      <Gallery />
       <Scheduler />
       <ContactInfo />
       <ContactForm />

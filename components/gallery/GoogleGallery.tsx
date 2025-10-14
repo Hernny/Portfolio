@@ -32,7 +32,7 @@ function DriveImage({ file, alt }: { file: DriveFile; alt: string }) {
   );
 }
 
-export function GoogleGallery() {
+export function Gallery() {
   const [images, setImages] = useState<DriveFile[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
