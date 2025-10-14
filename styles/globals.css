@@ -2,9 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Semantic design tokens (light mode defaults) */
 :root {
-  --bg: #0b1220;
-  --fg: #e5e7eb;
+  /* Surfaces */
+  --color-bg-primary: #ffffff; /* clean, professional */
+  --color-bg-elevated: #f1f5f9; /* subtle contrast card */
+  --color-bg-accent-soft: #e0f2fe; /* soft primary tint */
+
+  /* Text / Ink */
+  --color-fg-primary: #1e293b; /* slate-800 readability */
+  --color-fg-muted: #475569; /* slate-600 */
+  --color-fg-inverted: #f1f5f9;
+
+  /* Brand Accents */
+  --color-accent: #0ea5e9; /* action / clarity */
+  --color-accent-hover: #0284c7;
+  --color-accent-radial: radial-gradient(circle at 30% 30%, #38bdf8 0%, #0ea5e9 40%, #0369a1 100%);
+
+  /* Ember highlight (controlled passion) */
+  --color-highlight: #f97316;
+  --color-highlight-hover: #ea580c;
+
+  /* Borders & separators */
+  --color-border: #e2e8f0; /* slate-200 */
+  --color-border-strong: #cbd5e1; /* slate-300 */
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px -1px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px -4px rgba(15, 23, 42, 0.15);
+
+  --bg: var(--color-bg-primary);
+  --fg: var(--color-fg-primary);
+}
+
+/* Dark theme overrides (applied via .dark on <html>) */
+.dark {
+  --color-bg-primary: #0b1220; /* deep navy -> elegance + focus */
+  --color-bg-elevated: #141d2d; /* slightly lighter panel */
+  --color-bg-accent-soft: #072636; /* cooled accent tint */
+
+  --color-fg-primary: #e5e7eb; /* neutral light */
+  --color-fg-muted: #94a3b8; /* slate-400 */
+  --color-fg-inverted: #0b1220;
+
+  --color-accent: #38bdf8; /* slightly brighter in dark for contrast */
+  --color-accent-hover: #0ea5e9;
+  --color-accent-radial: radial-gradient(circle at 30% 30%, #0ea5e9 0%, #0369a1 45%, #0b1220 100%);
+
+  --color-highlight: #fb923c; /* slightly lighter for dark contrast */
+  --color-highlight-hover: #f97316;
+
+  --color-border: #1e293b; /* subtle outline */
+  --color-border-strong: #334155;
+
+  --shadow-sm: 0 1px 2px -1px rgba(0,0,0,0.7), 0 1px 3px rgba(0,0,0,0.65);
+  --shadow-md: 0 6px 28px -6px rgba(0,0,0,0.65);
+
+  --bg: var(--color-bg-primary);
+  --fg: var(--color-fg-primary);
 }
 
 html, body, #__next {
@@ -14,7 +69,23 @@ html, body, #__next {
 body {
   background: var(--bg);
   color: var(--fg);
+  font-feature-settings: 'liga' 1, 'tnum' 1;
+  -webkit-font-smoothing: antialiased;
 }
+
+/* Utility helpers */
+.theme-accent-text { color: var(--color-accent); }
+.theme-highlight-text { color: var(--color-highlight); }
+.theme-surface { background: var(--color-bg-primary); }
+.theme-elevated { background: var(--color-bg-elevated); }
+.theme-border { border-color: var(--color-border); }
+.theme-border-strong { border-color: var(--color-border-strong); }
+
+/* Scrollbar theming (webkit) */
+*::-webkit-scrollbar { width: 10px; }
+*::-webkit-scrollbar-track { background: var(--color-bg-primary); }
+*::-webkit-scrollbar-thumb { background: var(--color-bg-accent-soft); border-radius: 6px; }
+*::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
 
 .container {
   @apply mx-auto max-w-6xl px-4;
