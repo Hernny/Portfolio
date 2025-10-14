@@ -1,5 +1,5 @@
 import { profile } from '../../data/profile';
-import { FaEnvelope, FaLinkedin, FaPhone } from 'react-icons/fa';
+import { FaEnvelope, FaLinkedin, FaPhone, FaWhatsapp } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -74,6 +74,26 @@ export function ContactSection() {
                     <p className="opacity-70">{profile.phone}</p>
                   </div>
                 </a>
+              </li>
+              <li>
+                {/* WhatsApp link using wa.me (remove + and spaces) with preset message */}
+                {(() => {
+                  const raw = profile.phone;
+                  const digits = raw.replace(/[^0-9]/g, '');
+                  const msg = encodeURIComponent('Hola Hernny, me gustaría conversar sobre un proyecto.');
+                  const wa = `https://wa.me/${digits}?text=${msg}`;
+                  return (
+                    <a href={wa} target="_blank" rel="noreferrer" className="group flex items-center gap-3 rounded-lg border border-green-200/60 dark:border-green-500/20 hover:border-green-500/70 px-4 py-3 bg-green-50/70 dark:bg-green-500/10 backdrop-blur transition">
+                      <span className="p-2 rounded-md bg-green-500/15 text-green-600 dark:text-green-400 group-hover:bg-green-500 group-hover:text-white transition">
+                        <FaWhatsapp />
+                      </span>
+                      <div className="text-sm text-left">
+                        <p className="font-medium">WhatsApp</p>
+                        <p className="opacity-70">Chat inmediato</p>
+                      </div>
+                    </a>
+                  );
+                })()}
               </li>
             </ul>
           </div>
