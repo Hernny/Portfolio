@@ -3,7 +3,7 @@ import { FaImages, FaEnvelope, FaShieldAlt } from 'react-icons/fa';
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 backdrop-blur bg-black/50 border-b border-white/10 supports-[backdrop-filter]:bg-black/40">
+    <header className="fixed top-0 inset-x-0 z-50 backdrop-blur bg-black/55 border-b border-white/10 supports-[backdrop-filter]:bg-black/40">
       <div className="container flex items-center justify-between py-4">
         <Link href="#home" className="font-bold tracking-wide">Hernny Malaver</Link>
         <nav className="flex flex-wrap gap-4 text-sm">

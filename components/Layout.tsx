@@ -27,8 +27,9 @@ export function Layout({ children, title = 'Hernny Malaver — Director de proye
     <>
       <Seo title={title} />
       <AnalyticsPixel />
-      <Header />
-      <main>{children}</main>
+  <Header />
+  <div className="h-16" aria-hidden />
+  <main>{children}</main>
       <Footer />
       <CookieBanner />
     </>
