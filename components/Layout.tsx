@@ -5,7 +5,7 @@ import { Footer } from './layout/Footer';
 import { Header } from './layout/Header';
 import { AnalyticsPixel } from './tracking/AnalyticsPixel';
 
-export function Layout({ children, title = 'Portfolio' }: { children: ReactNode; title?: string }) {
+export function Layout({ children, title = 'Hernny Malaver — Director de proyectos y desarrollador de software' }: { children: ReactNode; title?: string }) {
   useEffect(() => {
     // Smooth scroll for SPA anchors
     const onClick = (e: Event) => {

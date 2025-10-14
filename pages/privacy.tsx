@@ -5,7 +5,7 @@ export default function PrivacyPolicy() {
     <div className="container section">
       <h1 className="text-3xl font-bold mb-4">Política de Privacidad</h1>
       <p className="opacity-80 mb-6">
-        Tu privacidad es importante. Esta política describe qué datos recopilamos, cómo los usamos y tus opciones.
+        Tu privacidad es importante. En el portafolio de Hernny Malaver, esta política describe qué datos recopilamos, cómo los usamos y tus opciones.
       </p>
 
       <h2 className="text-xl font-semibold mt-8 mb-2">Cookies</h2>
@@ -35,7 +35,7 @@ export default function PrivacyPolicy() {
 
       <h2 className="text-xl font-semibold mt-8 mb-2">Contacto</h2>
       <p className="opacity-80">
-        Si tienes preguntas sobre esta política, contáctanos mediante el formulario en la sección "Contacto".
+  Si tienes preguntas sobre esta política, contáctame mediante el formulario en la sección "Contacto".
       </p>
 
       <div className="mt-8">

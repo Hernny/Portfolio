@@ -1,6 +1,6 @@
-# Portfolio Next.js SPA
+# Portafolio de Hernny Malaver
 
-Proyecto completo en Next.js + TypeScript con Tailwind CSS, Framer Motion, React Icons y Google APIs. Incluye banner de cookies, píxel de seguimiento (Meta Pixel), formulario de contacto, agendamiento y galería de fotos vía Google Drive API. Listo para desplegar en GitHub Pages.
+Portafolio personal de Hernny Malaver (Director de proyectos y desarrollador de software) en Next.js + TypeScript con Tailwind CSS, Framer Motion, React Icons y Google APIs. Incluye banner de cookies, píxel de seguimiento (Meta Pixel), formulario de contacto, agendamiento y galería de fotos vía Google Drive API. Listo para desplegar en GitHub Pages.
 
 ## Requisitos
 - Node.js 18+ (recomendado 20)
