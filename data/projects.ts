@@ -9,13 +9,13 @@ export const projects: Project[] = [
   {
     title: 'Dashboard de métricas de proyectos',
     summary:
-      'Tablero con KPIs de entrega y calidad, integración con GitHub Actions y reportes periódicos.',
+      'Tablero operativo con KPIs de entrega y calidad (lead time, throughput, fallas), integrado con GitHub Actions y reportes periódicos para la toma de decisiones.',
     stack: ['Next.js', 'TypeScript', 'GitHub Actions'],
   },
   {
     title: 'Portal de portafolio personal',
     summary:
-      'Sitio estático con SPA, animaciones y galería de imágenes desde Google Drive, optimizado para GitHub Pages.',
+      'SPA estática con animaciones refinadas, theming light/dark, dropdown accesibles y galería resiliente vía Google Drive (fallback locales), optimizada para GitHub Pages.',
     stack: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'Google APIs'],
   },
 ];
