@@ -173,6 +173,16 @@
 				"$tsc"
 			],
 			"group": "build"
+		},
+		{
+			"label": "Post-merge build",
+			"type": "shell",
+			"command": "npm run build",
+			"args": [],
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
 		}
 	]
 }
