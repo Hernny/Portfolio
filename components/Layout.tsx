@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { Seo } from './Seo';
 import { ReactNode, useEffect } from 'react';
 import { CookieBanner } from './cookie/CookieBanner';
 import { Footer } from './layout/Footer';
@@ -24,9 +25,7 @@ export function Layout({ children, title = 'Hernny Malaver — Director de proye
 
   return (
     <>
-      <Head>
-        <title>{title}</title>
-      </Head>
+      <Seo title={title} />
       <AnalyticsPixel />
       <Header />
       <main>{children}</main>
