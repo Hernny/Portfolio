@@ -8,6 +8,9 @@ export function Header() {
   <Link href="#home" className="font-bold tracking-wide">Hernny Malaver</Link>
         <nav className="flex gap-4 text-sm">
           <a href="#home" className="hover:text-primary flex items-center gap-1"><FaHome /> Inicio</a>
+          <a href="#about" className="hover:text-primary flex items-center gap-1">Sobre mí</a>
+          <a href="#skills" className="hover:text-primary flex items-center gap-1">Habilidades</a>
+          <a href="#experience" className="hover:text-primary flex items-center gap-1">Experiencia</a>
           <a href="#gallery" className="hover:text-primary flex items-center gap-1"><FaImages /> Galería</a>
           <a href="#schedule" className="hover:text-primary flex items-center gap-1"><FaRegCalendarAlt /> Agendar</a>
           <a href="#contact" className="hover:text-primary flex items-center gap-1"><FaEnvelope /> Contacto</a>
