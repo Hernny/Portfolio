@@ -5,6 +5,8 @@ import { About } from '../components/profile/About';
 import { Skills } from '../components/profile/Skills';
 import { Experience } from '../components/profile/Experience';
 import { ContactInfo } from '../components/profile/ContactInfo';
+import { Projects } from '../components/profile/Projects';
+import { Certifications } from '../components/profile/Certifications';
 import { Scheduler } from '../components/schedule/Scheduler';
 import { ContactForm } from '../components/contact/ContactForm';
 
@@ -15,6 +17,8 @@ export default function HomePage() {
       <About />
       <Skills />
       <Experience />
+  <Projects />
+  <Certifications />
       <GoogleGallery />
       <Scheduler />
       <ContactInfo />

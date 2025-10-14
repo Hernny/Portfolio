@@ -7,8 +7,8 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hernny Malaver — Director de proyectos y desarrollador de software</title>
-  <meta name="description" content="Portafolio de Hernny Malaver: dirección de proyectos y desarrollo de software con Next.js, Tailwind, Framer Motion y Google APIs." />
+        <link rel="icon" href="/favicon.svg" />
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
       <Component {...pageProps} />
     </>

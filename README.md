@@ -28,6 +28,8 @@ Crea un archivo `.env.local` en la raíz con:
 NEXT_PUBLIC_GOOGLE_API_KEY=tu_api_key
 NEXT_PUBLIC_GOOGLE_DRIVE_FOLDER_ID=tu_folder_id
 NEXT_PUBLIC_META_PIXEL_ID=tu_pixel_id_opcional
+NEXT_PUBLIC_GH_PAGES_BASE=nombre_del_repo
+NEXT_PUBLIC_BASE_URL=https://<tu-usuario>.github.io/<nombre_del_repo>
 ```
 
 - Para la galería, comparte una carpeta de Google Drive como "Cualquiera con el enlace" y usa su ID.
@@ -52,8 +54,11 @@ NEXT_PUBLIC_META_PIXEL_ID=tu_pixel_id_opcional
 
 Si tu repositorio se llama `portfolio-next-spa`, la app estará en `https://<tu-usuario>.github.io/portfolio-next-spa/`.
 
-### BasePath para GitHub Pages
-Usamos `NEXT_PUBLIC_GH_PAGES_BASE` para configurar `basePath` y `assetPrefix` durante el build en Actions.
+### BasePath y sitemap para GitHub Pages
+- `NEXT_PUBLIC_GH_PAGES_BASE` configura `basePath` y `assetPrefix` (por ejemplo, `portfolio-next-spa`).
+- `NEXT_PUBLIC_BASE_URL` se usa para generar URLs absolutas en `sitemap.xml` (por ejemplo, `https://<tu-usuario>.github.io/<repo>` o tu dominio personalizado).
+
+Tras `next export`, se generará automáticamente `out/sitemap.xml`.
 
 ## Notas de privacidad y consentimiento
 - El pixel de Meta solo se inyecta cuando el usuario acepta cookies (banner incluido).

@@ -6,6 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "export": "next export",
+    "postbuild": "npm run sitemap",
+    "sitemap": "node scripts/generate-sitemap.cjs",
     "start": "next start",
     "type-check": "tsc --noEmit"
   },
