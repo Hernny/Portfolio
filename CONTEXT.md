@@ -72,6 +72,15 @@ Añadir en `.env.local` para desarrollo local y configurar como secretos en Acti
 - Si se actualiza Next.js, mantener `instrumentation.ts` para satisfacer los alias de instrumentación.
 - Para GitHub Pages, confirmar que en Settings > Pages la fuente sea GitHub Actions.
 
+## Recursos Locales (context_rsc)
+- Carpeta: `context_rsc/`
+- Propósito: almacenar recursos NO desplegados (CV, diagramas, wireframes, notas internas, capturas de soporte) que aportan contexto al desarrollo y documentación.
+- Convenciones:
+  - Nombrar descriptivamente (`cv-hernny-2025.pdf`, `arquitectura-v1.drawio`).
+  - No colocar secretos ni credenciales.
+  - Si un recurso queda obsoleto, moverlo a `context_rsc/archive/`.
+  - Para hacer público un recurso (ej. CV en el sitio), copiarlo / adaptarlo a `public/`.
+
 ## Mejoras Futuras
 - Migración opcional a App Router (`app/`) y uso de server actions para OAuth de Google Photos.
 - [Completado] Añadir unit tests (React Testing Library), E2E (Playwright) y checks básicos de CI.
