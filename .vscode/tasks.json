@@ -153,6 +153,26 @@
 				"$tsc"
 			],
 			"group": "build"
+		},
+		{
+			"label": "Pre-merge build check",
+			"type": "shell",
+			"command": "npm run build",
+			"args": [],
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Pre-merge type-check",
+			"type": "shell",
+			"command": "npm run type-check",
+			"args": [],
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
 		}
 	]
 }
