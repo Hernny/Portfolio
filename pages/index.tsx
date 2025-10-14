@@ -6,7 +6,7 @@ import { ContactForm } from '../components/contact/ContactForm';
 
 export default function HomePage() {
   return (
-    <Layout title="Mi Portfolio">
+  <Layout title="Hernny Malaver — Director de proyectos y desarrollador de software">
       <Hero />
       <GoogleGallery />
       <Scheduler />

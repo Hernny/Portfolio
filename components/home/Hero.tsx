@@ -10,10 +10,10 @@ export function Hero() {
         transition={{ duration: 0.6 }}
       >
         <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
-          Portafolio Moderno
+          Hernny Malaver
         </h1>
         <p className="mt-4 text-lg opacity-80">
-          Next.js + Tailwind + Framer Motion + Google APIs
+          Director de proyectos y desarrollador de software — Next.js, Tailwind, Framer Motion, Google APIs
         </p>
         <div className="mt-8 flex gap-4">
           <a href="#gallery" className="px-6 py-3 rounded bg-primary text-black font-semibold hover:bg-sky-500">Ver Galería</a>

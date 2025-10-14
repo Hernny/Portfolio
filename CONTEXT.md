@@ -22,6 +22,10 @@ This document captures key decisions, configuration, and rules to maintain and e
 - `public/`: static assets (e.g., `robots.txt`).
 - `instrumentation.ts`: Next.js instrumentation hook (stub) for compatibility and future telemetry.
 
+## Branding / Owner
+- Owner: Hernny Malaver — Director de proyectos y desarrollador de software
+- Default title and metadata personalized across the app (head, layout, hero, footer, README, privacy page).
+
 ## Environment Variables
 Add into `.env.local` for local dev and set as Actions secrets for CI:
 - `NEXT_PUBLIC_GOOGLE_API_KEY`: Google API key with Drive API enabled.

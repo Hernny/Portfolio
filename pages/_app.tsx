@@ -7,8 +7,8 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Portfolio</title>
-        <meta name="description" content="Modern portfolio with Next.js, Tailwind, Framer Motion, and Google APIs" />
+  <title>Hernny Malaver — Director de proyectos y desarrollador de software</title>
+  <meta name="description" content="Portafolio de Hernny Malaver: dirección de proyectos y desarrollo de software con Next.js, Tailwind, Framer Motion y Google APIs." />
       </Head>
       <Component {...pageProps} />
     </>

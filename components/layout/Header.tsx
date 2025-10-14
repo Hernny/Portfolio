@@ -5,7 +5,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 backdrop-blur bg-black/30">
       <div className="container flex items-center justify-between py-4">
-        <Link href="#home" className="font-bold tracking-wide">Mi Portfolio</Link>
+  <Link href="#home" className="font-bold tracking-wide">Hernny Malaver</Link>
         <nav className="flex gap-4 text-sm">
           <a href="#home" className="hover:text-primary flex items-center gap-1"><FaHome /> Inicio</a>
           <a href="#gallery" className="hover:text-primary flex items-center gap-1"><FaImages /> Galería</a>
