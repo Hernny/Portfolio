@@ -4,11 +4,11 @@ import { Gallery } from '../components/gallery/GoogleGallery';
 import { About } from '../components/profile/About';
 import { Skills } from '../components/profile/Skills';
 import { Experience } from '../components/profile/Experience';
-import { ContactInfo } from '../components/profile/ContactInfo';
+// Removed separate ContactInfo & ContactForm in favor of unified ContactSection
 import { Projects } from '../components/profile/Projects';
 import { Certifications } from '../components/profile/Certifications';
 import { Scheduler } from '../components/schedule/Scheduler';
-import { ContactForm } from '../components/contact/ContactForm';
+import { ContactSection } from '../components/contact/ContactSection';
 
 export default function HomePage() {
   return (
@@ -21,8 +21,7 @@ export default function HomePage() {
   <Certifications />
       <Gallery />
       <Scheduler />
-      <ContactInfo />
-      <ContactForm />
+      <ContactSection />
     </Layout>
   );
 }
