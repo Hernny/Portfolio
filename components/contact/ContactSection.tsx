@@ -1,55 +1,13 @@
 import { profile } from '../../data/profile';
 import { FaEnvelope, FaLinkedin, FaPhone, FaWhatsapp } from 'react-icons/fa';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useState, useRef } from 'react';
-
-const schema = z.object({
-  name: z.string().min(2, 'Nombre muy corto'),
-  email: z.string().email('Email inválido'),
-  message: z.string().min(10, 'Mensaje demasiado corto'),
-});
-
-type FormData = z.infer<typeof schema>;
+import { useMemo } from 'react';
 
 export function ContactSection() {
-  const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm<FormData>({
-    mode: 'onBlur',
-    resolver: zodResolver(schema),
-  });
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const hpRef = useRef<HTMLInputElement | null>(null); // honeypot
-
-  const endpoint = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT;
-  const token = process.env.NEXT_PUBLIC_CONTACT_TOKEN;
-
-  const onSubmit = async (data: FormData) => {
-    if (!endpoint || !token) {
-      console.warn('Contacto: faltan variables NEXT_PUBLIC_CONTACT_ENDPOINT o TOKEN');
-      setStatus('error');
-      return;
-    }
-    setStatus('loading');
-    try {
-      const payload = { ...data, honeypot: hpRef.current?.value || '' };
-      const res = await fetch(`${endpoint}?token=${encodeURIComponent(token)}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-      const json = await res.json().catch(() => ({}));
-      if (res.ok && json.ok) {
-        setStatus('success');
-        reset();
-        setTimeout(() => setStatus('idle'), 6000);
-      } else {
-        setStatus('error');
-      }
-    } catch (e) {
-      setStatus('error');
-    }
-  };
+  const wa = useMemo(() => {
+    const digits = profile.phone.replace(/[^0-9]/g, '');
+    const msg = encodeURIComponent('Hola Hernny, me gustaría conversar sobre un proyecto.');
+    return `https://wa.me/${digits}?text=${msg}`;
+  }, []);
 
   return (
     <section id="contact" className="section container">
@@ -125,37 +83,20 @@ export function ContactSection() {
             También puedo adaptarme a otras plataformas (Teams, Slack, Meet) una vez iniciado el contacto.
           </div>
         </div>
-        {/* Form */}
+        {/* CTA WhatsApp destacado (sin formulario) */}
         <div className="lg:col-span-2">
-          <form onSubmit={handleSubmit(onSubmit)} className="grid gap-5 bg-white/50 dark:bg-white/5 backdrop-blur rounded-xl p-6 border border-slate-200/70 dark:border-white/10 shadow-md">
-            <div className="grid md:grid-cols-2 gap-5">
-              <div>
-                <label className="block text-xs font-medium tracking-wide uppercase mb-1 opacity-70">Nombre</label>
-                <input {...register('name')} className="w-full bg-white/70 dark:bg-white/10 border border-slate-300 dark:border-white/10 focus:border-primary/60 rounded px-3 py-2 text-sm outline-none transition" />
-                {errors.name && <p className="text-ember-600 dark:text-ember-400 text-xs mt-1">{errors.name.message}</p>}
-              </div>
-              <div>
-                <label className="block text-xs font-medium tracking-wide uppercase mb-1 opacity-70">Email</label>
-                <input type="email" {...register('email')} className="w-full bg-white/70 dark:bg-white/10 border border-slate-300 dark:border-white/10 focus:border-primary/60 rounded px-3 py-2 text-sm outline-none transition" />
-                {errors.email && <p className="text-ember-600 dark:text-ember-400 text-xs mt-1">{errors.email.message}</p>}
-              </div>
-            </div>
-            <div>
-              <label className="block text-xs font-medium tracking-wide uppercase mb-1 opacity-70">Mensaje</label>
-              <textarea rows={6} {...register('message')} className="w-full resize-y bg-white/70 dark:bg-white/10 border border-slate-300 dark:border-white/10 focus:border-primary/60 rounded px-3 py-2 text-sm outline-none transition" />
-              {errors.message && <p className="text-ember-600 dark:text-ember-400 text-xs mt-1">{errors.message.message}</p>}
+          <div className="grid gap-5 bg-white/50 dark:bg-white/5 backdrop-blur rounded-xl p-6 border border-slate-200/70 dark:border-white/10 shadow-md">
+            <div className="space-y-2">
+              <h3 className="font-semibold tracking-wide">Contacto inmediato</h3>
+              <p className="opacity-80">Prefiero conversaciones ágiles. Escríbeme por WhatsApp y coordinamos.</p>
             </div>
             <div className="flex items-center gap-4 flex-wrap">
-              <button disabled={isSubmitting || status==='loading'} className="px-6 py-3 rounded-lg bg-primary text-black font-semibold shadow hover:shadow-md hover:bg-primary-400 focus-visible:outline-none focus-visible:ring focus-visible:ring-primary/40 disabled:opacity-50 transition">
-                {status === 'loading' ? 'Enviando…' : status === 'success' ? 'Enviado' : 'Enviar'}
-              </button>
-              {status === 'success' && <span className="text-sm text-primary animate-pulse">¡Mensaje enviado! Te responderé pronto.</span>}
-              {status === 'error' && <span className="text-sm text-ember-600 dark:text-ember-400">Error al enviar. Intenta de nuevo.</span>}
+              <a href={wa} target="_blank" rel="noreferrer" className="px-6 py-3 rounded-lg bg-primary text-black font-semibold shadow hover:shadow-md hover:bg-primary-400 focus-visible:outline-none focus-visible:ring focus-visible:ring-primary/40 transition">
+                Contactar por WhatsApp
+              </a>
             </div>
-            {/* Honeypot anti-bots */}
-            <input ref={hpRef} type="text" name="website" autoComplete="off" tabIndex={-1} className="hidden" aria-hidden="true" />
-            <p className="text-xs opacity-60 leading-relaxed">Al enviar aceptas ser contactado a través del email o teléfono proporcionado únicamente para el contexto de tu consulta.</p>
-          </form>
+            <p className="text-xs opacity-60 leading-relaxed">Al contactar aceptas ser respondido por cualquiera de los canales que indiques.</p>
+          </div>
         </div>
       </div>
     </section>
