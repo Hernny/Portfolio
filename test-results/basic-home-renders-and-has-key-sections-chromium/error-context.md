@@ -1,0 +1,225 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - link "Hernny Malaver" [ref=e5] [cursor=pointer]:
+          - /url: /#home
+        - navigation [ref=e6]:
+          - link "Inicio" [ref=e7] [cursor=pointer]:
+            - /url: "#home"
+            - img [ref=e8]
+            - text: Inicio
+          - link "Sobre mí" [ref=e10] [cursor=pointer]:
+            - /url: "#about"
+          - link "Habilidades" [ref=e11] [cursor=pointer]:
+            - /url: "#skills"
+          - link "Experiencia" [ref=e12] [cursor=pointer]:
+            - /url: "#experience"
+          - link "Proyectos" [ref=e13] [cursor=pointer]:
+            - /url: "#projects"
+          - link "Certificaciones" [ref=e14] [cursor=pointer]:
+            - /url: "#certifications"
+          - link "Galería" [ref=e15] [cursor=pointer]:
+            - /url: "#gallery"
+            - img [ref=e16]
+            - text: Galería
+          - link "Agendar" [ref=e18] [cursor=pointer]:
+            - /url: "#schedule"
+            - img [ref=e19]
+            - text: Agendar
+          - link "Contacto" [ref=e21] [cursor=pointer]:
+            - /url: "#contact"
+            - img [ref=e22]
+            - text: Contacto
+          - link "Privacidad" [ref=e24] [cursor=pointer]:
+            - /url: /privacy/
+            - img [ref=e25]
+            - text: Privacidad
+    - main [ref=e27]:
+      - generic [ref=e28]:
+        - generic [ref=e29]:
+          - heading "Hernny Malaver" [level=1] [ref=e30]
+          - paragraph [ref=e31]: Director de proyectos y desarrollador de software — Next.js, Tailwind, Framer Motion, Google APIs
+          - generic [ref=e32]:
+            - link "Ver Galería" [ref=e33] [cursor=pointer]:
+              - /url: "#gallery"
+            - link "Contacto" [ref=e34] [cursor=pointer]:
+              - /url: "#contact"
+        - img [ref=e38]
+      - generic [ref=e40]:
+        - heading "Sobre mí" [level=2] [ref=e41]
+        - paragraph [ref=e42]: Hernny Malaver — Director de proyectos y desarrollador de software
+        - generic [ref=e43]:
+          - paragraph [ref=e44]: Director de proyectos y desarrollador de software con enfoque en entregar valor de negocio mediante productos digitales de calidad.
+          - paragraph [ref=e45]: Experiencia liderando equipos multidisciplinarios, definiendo roadmaps, y construyendo aplicaciones modernas con React/Next.js, APIs y cloud.
+      - generic [ref=e46]:
+        - heading "Habilidades" [level=2] [ref=e47]
+        - generic [ref=e48]:
+          - generic [ref=e49]:
+            - heading "gestion" [level=3] [ref=e50]
+            - list [ref=e51]:
+              - listitem [ref=e52]: Dirección de proyectos
+              - listitem [ref=e53]: Scrum/Kanban
+              - listitem [ref=e54]: Roadmapping
+              - listitem [ref=e55]: Stakeholder management
+              - listitem [ref=e56]: Métricas & KPIs
+          - generic [ref=e57]:
+            - heading "frontend" [level=3] [ref=e58]
+            - list [ref=e59]:
+              - listitem [ref=e60]: React
+              - listitem [ref=e61]: Next.js
+              - listitem [ref=e62]: TypeScript
+              - listitem [ref=e63]: Tailwind CSS
+              - listitem [ref=e64]: Framer Motion
+          - generic [ref=e65]:
+            - heading "backend" [level=3] [ref=e66]
+            - list [ref=e67]:
+              - listitem [ref=e68]: Node.js
+              - listitem [ref=e69]: REST APIs
+              - listitem [ref=e70]: Auth/OAuth
+              - listitem [ref=e71]: zod
+              - listitem [ref=e72]: date-fns
+          - generic [ref=e73]:
+            - heading "devops" [level=3] [ref=e74]
+            - list [ref=e75]:
+              - listitem [ref=e76]: GitHub Actions
+              - listitem [ref=e77]: CI/CD
+              - listitem [ref=e78]: Git
+              - listitem [ref=e79]: GitHub Pages
+          - generic [ref=e80]:
+            - heading "herramientas" [level=3] [ref=e81]
+            - list [ref=e82]:
+              - listitem [ref=e83]: Jira
+              - listitem [ref=e84]: Confluence
+              - listitem [ref=e85]: GitHub
+              - listitem [ref=e86]: Postman
+      - generic [ref=e87]:
+        - heading "Experiencia" [level=2] [ref=e88]
+        - generic [ref=e89]:
+          - article [ref=e90]:
+            - heading "Director de Proyectos — Empresa / Cliente" [level=3] [ref=e91]
+            - paragraph [ref=e92]: Año – Presente
+            - list [ref=e93]:
+              - listitem [ref=e94]: Lideré la planificación y entrega de iniciativas digitales, alineando objetivos con stakeholders.
+              - listitem [ref=e95]: Implementé tableros de control con métricas de entrega y calidad para mejorar la toma de decisiones.
+          - article [ref=e96]:
+            - heading "Desarrollador de Software — Empresa / Cliente" [level=3] [ref=e97]
+            - paragraph [ref=e98]: Año – Año
+            - list [ref=e99]:
+              - listitem [ref=e100]: Desarrollé aplicaciones web con Next.js/React, integrando APIs de terceros y animaciones fluidas.
+              - listitem [ref=e101]: Mejoré performance y DX con TypeScript, componentes reutilizables y automatización CI/CD.
+      - generic [ref=e102]:
+        - heading "Proyectos" [level=2] [ref=e103]
+        - generic [ref=e104]:
+          - article [ref=e105]:
+            - heading "Dashboard de métricas de proyectos" [level=3] [ref=e106]
+            - paragraph [ref=e107]: Tablero con KPIs de entrega y calidad, integración con GitHub Actions y reportes periódicos.
+            - generic [ref=e108]:
+              - generic [ref=e109]: Next.js
+              - generic [ref=e110]: TypeScript
+              - generic [ref=e111]: GitHub Actions
+          - article [ref=e112]:
+            - heading "Portal de portafolio personal" [level=3] [ref=e113]
+            - paragraph [ref=e114]: Sitio estático con SPA, animaciones y galería de imágenes desde Google Drive, optimizado para GitHub Pages.
+            - generic [ref=e115]:
+              - generic [ref=e116]: Next.js
+              - generic [ref=e117]: Tailwind CSS
+              - generic [ref=e118]: Framer Motion
+              - generic [ref=e119]: Google APIs
+      - generic [ref=e120]:
+        - heading "Certificaciones" [level=2] [ref=e121]
+        - list [ref=e122]:
+          - listitem [ref=e123]:
+            - generic [ref=e124]:
+              - paragraph [ref=e125]: Scrum Master
+              - paragraph [ref=e126]: Organización
+            - generic [ref=e127]: Año
+          - listitem [ref=e128]:
+            - generic [ref=e129]:
+              - paragraph [ref=e130]: Certificación de Gestión de Proyectos
+              - paragraph [ref=e131]: Organización
+            - generic [ref=e132]: Año
+      - paragraph [ref=e133]: Cargando fotos…
+      - generic [ref=e134]:
+        - heading "Agendar cita" [level=2] [ref=e135]
+        - generic [ref=e136]:
+          - generic [ref=e137]: Fecha
+          - textbox [ref=e138]: 2025-10-14
+        - generic [ref=e139]:
+          - button "09:00" [ref=e140] [cursor=pointer]
+          - button "09:30" [ref=e141] [cursor=pointer]
+          - button "10:00" [ref=e142] [cursor=pointer]
+          - button "10:30" [ref=e143] [cursor=pointer]
+          - button "11:00" [ref=e144] [cursor=pointer]
+          - button "11:30" [ref=e145] [cursor=pointer]
+          - button "12:00" [ref=e146] [cursor=pointer]
+          - button "12:30" [ref=e147] [cursor=pointer]
+          - button "13:00" [ref=e148] [cursor=pointer]
+          - button "13:30" [ref=e149] [cursor=pointer]
+          - button "14:00" [ref=e150] [cursor=pointer]
+          - button "14:30" [ref=e151] [cursor=pointer]
+          - button "15:00" [ref=e152] [cursor=pointer]
+          - button "15:30" [ref=e153] [cursor=pointer]
+          - button "16:00" [ref=e154] [cursor=pointer]
+          - button "16:30" [ref=e155] [cursor=pointer]
+      - generic [ref=e156]:
+        - heading "Contacto" [level=2] [ref=e157]
+        - generic [ref=e158]:
+          - link "Email hernny.malaver@gmail.com" [ref=e159] [cursor=pointer]:
+            - /url: mailto:hernny.malaver@gmail.com
+            - img [ref=e160]
+            - generic [ref=e162]:
+              - paragraph [ref=e163]: Email
+              - paragraph [ref=e164]: hernny.malaver@gmail.com
+          - link "LinkedIn https://www.linkedin.com/in/hernny-malaver/" [ref=e165] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/hernny-malaver/
+            - img
+            - generic [ref=e167]:
+              - paragraph [ref=e168]: LinkedIn
+              - paragraph [ref=e169]: https://www.linkedin.com/in/hernny-malaver/
+          - link "Teléfono +58 424 877 0917" [ref=e170] [cursor=pointer]:
+            - /url: tel:+584248770917
+            - img [ref=e171]
+            - generic [ref=e173]:
+              - paragraph [ref=e174]: Teléfono
+              - paragraph [ref=e175]: +58 424 877 0917
+      - generic [ref=e176]:
+        - heading "Contacto" [level=2] [ref=e177]
+        - generic [ref=e178]:
+          - generic [ref=e179]:
+            - generic [ref=e180]: Nombre
+            - textbox [ref=e181]
+          - generic [ref=e182]:
+            - generic [ref=e183]: Email
+            - textbox [ref=e184]
+          - generic [ref=e185]:
+            - generic [ref=e186]: Mensaje
+            - textbox [ref=e187]
+          - button "Enviar" [ref=e188] [cursor=pointer]
+    - contentinfo [ref=e189]:
+      - generic [ref=e190]:
+        - paragraph [ref=e191]: © 2025 Hernny Malaver. Todos los derechos reservados.
+        - generic [ref=e192]:
+          - link "GitHub" [ref=e193] [cursor=pointer]:
+            - /url: https://github.com
+            - img [ref=e194]
+          - link "LinkedIn" [ref=e196] [cursor=pointer]:
+            - /url: https://linkedin.com
+            - img [ref=e197]
+          - link "Twitter" [ref=e199] [cursor=pointer]:
+            - /url: https://twitter.com
+            - img [ref=e200]
+    - generic [ref=e203]:
+      - paragraph [ref=e204]:
+        - text: Usamos cookies para mejorar tu experiencia. Puedes aceptar o rechazar. Lee nuestra
+        - link "Política de Privacidad" [ref=e205] [cursor=pointer]:
+          - /url: /privacy/
+        - text: para más detalles.
+      - generic [ref=e206]:
+        - button "Rechazar" [ref=e207] [cursor=pointer]
+        - button "Aceptar" [ref=e208] [cursor=pointer]
+  - alert [ref=e209]
+```

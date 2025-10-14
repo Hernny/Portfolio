@@ -21,6 +21,22 @@ npm run dev
 
 Abre http://localhost:3000
 
+## Tests
+
+- Unitarios (Vitest + RTL):
+
+```bash
+npm run test:unit
+```
+
+- E2E (Playwright):
+
+```bash
+npm run test:e2e
+```
+
+Esto construye el sitio, levanta un servidor estático (gestionado por Playwright) y ejecuta los tests.
+
 ## Variables de entorno
 Crea un archivo `.env.local` en la raíz con:
 
@@ -58,7 +74,16 @@ Si tu repositorio se llama `portfolio-next-spa`, la app estará en `https://<tu-
 - `NEXT_PUBLIC_GH_PAGES_BASE` configura `basePath` y `assetPrefix` (por ejemplo, `portfolio-next-spa`).
 - `NEXT_PUBLIC_BASE_URL` se usa para generar URLs absolutas en `sitemap.xml` (por ejemplo, `https://<tu-usuario>.github.io/<repo>` o tu dominio personalizado).
 
-Tras `next export`, se generará automáticamente `out/sitemap.xml`.
+Tras `npm run build`, se generará automáticamente `out/sitemap.xml`.
+
+### CI (Checks)
+
+El workflow `.github/workflows/ci.yml` ejecuta:
+
+- Type-check
+- Tests unitarios
+- Build (export estático)
+- E2E (Playwright)
 
 ## Notas de privacidad y consentimiento
 - El pixel de Meta solo se inyecta cuando el usuario acepta cookies (banner incluido).
