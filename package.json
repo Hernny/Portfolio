@@ -8,6 +8,11 @@
     "export": "next export",
     "postbuild": "npm run sitemap",
     "sitemap": "node scripts/generate-sitemap.cjs",
+    "test": "npm run test:unit",
+    "test:unit": "vitest run",
+    "test:watch": "vitest",
+    "preview": "npx http-server ./out -p 4173 -s",
+  "test:e2e": "npm run build && playwright test",
     "start": "next start",
     "type-check": "tsc --noEmit"
   },
@@ -16,7 +21,7 @@
     "date-fns": "^3.6.0",
     "framer-motion": "^11.0.0",
     "js-cookie": "^3.0.5",
-  "next": "^15.0.0",
+    "next": "^15.0.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-hook-form": "^7.53.0",
@@ -24,12 +29,19 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^20.11.24",
     "@types/react": "^18.3.6",
+    "@vitejs/plugin-react": "^5.0.4",
     "autoprefixer": "^10.4.20",
+    "http-server": "^14.1.1",
+    "jsdom": "^27.0.0",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.2",
+    "vitest": "^2.1.9"
   }
 }

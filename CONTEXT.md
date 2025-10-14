@@ -55,6 +55,8 @@ Añadir en `.env.local` para desarrollo local y configurar como secretos en Acti
 - Type check: `npm run type-check`
 - Build: `npm run build`
 - Export: `npm run export`
+ - Tests unitarios: `npm run test:unit`
+ - Tests E2E: `npm run test:e2e`
 
 ## Reglas de Branching y Flujo de Trabajo
 - SIEMPRE crear una nueva rama para cada requerimiento o tarea. Nomenclatura sugerida: `feat/…`, `fix/…`, `chore/…`.
@@ -72,5 +74,5 @@ Añadir en `.env.local` para desarrollo local y configurar como secretos en Acti
 
 ## Mejoras Futuras
 - Migración opcional a App Router (`app/`) y uso de server actions para OAuth de Google Photos.
-- Añadir unit tests (React Testing Library), E2E (Playwright) y checks básicos de CI.
+- [Completado] Añadir unit tests (React Testing Library), E2E (Playwright) y checks básicos de CI.
 - [Completado] Fallback de imágenes locales si Drive no está disponible (placeholders en `public/gallery`).
