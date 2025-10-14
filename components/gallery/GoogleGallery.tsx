@@ -98,3 +98,6 @@ export function Gallery() {
     </section>
   );
 }
+
+// Backward-compatible named export for tests/imports expecting GoogleGallery
+export const GoogleGallery = Gallery;

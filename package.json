@@ -12,7 +12,7 @@
     "test:unit": "vitest run",
     "test:watch": "vitest",
     "preview": "npx http-server ./out -p 4173 -s",
-  "test:e2e": "npm run build && playwright test",
+    "test:e2e": "npm run build && playwright test",
     "start": "next start",
     "type-check": "tsc --noEmit"
   },
@@ -39,6 +39,7 @@
     "autoprefixer": "^10.4.20",
     "http-server": "^14.1.1",
     "jsdom": "^27.0.0",
+    "pdf-parse": "^2.3.9",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13",
     "typescript": "^5.6.2",

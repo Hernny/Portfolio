@@ -13,7 +13,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-  "types": ["node", "@playwright/test"],
+  "types": ["node", "vitest/globals", "@playwright/test"],
     "baseUrl": ".",
     "paths": {
       "@components/*": ["components/*"],
