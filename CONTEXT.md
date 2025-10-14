@@ -6,6 +6,7 @@ Este documento captura decisiones clave, configuración y reglas para mantener y
 - Framework: Next.js 15 (Pages Router, exportación estática)
 - Lenguaje: TypeScript (estricto)
 - UI: Tailwind CSS
+ - Theming: Paleta dual (light/dark) con tokens semánticos CSS + Tailwind extend
 - Animaciones: Framer Motion
 - Íconos: React Icons
 - Formularios: react-hook-form + zod
@@ -16,7 +17,7 @@ Este documento captura decisiones clave, configuración y reglas para mantener y
 ## Arquitectura
 - `pages/`: rutas (`/_app.tsx`, `index.tsx`, `404.tsx`, `privacy.tsx`). Estilo SPA con anclas por sección.
 - `components/`: módulos de UI (layout, header, footer, banner de cookies, tracking, hero, galería, agenda, formulario de contacto, secciones de perfil).
-- `hooks/`: hooks reutilizables (`useCookieConsent`).
+- `hooks/`: hooks reutilizables (`useCookieConsent`, `useTheme`).
 - `lib/`: utilidades (`googleDrive.ts`).
 - `styles/`: Tailwind global en `styles/globals.css`.
 - `public/`: assets estáticos (por ejemplo, `robots.txt`).
@@ -25,6 +26,36 @@ Este documento captura decisiones clave, configuración y reglas para mantener y
 ## Branding / Propietario
 - Propietario: Hernny Malaver — Director de proyectos y desarrollador de software
 - Título por defecto y metadatos personalizados en toda la app (head, layout, hero, footer, README, página de privacidad).
+
+## Paleta / Theming
+Light (claridad profesional):
+- Fondo base: #FFFFFF
+- Fondo elevado: #F1F5F9
+- Texto primario: #1E293B
+- Accent primario: #0EA5E9 (hover #0284C7)
+- Highlight (énfasis cálido controlado): #F97316
+
+Dark (enfoque elegante):
+- Fondo base: #0B1220
+- Elevado: #141D2D
+- Texto primario: #E5E7EB
+- Accent primario: #38BDF8 (hover #0EA5E9)
+- Highlight: #FB923C
+
+Tokens en `styles/globals.css` (`--color-*`) sobrescritos por `.dark`. Tailwind extend agrega escalas `primary` y `ember`.
+
+## Navbar Mejorado
+- Fijo, con blur y transición de color según scroll.
+- Dropdown accesible para "Sobre mí" con subsecciones (`about`, `skills`, `experience`, `certifications`).
+- Scroll spy agrupa ratios por subsección para resaltar el grupo.
+- Toggle de tema (Sol/Luna) como primer item independiente.
+- Íconos para cada item (UserTie, FolderOpen, Images, Envelope, Shield).
+
+Atajos de teclado en dropdown:
+- `ArrowDown` abre y enfoca primer item.
+- `Escape` cierra.
+
+Retardo de cierre (160ms) para evitar flicker al mover el cursor.
 
 ## Variables de Entorno
 Añadir en `.env.local` para desarrollo local y configurar como secretos en Actions para CI:
@@ -85,3 +116,4 @@ Añadir en `.env.local` para desarrollo local y configurar como secretos en Acti
 - Migración opcional a App Router (`app/`) y uso de server actions para OAuth de Google Photos.
 - [Completado] Añadir unit tests (React Testing Library), E2E (Playwright) y checks básicos de CI.
 - [Completado] Fallback de imágenes locales si Drive no está disponible (placeholders en `public/gallery`).
+- Unificar tokens semánticos en más componentes (cards, botones, formularios) usando variables y escala Tailwind.

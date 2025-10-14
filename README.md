@@ -2,6 +2,14 @@
 
 Portafolio personal de Hernny Malaver (Director de proyectos y desarrollador de software) en Next.js + TypeScript con Tailwind CSS, Framer Motion, React Icons y Google APIs. Incluye banner de cookies, píxel de seguimiento (Meta Pixel), formulario de contacto, agendamiento y galería de fotos vía Google Drive API. Listo para desplegar en GitHub Pages.
 
+## Características UX / UI Clave
+- Modo claro y oscuro con toggle persistente (localStorage + preferencia del sistema)
+- Navbar fijo con resaltado dinámico de sección (IntersectionObserver)
+- Dropdown agrupado "Sobre mí" con subsecciones (Perfil, Habilidades, Experiencia, Certificaciones)
+- Paleta de marca dual (light/dark) orientada a claridad, profesionalismo y energía controlada (accent cerúleo + highlight ember)
+- Inyección condicional de Meta Pixel tras consentimiento de cookies
+- Galería resiliente (fallback multiline) con placeholders locales
+
 ## Requisitos
 - Node.js 18+ (recomendado 20)
 - Cuenta de GitHub
@@ -55,7 +63,7 @@ NEXT_PUBLIC_BASE_URL=https://<tu-usuario>.github.io/<nombre_del_repo>
 - `pages/` rutas (SPA con anclas)
 - `components/` UI modular
 - `lib/` utilidades (Google API)
-- `hooks/` lógica de estado (consentimiento de cookies)
+- `hooks/` lógica de estado (consentimiento de cookies, tema `useTheme`)
 - `styles/` Tailwind CSS
 
 ## Despliegue en GitHub Pages
@@ -87,6 +95,47 @@ El workflow `.github/workflows/ci.yml` ejecuta:
 
 ## Notas de privacidad y consentimiento
 - El pixel de Meta solo se inyecta cuando el usuario acepta cookies (banner incluido).
+
+## Tema (Light / Dark)
+El proyecto usa `darkMode: 'class'` en Tailwind y un hook `useTheme` que:
+1. Lee preferencia guardada (localStorage) o el media query del sistema.
+2. Aplica / remueve la clase `dark` en `<html>`.
+3. Escucha cambios del sistema si no hay preferencia explícita.
+
+### Toggle
+El botón (icono Sol / Luna) vive en el navbar (a la izquierda de "Sobre mí"). Cambia instantáneamente el tema y persiste la elección.
+
+### Paleta de marca
+Tokens semánticos (CSS variables) definidos en `styles/globals.css`:
+```
+--color-bg-primary, --color-bg-elevated, --color-accent, --color-accent-hover,
+--color-highlight, --color-border, --color-fg-primary, --color-fg-muted, etc.
+```
+En dark mode se sobreescriben dentro de `.dark { ... }`.
+
+Además se extiende Tailwind con:
+```
+colors: { primary: {50..900}, ember: {50..900}, surface:{light,dark}, ink:{light,dark} }
+```
+Recomendación: usar clases utilitarias (`text-primary`, `bg-primary-50`) para elementos interactivos, y variables semánticas para contenedores y tipografía.
+
+### Accesibilidad
+- Contrast ratio verificado para `primary` sobre fondos claros (#0EA5E9) y su variante más clara en dark (#38BDF8) sobre #0B1220.
+- Focus visible mediante ring Tailwind (`focus-visible:ring-primary/50`).
+
+## Navbar y Dropdown
+- El grupo "Sobre mí" muestra un submenu accesible (teclas: Escape, ArrowDown) y cierra al salir con retardo mínimo (160ms) para evitar cortes bruscos.
+- El scroll spy agrupa ratios por subsecciones y resalta el grupo cuando cualquiera de sus secciones es dominante en viewport.
+
+## Testing Visual / Theming
+Puedes validar el modo oscuro:
+```bash
+npm run dev
+# Abrir http://localhost:3000 y alternar el botón (Sol/Luna)
+```
+
+Para forzar un estado inicial distinto en el navegador puedes borrar la key en DevTools:
+`localStorage.removeItem('theme-preference')` y recargar.
 
 ## Licencia
 MIT
