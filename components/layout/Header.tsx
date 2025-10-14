@@ -25,24 +25,57 @@ export function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Active section highlighting via IntersectionObserver
+  // Active section highlighting using a persistent ratio map for stability
   useEffect(() => {
+    const ratios: Record<string, number> = {};
+    const pickActive = () => {
+      // Choose section with highest ratio above a minimal threshold, fallback to first
+      let bestId = SECTIONS[0].id;
+      let bestRatio = 0;
+      for (const s of SECTIONS) {
+        const r = ratios[s.id] ?? 0;
+        if (r > bestRatio + 0.001) { // small epsilon to avoid flicker
+          bestRatio = r;
+          bestId = s.id;
+        }
+      }
+      setActive(bestId);
+    };
     const observer = new IntersectionObserver(
-      (entries) => {
+      entries => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('id');
-            if (id) setActive(id);
-          }
+          const id = entry.target.getAttribute('id');
+          if (!id) return;
+          ratios[id] = entry.intersectionRatio;
         });
+        pickActive();
       },
-      { rootMargin: '-40% 0px -50% 0px', threshold: [0, 0.25, 0.5, 1] }
+      { rootMargin: '-30% 0px -55% 0px', threshold: Array.from({ length: 13 }, (_, i) => i / 12) }
     );
+    // Ensure gallery has at least min height for observation (if very small)
+    const maybePad = (id: string) => {
+      const el = document.getElementById(id);
+      if (el && el.offsetHeight < 200) {
+        el.classList.add('min-h-[200px]');
+      }
+    };
     SECTIONS.forEach(s => {
       const el = document.getElementById(s.id);
-      if (el) observer.observe(el);
+      if (el) {
+        maybePad(s.id);
+        observer.observe(el);
+      }
     });
+    // Initial pick in case some sections are already in view before observer fires
+    setTimeout(pickActive, 50);
     return () => observer.disconnect();
+  }, []);
+
+  // Highlight privacy when on that page route
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if (window.location.pathname === '/privacy') setActive('privacy');
+    }
   }, []);
 
   const baseHeader = 'fixed top-0 inset-x-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/40 transition-colors';
@@ -56,8 +89,12 @@ export function Header() {
           {open ? <FaTimes /> : <FaBars />}
         </button>
         <nav
-          className={`$${''}md:static md:flex md:flex-row md:gap-6 md:bg-transparent md:p-0 text-sm font-medium` +
-            ` ${open ? 'absolute top-full left-0 right-0 bg-black/90 backdrop-blur md:backdrop-blur-none flex flex-col gap-2 p-6 border-b border-white/10 md:border-none' : 'hidden md:flex'}`}
+          className={
+            `md:static md:flex md:flex-row md:gap-6 md:bg-transparent md:p-0 text-sm font-medium ` +
+            (open
+              ? 'absolute top-full left-0 right-0 bg-black/90 backdrop-blur md:backdrop-blur-none flex flex-col gap-2 p-6 border-b border-white/10 md:border-none'
+              : 'hidden md:flex')
+          }
         >
           {SECTIONS.map(s => {
             const Icon = s.icon;
@@ -67,13 +104,14 @@ export function Header() {
                 key={s.id}
                 href={`#${s.id}`}
                 onClick={close}
+                aria-current={active === s.id ? 'true' : undefined}
                 className={`flex items-center gap-1 ${activeClass}`}
               >
                 {Icon && Icon} {s.label}
               </a>
             );
           })}
-          <Link href="/privacy" onClick={close} className={`flex items-center gap-1 ${active === 'privacy' ? 'text-primary' : 'opacity-80 hover:text-primary'}`}><FaShieldAlt /> Privacidad</Link>
+          <Link href="/privacy" onClick={close} aria-current={active === 'privacy' ? 'true' : undefined} className={`flex items-center gap-1 ${active === 'privacy' ? 'text-primary' : 'opacity-80 hover:text-primary'}`}><FaShieldAlt /> Privacidad</Link>
         </nav>
       </div>
     </header>
