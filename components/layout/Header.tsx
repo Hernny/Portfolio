@@ -19,12 +19,11 @@ const NAV: NavGroup[] = [
     id: 'about-group',
     label: 'Sobre mí',
     icon: <FaUserTie />,
-    sectionIds: ['about', 'skills', 'experience', 'certifications'],
+    sectionIds: ['about', 'skills', 'experience'],
     items: [
       { id: 'about', label: 'Perfil' },
       { id: 'skills', label: 'Habilidades' },
       { id: 'experience', label: 'Experiencia' },
-      { id: 'certifications', label: 'Certificaciones' },
     ],
   },
   { id: 'projects', label: 'Proyectos', icon: <FaFolderOpen />, sectionIds: ['projects'] },

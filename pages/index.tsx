@@ -6,7 +6,6 @@ import { Skills } from '../components/profile/Skills';
 import { Experience } from '../components/profile/Experience';
 // Removed separate ContactInfo & ContactForm in favor of unified ContactSection
 import { Projects } from '../components/profile/Projects';
-import { Certifications } from '../components/profile/Certifications';
 import { Scheduler } from '../components/schedule/Scheduler';
 import { ContactSection } from '../components/contact/ContactSection';
 
@@ -18,8 +17,7 @@ export default function HomePage() {
       <Skills />
       <Experience />
   <Projects />
-  <Certifications />
-      <Gallery />
+  <Gallery />
       <Scheduler />
       <ContactSection />
     </Layout>
