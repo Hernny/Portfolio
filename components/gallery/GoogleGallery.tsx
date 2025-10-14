@@ -36,32 +36,53 @@ export function GoogleGallery() {
   const [images, setImages] = useState<DriveFile[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const localFallback = useMemo(
+    () => [
+      { id: 'local-1', name: 'placeholder-1', mimeType: 'image/svg+xml', webViewLink: '/gallery/placeholder-1.svg', webContentLink: '/gallery/placeholder-1.svg', thumbnailLink: '/gallery/placeholder-1.svg' },
+      { id: 'local-2', name: 'placeholder-2', mimeType: 'image/svg+xml', webViewLink: '/gallery/placeholder-2.svg', webContentLink: '/gallery/placeholder-2.svg', thumbnailLink: '/gallery/placeholder-2.svg' },
+      { id: 'local-3', name: 'placeholder-3', mimeType: 'image/svg+xml', webViewLink: '/gallery/placeholder-3.svg', webContentLink: '/gallery/placeholder-3.svg', thumbnailLink: '/gallery/placeholder-3.svg' },
+    ] as DriveFile[],
+    []
+  );
 
   useEffect(() => {
     const apiKey = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
     const folderId = process.env.NEXT_PUBLIC_GOOGLE_DRIVE_FOLDER_ID;
     if (!apiKey || !folderId) {
-      setError('Configura NEXT_PUBLIC_GOOGLE_API_KEY y NEXT_PUBLIC_GOOGLE_DRIVE_FOLDER_ID en .env.local');
+      // No env configured: show local placeholders instead of an error-only state
+      setImages(localFallback);
+      setError('Mostrando imágenes locales (configura las variables de Google para habilitar la galería en vivo).');
       setLoading(false);
       return;
     }
     listDriveImages({ apiKey, folderId })
-      .then(setImages)
+      .then((files) => {
+        if (!files || files.length === 0) {
+          setImages(localFallback);
+          setError('No se encontraron imágenes públicas en Drive; mostrando ejemplos locales.');
+        } else {
+          setImages(files);
+        }
+      })
       .catch((e) => {
         console.error('Drive fetch failed', e);
-        setError(e.message);
+        setImages(localFallback);
+        setError('No fue posible cargar la galería desde Google Drive; mostrando ejemplos locales.');
       })
       .finally(() => setLoading(false));
   }, []);
 
   if (loading) return <p className="opacity-70">Cargando fotos…</p>;
-  if (error) return <p className="text-red-400">{error}</p>;
+  // We still render the gallery below even if error is set (it may be using local fallback)
 
   return (
     <section id="gallery" className="section container">
       <h2 className="text-3xl font-bold mb-6">Galería</h2>
+      {error && (
+        <p className="mb-4 text-amber-400 text-sm">{error}</p>
+      )}
       {images.length === 0 ? (
-        <p className="opacity-80">No hay imágenes públicas en la carpeta configurada.</p>
+        <p className="opacity-80">No hay imágenes disponibles.</p>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {images.map((img) => (

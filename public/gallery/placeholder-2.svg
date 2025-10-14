@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="g2" x1="1" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#g2)"/>
+  <g fill="#ffffff" opacity="0.15">
+    <rect x="150" y="120" width="240" height="240" rx="24"/>
+    <rect x="900" y="600" width="260" height="200" rx="24"/>
+    <rect x="520" y="300" width="180" height="180" rx="24"/>
+  </g>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Segoe UI, Roboto, Arial" font-size="84" fill="#ffffff" opacity="0.9">Portafolio</text>
+</svg>

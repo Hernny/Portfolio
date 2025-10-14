@@ -45,8 +45,10 @@ Añadir en `.env.local` para desarrollo local y configurar como secretos en Acti
 
 ## Build y Despliegue
 - `next.config.js` usa `output: 'export'`, `trailingSlash`, `images.unoptimized`.
-- El workflow de GitHub Actions `.github/workflows/deploy.yml` construye, exporta a `out/` y publica en Pages.
+- El workflow de GitHub Actions `.github/workflows/deploy.yml` ejecuta `npm run build` (Next 15 exporta estático en ese paso) y publica `out/` en Pages.
+- `postbuild` genera `out/sitemap.xml` automáticamente (ver `scripts/generate-sitemap.cjs`).
 - Para Pages, `NEXT_PUBLIC_GH_PAGES_BASE` se define con el nombre del repo para configurar `basePath`/`assetPrefix`.
+- `NEXT_PUBLIC_BASE_URL` se usa para URLs absolutas en el sitemap (ej: `https://<user>.github.io/<repo>` o dominio propio).
 
 ## Comandos de Desarrollo
 - Iniciar dev: `npm run dev`
@@ -71,4 +73,4 @@ Añadir en `.env.local` para desarrollo local y configurar como secretos en Acti
 ## Mejoras Futuras
 - Migración opcional a App Router (`app/`) y uso de server actions para OAuth de Google Photos.
 - Añadir unit tests (React Testing Library), E2E (Playwright) y checks básicos de CI.
-- Añadir fallback de imágenes locales si Drive no está disponible.
+- [Completado] Fallback de imágenes locales si Drive no está disponible (placeholders en `public/gallery`).
