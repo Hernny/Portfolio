@@ -57,16 +57,6 @@ export const profile = {
     },
     {
       role: 'Project Manager',
-      company: 'University Tower — Grupo Inmobiliario',
-      period: '—',
-      highlights: [
-        'Recopilación de información y análisis de procesos para identificar problemas y proponer soluciones tecnológicas.',
-        'Diseño de base de datos para mensajería interna, reportes de averías y gestión empresarial.',
-        'Implementación de metodologías ágiles para coordinar tareas y optimizar recursos.',
-      ],
-    },
-    {
-      role: 'Project Manager',
       company: 'Dedica — Casa de Empeño (Plataforma YDPAY)',
       period: '2024 – 2025',
       highlights: [
@@ -110,27 +100,6 @@ export const profile = {
         'Desarrollo del sistema administrativo completo con módulos de gestión empresarial, inventario, activación, bloqueo y recarga de líneas GSM.',
         'Implementación de conexiones B2B para habilitar la entrega de internet GSM y recargas desde puntos autorizados.',
         'Integración de reportes financieros y contables con trazabilidad y controles para eficiencia operativa.',
-      ],
-    },
-    {
-      role: 'Director de Proyectos',
-      company: 'Diversos clientes',
-      period: 'Año – Presente',
-      highlights: [
-        'Planifiqué y conduje iniciativas digitales de principio a fin, alineando visión, alcance y métricas con stakeholders clave.',
-        'Implementé tableros operativos y de producto con indicadores accionables para guiar decisiones y gestionar riesgos.',
-        'Optimicé flujos de trabajo con prácticas ágiles, mejorando tiempos de ciclo y la previsibilidad del delivery.',
-        'Fomenté una cultura de calidad y mejora continua: feedback temprano, QA integrado y automatización en CI/CD.',
-      ],
-    },
-    {
-      role: 'Desarrollador de Software',
-      company: 'Empresa / Cliente',
-      period: 'Año – Año',
-      highlights: [
-        'Desarrollé aplicaciones web con Next.js/React priorizando legibilidad, performance y experiencia de usuario.',
-        'Integré APIs de terceros y animé micro‑interacciones con Framer Motion para elevar la percepción de calidad.',
-        'Mejoré DX con TypeScript estricto, componentes reutilizables y pipelines automatizados de build, test y despliegue.',
       ],
     },
   ] as ExperienceItem[],
