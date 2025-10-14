@@ -1,74 +1,74 @@
-# Project Context
+# Contexto del Proyecto
 
-This document captures key decisions, configuration, and rules to maintain and evolve this project smoothly.
+Este documento captura decisiones clave, configuración y reglas para mantener y evolucionar el proyecto sin fricción.
 
-## Stack & Purpose
-- Framework: Next.js 15 (Pages Router, static export)
-- Language: TypeScript (strict)
+## Stack y Propósito
+- Framework: Next.js 15 (Pages Router, exportación estática)
+- Lenguaje: TypeScript (estricto)
 - UI: Tailwind CSS
-- Animations: Framer Motion
-- Icons: React Icons
-- Forms: react-hook-form + zod
-- Dates: date-fns
-- Cookies: js-cookie (consent management)
-- Hosting: GitHub Pages (static export via `next export`)
+- Animaciones: Framer Motion
+- Íconos: React Icons
+- Formularios: react-hook-form + zod
+- Fechas: date-fns
+- Cookies: js-cookie (gestión de consentimiento)
+- Hosting: GitHub Pages (exportación estática vía `next export`)
 
-## Architecture
-- `pages/`: routes (`/_app.tsx`, `index.tsx`, `404.tsx`, `privacy.tsx`). SPA-style by section anchors.
-- `components/`: UI modules (layout, header, footer, cookie banner, tracking, hero, gallery, scheduler, contact form).
-- `hooks/`: reusable hooks (`useCookieConsent`).
-- `lib/`: utility modules (`googleDrive.ts`).
-- `styles/`: Tailwind globally in `styles/globals.css`.
-- `public/`: static assets (e.g., `robots.txt`).
-- `instrumentation.ts`: Next.js instrumentation hook (stub) for compatibility and future telemetry.
+## Arquitectura
+- `pages/`: rutas (`/_app.tsx`, `index.tsx`, `404.tsx`, `privacy.tsx`). Estilo SPA con anclas por sección.
+- `components/`: módulos de UI (layout, header, footer, banner de cookies, tracking, hero, galería, agenda, formulario de contacto, secciones de perfil).
+- `hooks/`: hooks reutilizables (`useCookieConsent`).
+- `lib/`: utilidades (`googleDrive.ts`).
+- `styles/`: Tailwind global en `styles/globals.css`.
+- `public/`: assets estáticos (por ejemplo, `robots.txt`).
+- `instrumentation.ts`: hook de instrumentación de Next.js (stub) para compatibilidad y futura telemetría.
 
-## Branding / Owner
-- Owner: Hernny Malaver — Director de proyectos y desarrollador de software
-- Default title and metadata personalized across the app (head, layout, hero, footer, README, privacy page).
+## Branding / Propietario
+- Propietario: Hernny Malaver — Director de proyectos y desarrollador de software
+- Título por defecto y metadatos personalizados en toda la app (head, layout, hero, footer, README, página de privacidad).
 
-## Environment Variables
-Add into `.env.local` for local dev and set as Actions secrets for CI:
-- `NEXT_PUBLIC_GOOGLE_API_KEY`: Google API key with Drive API enabled.
-- `NEXT_PUBLIC_GOOGLE_DRIVE_FOLDER_ID`: Public Drive folder ID containing images.
-- `NEXT_PUBLIC_META_PIXEL_ID`: Optional, Meta Pixel ID. Pixel injects only after cookie consent.
-- `NEXT_PUBLIC_GH_PAGES_BASE`: Repo name for GitHub Pages basePath (set during CI).
+## Variables de Entorno
+Añadir en `.env.local` para desarrollo local y configurar como secretos en Actions para CI:
+- `NEXT_PUBLIC_GOOGLE_API_KEY`: API key de Google con Drive API habilitada.
+- `NEXT_PUBLIC_GOOGLE_DRIVE_FOLDER_ID`: ID de carpeta pública de Drive con imágenes.
+- `NEXT_PUBLIC_META_PIXEL_ID`: Opcional, ID de Meta Pixel. Solo inyecta el pixel con consentimiento.
+- `NEXT_PUBLIC_GH_PAGES_BASE`: Nombre del repo para basePath de GitHub Pages (definido en CI).
 
-## Google Drive Gallery
-- Lists images using Drive v3 Files API. Requires folder shared as "Anyone with the link".
-- Query filters `mimeType contains 'image/' and trashed=false`.
-- Image URL fallback order: `thumbnailLink` -> `thumbnail?id=ID&sz=w1000` -> `uc?export=view&id=ID` -> `webContentLink`.
-- Grid uses fixed aspect ratio with `object-cover` for consistent thumbnails.
+## Galería de Google Drive
+- Lista imágenes usando la API v3 de Google Drive. Requiere carpeta compartida como “Cualquiera con el enlace”.
+- Filtro de consulta: `mimeType contains 'image/' and trashed=false`.
+- Orden de fallback para URLs de imagen: `thumbnailLink` -> `thumbnail?id=ID&sz=w1000` -> `uc?export=view&id=ID` -> `webContentLink`.
+- La grilla usa relación de aspecto fija con `object-cover` para miniaturas consistentes.
 
-## Cookies & Tracking
-- Consent states: `granted | denied | unset` stored in `js-cookie` (180 days).
-- Pixel (Meta) rendered only when consent is `granted` and `NEXT_PUBLIC_META_PIXEL_ID` is set.
+## Cookies y Seguimiento
+- Estados de consentimiento: `granted | denied | unset` almacenados con `js-cookie` (180 días).
+- El pixel (Meta) se renderiza solo con consentimiento y si `NEXT_PUBLIC_META_PIXEL_ID` está configurado.
 
-## Build & Deploy
-- `next.config.js` uses `output: 'export'`, `trailingSlash`, `images.unoptimized`.
-- GitHub Actions workflow `.github/workflows/deploy.yml` builds and exports to `out/` and deploys to Pages.
-- For Pages, `NEXT_PUBLIC_GH_PAGES_BASE` is set to repo name to configure `basePath`/`assetPrefix`.
+## Build y Despliegue
+- `next.config.js` usa `output: 'export'`, `trailingSlash`, `images.unoptimized`.
+- El workflow de GitHub Actions `.github/workflows/deploy.yml` construye, exporta a `out/` y publica en Pages.
+- Para Pages, `NEXT_PUBLIC_GH_PAGES_BASE` se define con el nombre del repo para configurar `basePath`/`assetPrefix`.
 
-## Development Commands
-- Start dev: `npm run dev`
+## Comandos de Desarrollo
+- Iniciar dev: `npm run dev`
 - Type check: `npm run type-check`
 - Build: `npm run build`
 - Export: `npm run export`
 
-## Branching & Workflow Rules
-- ALWAYS create a new branch for new requirements or tasks. Suggested naming: `feat/…`, `fix/…`, `chore/…`.
-  - Example: `git switch -c feat/politica-privacidad-link`
-- Use small, descriptive commits; prefer conventional commit messages.
-- PRs should describe user-facing changes and any config or env impacts.
- - After merging to `main`, delete the feature branch:
-   - Preferred: enable "Automatically delete head branches" in GitHub repo settings.
-   - Otherwise: delete manually (local: `git branch -d <branch>`; remote: `git push origin --delete <branch>`).
+## Reglas de Branching y Flujo de Trabajo
+- SIEMPRE crear una nueva rama para cada requerimiento o tarea. Nomenclatura sugerida: `feat/…`, `fix/…`, `chore/…`.
+  - Ejemplo: `git switch -c feat/politica-privacidad-link`
+- Commits pequeños y descriptivos; preferir mensajes de commits convencionales.
+- Los PRs deben describir cambios de cara al usuario y cualquier impacto en configuración o variables.
+- Tras hacer merge a `main`, eliminar la rama de feature:
+  - Preferible: activar “Automatically delete head branches” en la configuración del repo en GitHub.
+  - Alternativa: borrado manual (local: `git branch -d <branch>`; remoto: `git push origin --delete <branch>`).
 
-## Maintenance Notes
-- If images fail to load from Drive, verify folder sharing and API enablement. Check browser console for detailed error (we log response snippet).
-- If upgrading Next.js, keep `instrumentation.ts` to satisfy instrumentation aliases.
-- For GitHub Pages, ensure Settings > Pages source is GitHub Actions.
+## Notas de Mantenimiento
+- Si las imágenes de Drive fallan, verifica el compartido de la carpeta y que la API esté habilitada. Revisa la consola del navegador para ver el detalle del error (se registra un fragmento de respuesta).
+- Si se actualiza Next.js, mantener `instrumentation.ts` para satisfacer los alias de instrumentación.
+- Para GitHub Pages, confirmar que en Settings > Pages la fuente sea GitHub Actions.
 
-## Future Enhancements
-- Optionally migrate to App Router (`app/`) and add server actions for Google Photos OAuth flow.
-- Add unit tests (React Testing Library), E2E (Playwright), and basic CI checks.
-- Add local image fallback for gallery if Drive is unavailable.
+## Mejoras Futuras
+- Migración opcional a App Router (`app/`) y uso de server actions para OAuth de Google Photos.
+- Añadir unit tests (React Testing Library), E2E (Playwright) y checks básicos de CI.
+- Añadir fallback de imágenes locales si Drive no está disponible.
