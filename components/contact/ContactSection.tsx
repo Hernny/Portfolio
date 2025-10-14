@@ -3,7 +3,7 @@ import { FaEnvelope, FaLinkedin, FaPhone, FaWhatsapp } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 const schema = z.object({
   name: z.string().min(2, 'Nombre muy corto'),
@@ -18,13 +18,37 @@ export function ContactSection() {
     mode: 'onBlur',
     resolver: zodResolver(schema),
   });
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const hpRef = useRef<HTMLInputElement | null>(null); // honeypot
+
+  const endpoint = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT;
+  const token = process.env.NEXT_PUBLIC_CONTACT_TOKEN;
 
   const onSubmit = async (data: FormData) => {
-    await new Promise(r => setTimeout(r, 800));
-    setSent(true);
-    reset();
-    setTimeout(() => setSent(false), 4000);
+    if (!endpoint || !token) {
+      console.warn('Contacto: faltan variables NEXT_PUBLIC_CONTACT_ENDPOINT o TOKEN');
+      setStatus('error');
+      return;
+    }
+    setStatus('loading');
+    try {
+      const payload = { ...data, honeypot: hpRef.current?.value || '' };
+      const res = await fetch(`${endpoint}?token=${encodeURIComponent(token)}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const json = await res.json().catch(() => ({}));
+      if (res.ok && json.ok) {
+        setStatus('success');
+        reset();
+        setTimeout(() => setStatus('idle'), 6000);
+      } else {
+        setStatus('error');
+      }
+    } catch (e) {
+      setStatus('error');
+    }
   };
 
   return (
@@ -122,11 +146,14 @@ export function ContactSection() {
               {errors.message && <p className="text-ember-600 dark:text-ember-400 text-xs mt-1">{errors.message.message}</p>}
             </div>
             <div className="flex items-center gap-4 flex-wrap">
-              <button disabled={isSubmitting} className="px-6 py-3 rounded-lg bg-primary text-black font-semibold shadow hover:shadow-md hover:bg-primary-400 focus-visible:outline-none focus-visible:ring focus-visible:ring-primary/40 disabled:opacity-50 transition">
-                {isSubmitting ? 'Enviando…' : 'Enviar'}
+              <button disabled={isSubmitting || status==='loading'} className="px-6 py-3 rounded-lg bg-primary text-black font-semibold shadow hover:shadow-md hover:bg-primary-400 focus-visible:outline-none focus-visible:ring focus-visible:ring-primary/40 disabled:opacity-50 transition">
+                {status === 'loading' ? 'Enviando…' : status === 'success' ? 'Enviado' : 'Enviar'}
               </button>
-              {sent && <span className="text-sm text-primary animate-pulse">¡Mensaje enviado! Te responderé pronto.</span>}
+              {status === 'success' && <span className="text-sm text-primary animate-pulse">¡Mensaje enviado! Te responderé pronto.</span>}
+              {status === 'error' && <span className="text-sm text-ember-600 dark:text-ember-400">Error al enviar. Intenta de nuevo.</span>}
             </div>
+            {/* Honeypot anti-bots */}
+            <input ref={hpRef} type="text" name="website" autoComplete="off" tabIndex={-1} className="hidden" aria-hidden="true" />
             <p className="text-xs opacity-60 leading-relaxed">Al enviar aceptas ser contactado a través del email o teléfono proporcionado únicamente para el contexto de tu consulta.</p>
           </form>
         </div>
