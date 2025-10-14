@@ -35,13 +35,12 @@ export const profile = {
   experience: [
     {
       role: 'Project Manager',
-      company: 'Satstreet — Plataforma de Intercambio de Criptoactivos',
-      period: '2020 – 2024',
+      company: 'XDait — Casa de Empeño (Plataforma YDPAY)',
+      period: '2025 – Actualidad',
       highlights: [
-        'Definición de objetivos estratégicos y técnicos para el desarrollo de una plataforma de intercambio de criptoactivos.',
-        'Coordinación de equipos bajo metodología Scrum, seguimiento de tareas y resolución de bloqueos.',
-        'Diseño de base de datos para gestión de wallets, transacciones y reportes financieros.',
-        'Elaboración de wireframes para interfaces web y móviles, optimizando la experiencia de usuario.',
+        'Coordinación del desarrollo de la plataforma YDPAY desde la perspectiva técnica y estratégica.',
+        'Supervisión de procesos de integración con sistemas financieros y administrativos.',
+        'Gestión de equipo multidisciplinario con enfoque en entregables funcionales y escalables.',
       ],
     },
     {
@@ -67,12 +66,13 @@ export const profile = {
     },
     {
       role: 'Project Manager',
-      company: 'XDait — Casa de Empeño (Plataforma YDPAY)',
-      period: '2025 – Actualidad',
+      company: 'Satstreet — Plataforma de Intercambio de Criptoactivos',
+      period: '2020 – 2024',
       highlights: [
-        'Coordinación del desarrollo de la plataforma YDPAY desde la perspectiva técnica y estratégica.',
-        'Supervisión de procesos de integración con sistemas financieros y administrativos.',
-        'Gestión de equipo multidisciplinario con enfoque en entregables funcionales y escalables.',
+        'Definición de objetivos estratégicos y técnicos para el desarrollo de una plataforma de intercambio de criptoactivos.',
+        'Coordinación de equipos bajo metodología Scrum, seguimiento de tareas y resolución de bloqueos.',
+        'Diseño de base de datos para gestión de wallets, transacciones y reportes financieros.',
+        'Elaboración de wireframes para interfaces web y móviles, optimizando la experiencia de usuario.',
       ],
     },
     {
