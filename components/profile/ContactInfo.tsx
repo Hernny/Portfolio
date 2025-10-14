@@ -3,7 +3,7 @@ import { FaEnvelope, FaLinkedin, FaPhone } from 'react-icons/fa';
 
 export function ContactInfo() {
   return (
-    <section id="contact-info" className="section container">
+    <section id="contact" className="section container">
       <h2 className="text-3xl font-bold mb-6">Contacto</h2>
       <div className="grid md:grid-cols-3 gap-4">
         <a href={`mailto:${profile.email}`} className="flex items-center gap-3 bg-white/5 rounded p-4 border border-white/10 hover:border-white/20">
