@@ -18,7 +18,7 @@ export function Hero() {
         <div className="mt-4 space-y-3 text-lg opacity-90">
           <p>
             <span className="font-semibold">Mi historia: </span>
-            Comencé desarrollando sistemas GSM en Venezuela. Hoy coordino equipos internacionales que construyen el futuro del dinero digital.
+            Comencé desarrollando sistemas de rastreo por GSM en Venezuela. Hoy coordino equipos internacionales que construyen el futuro del dinero digital.
           </p>
           <p>
             <span className="font-semibold">Tu historia: </span>
@@ -41,7 +41,16 @@ export function Hero() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
       >
-        <div className="h-56 w-56 md:h-72 md:w-72 bg-gradient-to-tr from-primary/30 to-white/10 rounded-full blur-2xl" />
+        {/* Glow background */}
+        <div className="pointer-events-none absolute -top-6 md:-top-10 h-64 w-64 md:h-80 md:w-80 bg-gradient-to-tr from-primary/30 to-white/10 rounded-full blur-3xl" />
+        {/* Demo image */}
+        <img
+          src="/hero-demo.svg"
+          alt="Retrato / imagen de demostración"
+          className="relative z-10 h-56 w-56 md:h-72 md:w-72 rounded-2xl ring-1 ring-white/10 shadow-xl object-cover bg-black/10"
+          loading="eager"
+          decoding="async"
+        />
       </motion.div>
       <div className="col-span-2 flex justify-center mt-6 text-primary animate-bounce">
         <FaArrowDown />
