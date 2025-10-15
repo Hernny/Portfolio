@@ -5,14 +5,14 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "next export && npm run sitemap",
-    "postbuild": "",
+    "export": "echo \"No-op: next export is removed; use output: export\"",
+    "postbuild": "npm run sitemap",
     "sitemap": "node scripts/generate-sitemap.cjs",
     "test": "npm run test:unit",
     "test:unit": "vitest run",
     "test:watch": "vitest",
     "preview": "npx http-server ./out -p 4173 -s",
-    "test:e2e": "npm run build && npm run export && playwright test",
+    "test:e2e": "npm run build && playwright test",
     "start": "next start",
     "type-check": "tsc --noEmit"
   },
