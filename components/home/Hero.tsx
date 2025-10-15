@@ -12,11 +12,32 @@ export function Hero() {
         <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
           Hernny Malaver
         </h1>
-        <p className="mt-4 text-lg opacity-80">
-          Director de proyectos y desarrollador de software — Next.js, Tailwind, Framer Motion, Google APIs
+        <p className="mt-3 text-xl font-semibold">
+          El Project Manager que convierte caos técnico en sistemas que escalan
         </p>
+        <div className="mt-4 space-y-3 text-lg opacity-90">
+          <p>
+            <span className="font-semibold">Mi historia: </span>
+            Comencé desarrollando sistemas GSM en Venezuela. Hoy coordino equipos internacionales que construyen el futuro del dinero digital.
+          </p>
+          <p>
+            <span className="font-semibold">Tu historia: </span>
+            Tienes una visión fintech ambiciosa pero necesitas alguien que traduzca esa visión en código que funciona, equipos que entregan, y productos que los usuarios adoptan.
+          </p>
+          <p>
+            <span className="font-semibold">Nuestra historia: </span>
+            Construyamos juntos la próxima plataforma financiera que cambie las reglas del juego.
+          </p>
+        </div>
+        <div className="mt-5 flex flex-wrap gap-2 text-sm">
+          <span className="px-3 py-1 rounded-full border border-white/15 bg-white/5">Fintech: crédito · pagos · cripto</span>
+          <span className="px-3 py-1 rounded-full border border-white/15 bg-white/5">Proptech</span>
+          <span className="px-3 py-1 rounded-full border border-white/15 bg-white/5">Scrum/Kanban</span>
+          <span className="px-3 py-1 rounded-full border border-white/15 bg-white/5">Next.js + TypeScript</span>
+          <span className="px-3 py-1 rounded-full border border-white/15 bg-white/5">CI/CD</span>
+        </div>
         <div className="mt-8 flex gap-4">
-          <a href="#gallery" className="px-6 py-3 rounded bg-primary text-black font-semibold hover:bg-sky-500">Ver Galería</a>
+          <a href="#projects" className="px-6 py-3 rounded bg-primary text-black font-semibold hover:bg-sky-500">Ver Proyectos</a>
           <a href="#contact" className="px-6 py-3 rounded border border-white/20 hover:border-white/40">Contacto</a>
         </div>
       </motion.div>
