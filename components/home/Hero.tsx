@@ -63,8 +63,8 @@ export function Hero() {
           >
             {[
               {n:'12+', l:'Años Desarrollo & PM'},
-              {n:'8+', l:'Plataformas Fintech'},
-              {n:'4', l:'Países Experiencia'},
+              {n:'4', l:'Plataformas Fintech'},
+              {n:'5', l:'Países Experiencia'},
               {n:'15+', l:'Tecnologías Stack'},
             ].map((m) => (
               <motion.div
@@ -157,7 +157,7 @@ export function Hero() {
             transition={{ duration: 0.4, delay: 0.24 }}
           >
             <span className="font-semibold opacity-80">Experiencia Internacional:</span>
-            {['🇲🇽 México','🇬🇹 Guatemala','🇬🇧 Inglaterra','🇻🇪 Venezuela'].map(c => (
+            {['🇲🇽 México','🇬🇹 Guatemala','🇬🇧 Inglaterra','🇨🇦 Canadá', '🇦🇷 Argentina'].map(c => (
               <span key={c} className="bg-white/10 px-3 py-1 rounded-full border border-white/10">{c}</span>
             ))}
           </motion.div>
