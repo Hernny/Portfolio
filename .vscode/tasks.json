@@ -210,6 +210,15 @@
 				"$tsc"
 			],
 			"group": "test"
+		},
+		{
+			"label": "Type-check, build, export, unit & E2E tests",
+			"type": "shell",
+			"command": "npm run type-check && npm run build && npm run export && npm run test:unit && npm run test:e2e",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
 		}
 	]
 }
