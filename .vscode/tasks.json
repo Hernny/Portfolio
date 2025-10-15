@@ -183,6 +183,33 @@
 				"$tsc"
 			],
 			"group": "build"
+		},
+		{
+			"label": "Build and E2E test (static preview)",
+			"type": "shell",
+			"command": "npm run build && npm run export && npm run test:e2e",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Rebuild, export and run E2E",
+			"type": "shell",
+			"command": "npm run build && npm run export && npm run test:e2e",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Run unit tests",
+			"type": "shell",
+			"command": "npm run test:unit",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "test"
 		}
 	]
 }

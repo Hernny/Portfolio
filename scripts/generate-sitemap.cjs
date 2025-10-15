@@ -16,7 +16,6 @@ const routes = [
   '/#skills',
   '/#experience',
   '/#projects',
-  '/#certifications',
   '/#gallery',
   '/#schedule',
   '/#contact',

@@ -5,14 +5,14 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "next export",
-    "postbuild": "npm run sitemap",
+    "export": "next export && npm run sitemap",
+    "postbuild": "",
     "sitemap": "node scripts/generate-sitemap.cjs",
     "test": "npm run test:unit",
     "test:unit": "vitest run",
     "test:watch": "vitest",
     "preview": "npx http-server ./out -p 4173 -s",
-    "test:e2e": "npm run build && playwright test",
+    "test:e2e": "npm run build && npm run export && playwright test",
     "start": "next start",
     "type-check": "tsc --noEmit"
   },

@@ -1,11 +1,11 @@
 # Portafolio de Hernny Malaver
 
-Portafolio personal de Hernny Malaver (Director de proyectos y desarrollador de software) en Next.js + TypeScript con Tailwind CSS, Framer Motion, React Icons y Google APIs. Incluye banner de cookies, píxel de seguimiento (Meta Pixel), formulario de contacto, agendamiento y galería de fotos vía Google Drive API. Listo para desplegar en GitHub Pages.
+Portafolio personal de Hernny Malaver (Director de proyectos y desarrollador de software) en Next.js + TypeScript con Tailwind CSS, Framer Motion, React Icons y Google APIs. Incluye banner de cookies, píxel de seguimiento (Meta Pixel), agendamiento y galería de fotos vía Google Drive API. Se unificó la sección de contacto priorizando WhatsApp (se eliminó el formulario). Listo para desplegar en GitHub Pages.
 
 ## Características UX / UI Clave
 - Modo claro y oscuro con toggle persistente (localStorage + preferencia del sistema)
 - Navbar fijo con resaltado dinámico de sección (IntersectionObserver)
-- Dropdown agrupado "Sobre mí" con subsecciones (Perfil, Habilidades, Experiencia, Certificaciones)
+- Dropdown agrupado "Sobre mí" con subsecciones (Perfil, Habilidades, Experiencia)
 - Paleta de marca dual (light/dark) orientada a claridad, profesionalismo y energía controlada (accent cerúleo + highlight ember)
 - Inyección condicional de Meta Pixel tras consentimiento de cookies
 - Galería resiliente (fallback multiline) con placeholders locales
