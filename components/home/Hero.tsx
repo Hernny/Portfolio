@@ -1,116 +1,166 @@
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/router';
 
 export function Hero() {
-  const router = useRouter();
   return (
     <section id="home" className="section container">
       <div className="grid gap-10 md:grid-cols-12 md:items-center">
-        {/* Contenido centrado */}
+        {/* Contenido centrado y a todo lo ancho (sin imagen) */}
         <motion.div
-          className="order-1 md:order-none md:col-span-8 max-w-2xl mx-auto text-center"
+          className="md:col-span-12 max-w-3xl mx-auto text-center"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          {/* Headline orientado a resultados */}
+          {/* Headline auténtico */}
           <motion.h1
-            className="hero-headline text-5xl md:text-6xl font-extrabold leading-tight"
+            className="text-4xl md:text-6xl font-extrabold leading-tight"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.05 }}
           >
-            Transformo Proyectos Fintech en Sistemas que Generan $10M+ ROI
+            Ingeniero Full-Stack que Lidera Proyectos Fintech desde el Código hasta la Estrategia
           </motion.h1>
 
-          {/* Value proposition específica */}
+          {/* Subheadline */}
           <motion.p
-            className="hero-subheadline mt-5 text-xl md:text-2xl font-medium opacity-95"
+            className="mt-6 md:mt-10 text-lg md:text-2xl font-medium opacity-95"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Especializado en transformaciones digitales que reducen costos operacionales 35% mientras aceleran el time-to-market en fintech y e-commerce
+            Technical Project Manager con 12+ años transformando ideas complejas en plataformas escalables. Combino experiencia hands-on en desarrollo con liderazgo ágil para entregar productos que realmente funcionan.
           </motion.p>
 
-          {/* Credenciales visibles */}
+          {/* Value Proposition */}
+          <motion.p
+            className="mt-8 text-base md:text-lg opacity-95 bg-white/5 border-l-4 border-sky-300/70 rounded px-4 py-3"
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.12 }}
+          >
+            No solo gestiono proyectos, los construyo. Mi experiencia técnica me permite anticipar problemas, optimizar arquitecturas y liderar equipos con credibilidad desde el código.
+          </motion.p>
+
+          {/* Credenciales */}
           <motion.div
-            className="mt-8 text-sm md:text-base opacity-80"
+            className="mt-8 flex flex-wrap items-center justify-center gap-2 text-sm md:text-base opacity-90"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.12 }}
+            transition={{ duration: 0.4, delay: 0.14 }}
           >
-            <span className="px-2">PMP® Certified</span>
-            <span className="opacity-50">|</span>
-            <span className="px-2">Agile Coach</span>
-            <span className="opacity-50">|</span>
-            <span className="px-2">Fintech Expert</span>
+            {['Computer Science Degree','Scrum Master','Full-Stack Engineer','Blockchain Specialist'].map((c) => (
+              <span key={c} className="bg-white/10 px-3 py-1.5 rounded-full border border-white/10">{c}</span>
+            ))}
           </motion.div>
 
-          {/* Métricas de impacto */}
+          {/* Métricas reales */}
           <motion.div
-            className="metrics-container grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mt-10"
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
+            className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 mt-10"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06 } } }}
           >
-            <div className="metric-card rounded-xl border border-white/10 bg-white/5 backdrop-blur p-5">
-              <span className="metric-number block text-3xl md:text-4xl font-bold text-primary">98%</span>
-              <span className="metric-label block text-xs md:text-sm opacity-80 mt-1">Proyectos a tiempo</span>
-            </div>
-            <div className="metric-card rounded-xl border border-white/10 bg-white/5 backdrop-blur p-5">
-              <span className="metric-number block text-3xl md:text-4xl font-bold text-primary">$50M+</span>
-              <span className="metric-label block text-xs md:text-sm opacity-80 mt-1">En proyectos gestionados</span>
-            </div>
-            <div className="metric-card rounded-xl border border-white/10 bg-white/5 backdrop-blur p-5">
-              <span className="metric-number block text-3xl md:text-4xl font-bold text-primary">35%</span>
-              <span className="metric-label block text-xs md:text-sm opacity-80 mt-1">Reducción de costos</span>
+            {[
+              {n:'12+', l:'Años Desarrollo & PM'},
+              {n:'8+', l:'Plataformas Fintech'},
+              {n:'4', l:'Países Experiencia'},
+              {n:'15+', l:'Tecnologías Stack'},
+            ].map((m) => (
+              <motion.div
+                key={m.l}
+                className="rounded-xl border border-white/10 bg-white/5 backdrop-blur p-5 text-center"
+                variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }}
+              >
+                <span className="block text-3xl md:text-4xl font-bold text-primary">{m.n}</span>
+                <span className="block text-xs md:text-sm opacity-80 mt-1">{m.l}</span>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Stack Tecnológico Destacado (desktop) */}
+          <motion.div
+            className="mt-8 md:mt-10 bg-white/5 rounded-xl p-5 border border-white/10 hidden md:block"
+            initial={{ opacity: 0, y: 6 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.16 }}
+          >
+            <h3 className="text-sm font-semibold text-sky-300 mb-3">Stack Tecnológico</h3>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <div className="flex items-start gap-2"><span className="text-sky-200 font-medium min-w-[90px]">Backend:</span><span className="opacity-90">Laravel • Java • Python • C#</span></div>
+              <div className="flex items-start gap-2"><span className="text-sky-200 font-medium min-w-[90px]">Frontend:</span><span className="opacity-90">Vue.js • Next.js • TypeScript</span></div>
+              <div className="flex items-start gap-2"><span className="text-sky-200 font-medium min-w-[90px]">Database:</span><span className="opacity-90">PostgreSQL • MySQL • MongoDB</span></div>
+              <div className="flex items-start gap-2"><span className="text-sky-200 font-medium min-w-[90px]">DevOps:</span><span className="opacity-90">Docker • AWS • Terraform</span></div>
             </div>
           </motion.div>
 
-          {/* CTAs prominentes */}
+          {/* Especialización */}
           <motion.div
-            className="cta-container mt-8 md:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="mt-8"
+            initial={{ opacity: 0, y: 6 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.18 }}
+          >
+            <h3 className="text-sm font-semibold text-sky-300 mb-3">Especialización</h3>
+            <div className="flex flex-wrap justify-center gap-2">
+              {['Fintech','Blockchain','Plataformas de Pago','E-commerce','Sistemas Empresariales'].map(t => (
+                <span key={t} className="px-3 py-1.5 rounded-full text-sm font-medium text-white bg-gradient-to-r from-sky-400 to-sky-500">{t}</span>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Proyectos Destacados (desktop) */}
+          <motion.div
+            className="mt-8 hidden md:block"
+            initial={{ opacity: 0, y: 6 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+          >
+            <h3 className="text-sm font-semibold text-sky-300 mb-3">Proyectos Destacados</h3>
+            <div className="flex flex-wrap justify-center gap-2">
+              {['YDPAY Platform','Satstreet Exchange','VisaNet Integration','University Tower System'].map(p => (
+                <span key={p} className="px-3 py-1.5 rounded bg-white/10 border border-sky-300/30 text-sm">{p}</span>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* CTAs auténticos */}
+          <motion.div
+            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.18 }}
+            transition={{ duration: 0.5, delay: 0.22 }}
           >
             <motion.a
               href="#contact"
-              className="cta-primary inline-block text-lg font-semibold px-8 py-4 rounded-lg text-white shadow [background-image:linear-gradient(135deg,#38BDF8_0%,#6366F1_100%)] hover:shadow-lg focus-visible:outline-none focus-visible:ring focus-visible:ring-primary/40"
+              className="inline-block text-lg font-semibold px-8 py-4 rounded-lg text-white shadow [background-image:linear-gradient(135deg,#38BDF8_0%,#6366F1_100%)] hover:shadow-lg focus-visible:outline-none focus-visible:ring focus-visible:ring-primary/40"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
-              Agenda Consulta Estratégica Gratuita
+              Conversemos sobre tu Proyecto Técnico
             </motion.a>
             <motion.a
               href="#projects"
-              className="cta-secondary inline-block text-base font-medium px-6 py-3 rounded-lg border border-white/30 hover:border-white/50 focus-visible:outline-none focus-visible:ring focus-visible:ring-primary/30"
+              className="inline-block text-base font-medium px-6 py-3 rounded-lg border border-white/30 hover:border-white/50 focus-visible:outline-none focus-visible:ring focus-visible:ring-primary/30"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
-              Ver Portfolio de Proyectos
+              Ver Portfolio de Plataformas
             </motion.a>
           </motion.div>
-        </motion.div>
 
-        {/* Foto (30% aprox del espacio en desktop) */}
-        <motion.div
-          className="order-2 md:order-none md:col-span-4 relative flex justify-center mt-4 md:mt-0"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          <div className="pointer-events-none absolute -top-6 md:-top-8 h-56 w-56 md:h-64 md:w-64 bg-gradient-to-tr from-primary/20 to-white/10 rounded-full blur-3xl" />
-          <motion.img
-            src={`${router.basePath}/hernny.jpg`}
-            alt="Foto de Hernny Malaver — Project Manager Fintech"
-            className="relative z-10 h-52 w-52 md:h-64 md:w-64 rounded-2xl ring-1 ring-white/10 shadow-xl object-cover bg-black/10"
-            loading="eager"
-            decoding="async"
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: 'spring', stiffness: 200, damping: 18 }}
-          />
+          {/* Experiencia Internacional */}
+          <motion.div
+            className="mt-8 flex flex-wrap items-center justify-center gap-2 text-sm"
+            initial={{ opacity: 0, y: 6 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.24 }}
+          >
+            <span className="font-semibold opacity-80">Experiencia Internacional:</span>
+            {['🇲🇽 México','🇬🇹 Guatemala','🇬🇧 Inglaterra','🇻🇪 Venezuela'].map(c => (
+              <span key={c} className="bg-white/10 px-3 py-1 rounded-full border border-white/10">{c}</span>
+            ))}
+          </motion.div>
         </motion.div>
       </div>
     </section>
