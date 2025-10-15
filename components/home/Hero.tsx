@@ -7,6 +7,7 @@ export function Hero() {
   return (
     <section id="home" className="section container grid md:grid-cols-2 items-center gap-8">
       <motion.div
+        className="order-1 md:order-none"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -38,7 +39,7 @@ export function Hero() {
         </div>
       </motion.div>
       <motion.div
-        className="relative flex justify-center"
+        className="relative flex justify-center order-2 md:order-none mt-6 md:mt-0"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
@@ -54,7 +55,7 @@ export function Hero() {
           decoding="async"
         />
       </motion.div>
-      <div className="col-span-2 flex justify-center mt-6">
+      <div className="md:col-span-2 flex justify-center mt-6">
         <a
           href="#about"
           className="text-primary animate-bounce inline-flex items-center justify-center rounded-full p-3 ring-1 ring-white/10 hover:ring-white/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
