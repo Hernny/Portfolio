@@ -37,11 +37,15 @@ export function Gallery() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const localFallback = useMemo(
-    () => [
-      { id: 'local-1', name: 'placeholder-1', mimeType: 'image/svg+xml', webViewLink: '/gallery/placeholder-1.svg', webContentLink: '/gallery/placeholder-1.svg', thumbnailLink: '/gallery/placeholder-1.svg' },
-      { id: 'local-2', name: 'placeholder-2', mimeType: 'image/svg+xml', webViewLink: '/gallery/placeholder-2.svg', webContentLink: '/gallery/placeholder-2.svg', thumbnailLink: '/gallery/placeholder-2.svg' },
-      { id: 'local-3', name: 'placeholder-3', mimeType: 'image/svg+xml', webViewLink: '/gallery/placeholder-3.svg', webContentLink: '/gallery/placeholder-3.svg', thumbnailLink: '/gallery/placeholder-3.svg' },
-    ] as DriveFile[],
+    () => {
+      const base = (process.env.NEXT_PUBLIC_GH_PAGES_BASE ? `/${process.env.NEXT_PUBLIC_GH_PAGES_BASE}` : '') as string;
+      const p = (n: number) => `${base}/gallery/placeholder-${n}.svg`;
+      return [
+        { id: 'local-1', name: 'placeholder-1', mimeType: 'image/svg+xml', webViewLink: p(1), webContentLink: p(1), thumbnailLink: p(1) },
+        { id: 'local-2', name: 'placeholder-2', mimeType: 'image/svg+xml', webViewLink: p(2), webContentLink: p(2), thumbnailLink: p(2) },
+        { id: 'local-3', name: 'placeholder-3', mimeType: 'image/svg+xml', webViewLink: p(3), webContentLink: p(3), thumbnailLink: p(3) },
+      ] as DriveFile[];
+    },
     []
   );
 
@@ -72,28 +76,30 @@ export function Gallery() {
       .finally(() => setLoading(false));
   }, []);
 
-  if (loading) return <p className="opacity-70">Cargando fotos…</p>;
-  // We still render the gallery below even if error is set (it may be using local fallback)
-
+  // Always render the section so observers and hash navigation work even while loading
   return (
     <section id="gallery" className="section container">
       <h2 className="text-3xl font-bold mb-6">Galería</h2>
-      {error && (
-        <p className="mb-4 text-amber-400 text-sm">{error}</p>
-      )}
-      {images.length === 0 ? (
-        <p className="opacity-80">No hay imágenes disponibles.</p>
+      {loading ? (
+        <p className="opacity-70">Cargando fotos…</p>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {images.map((img) => (
-            <a key={img.id} href={img.webViewLink} target="_blank" rel="noreferrer" title={img.name}>
-              <div className="aspect-[4/3] overflow-hidden rounded shadow group bg-black/20">
-                <DriveImage file={img} alt={img.name} />
-              </div>
-              <p className="mt-2 text-sm truncate opacity-80">{img.name}</p>
-            </a>
-          ))}
-        </div>
+        <>
+          {error && <p className="mb-4 text-amber-400 text-sm">{error}</p>}
+          {images.length === 0 ? (
+            <p className="opacity-80">No hay imágenes disponibles.</p>
+          ) : (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {images.map((img) => (
+                <a key={img.id} href={img.webViewLink} target="_blank" rel="noreferrer" title={img.name}>
+                  <div className="aspect-[4/3] overflow-hidden rounded shadow group bg-black/20">
+                    <DriveImage file={img} alt={img.name} />
+                  </div>
+                  <p className="mt-2 text-sm truncate opacity-80">{img.name}</p>
+                </a>
+              ))}
+            </div>
+          )}
+        </>
       )}
     </section>
   );

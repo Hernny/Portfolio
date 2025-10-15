@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useEffect, useState, useCallback, useRef } from 'react';
+import { useRouter } from 'next/router';
 import { FaImages, FaEnvelope, FaShieldAlt, FaBars, FaTimes, FaSun, FaMoon, FaChevronDown, FaUserTie, FaFolderOpen } from 'react-icons/fa';
 import { useTheme } from '../../hooks/useTheme';
 
@@ -35,6 +36,7 @@ const NAV: NavGroup[] = [
 const OBSERVE_IDS = Array.from(new Set(NAV.flatMap(n => n.sectionIds || [])));
 
 export function Header() {
+  const router = useRouter();
   const [open, setOpen] = useState(false); // mobile menu
   const [active, setActive] = useState<string>('about-group');
   const [scrolled, setScrolled] = useState(false);
@@ -103,9 +105,39 @@ export function Header() {
   // Highlight privacy route
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      if (window.location.pathname === '/privacy') setActive('privacy');
+      if (window.location.pathname.endsWith('/privacy')) setActive('privacy');
     }
   }, []);
+
+  // Track hash changes to set active nav
+  useEffect(() => {
+    const handler = () => {
+      const hash = typeof window !== 'undefined' ? window.location.hash.replace('#', '') : '';
+      if (!hash) return;
+      if (['about', 'skills', 'experience'].includes(hash)) {
+        setActive('about-group');
+      } else if (['projects', 'gallery', 'contact'].includes(hash)) {
+        setActive(hash);
+      }
+    };
+    window.addEventListener('hashchange', handler);
+    handler(); // run once on mount
+    return () => window.removeEventListener('hashchange', handler);
+  }, []);
+
+  // Navigate to section with URL hash update and smooth scroll
+  const gotoSection = useCallback((id: string) => {
+    const navId = ['about', 'skills', 'experience'].includes(id) ? 'about-group' : id;
+    setActive(navId);
+    // Push only the hash (keeps basePath + current path), shallow to avoid data/refetch
+    router.push(`#${id}`, undefined, { shallow: true, scroll: true });
+    // Fallback smooth scroll if router doesn't handle it in some browsers
+    const el = document.getElementById(id);
+    el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Close any open menus
+    setOpen(false);
+    setOpenDropdown(null);
+  }, [router]);
 
   // Dropdown helpers (desktop hover + keyboard)
   const clearCloseTimer = (id: string) => {
@@ -206,7 +238,7 @@ export function Header() {
                           href={`#${sub.id}`}
                           role="menuitem"
                           className="block px-3 py-1.5 rounded text-sm opacity-80 hover:opacity-100 hover:bg-slate-900/5 dark:hover:bg-white/10 focus:outline-none focus-visible:ring focus-visible:ring-primary/40"
-                          onClick={() => { closeMenu(); setOpenDropdown(null); }}
+                          onClick={(e) => { e.preventDefault(); gotoSection(sub.id); }}
                           onKeyDown={(e) => { if (e.key === 'Escape') setOpenDropdown(null); }}
                         >{sub.label}</a>
                       ))}
@@ -219,7 +251,7 @@ export function Header() {
                             <a
                               href={`#${sub.id}`}
                               className="block py-1 text-sm opacity-80 hover:text-primary"
-                              onClick={() => { closeMenu(); setOpenDropdown(null); }}
+                              onClick={(e) => { e.preventDefault(); gotoSection(sub.id); }}
                             >{sub.label}</a>
                           </li>
                         ))}
@@ -233,7 +265,7 @@ export function Header() {
                 <li key={item.id}>
                   <a
                     href={`#${item.sectionIds?.[0] || item.id}`}
-                    onClick={closeMenu}
+                    onClick={(e) => { e.preventDefault(); gotoSection(item.sectionIds?.[0] || item.id); }}
                     aria-current={isActive ? 'true' : undefined}
                     className={`${linkBase} ${activeClass}`}
                   >
