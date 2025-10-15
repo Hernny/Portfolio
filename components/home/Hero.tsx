@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 import { FaArrowDown } from 'react-icons/fa';
 
 export function Hero() {
+  const router = useRouter();
   return (
     <section id="home" className="section container grid md:grid-cols-2 items-center gap-8">
       <motion.div
@@ -45,7 +47,7 @@ export function Hero() {
         <div className="pointer-events-none absolute -top-6 md:-top-10 h-64 w-64 md:h-80 md:w-80 bg-gradient-to-tr from-primary/30 to-white/10 rounded-full blur-3xl" />
         {/* Portrait image */}
         <img
-          src="/hernny.jpg"
+          src={`${router.basePath}/hernny.jpg`}
           alt="Foto de Hernny Malaver"
           className="relative z-10 h-56 w-56 md:h-72 md:w-72 rounded-2xl ring-1 ring-white/10 shadow-xl object-cover bg-black/10"
           loading="eager"

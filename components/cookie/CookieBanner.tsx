@@ -11,7 +11,7 @@ export function CookieBanner() {
       <div className="container flex flex-col md:flex-row items-center gap-3">
         <p className="text-sm opacity-90">
           Usamos cookies para mejorar tu experiencia. Puedes aceptar o rechazar. Lee nuestra{' '}
-          <Link href="/privacy" className="underline hover:text-primary">Política de Privacidad</Link> para más detalles.
+          <Link href={{ pathname: '/privacy' }} className="underline hover:text-primary">Política de Privacidad</Link> para más detalles.
         </p>
         <div className="ml-auto flex gap-2">
           <button onClick={reject} className="px-4 py-2 rounded bg-gray-600 hover:bg-gray-500">Rechazar</button>

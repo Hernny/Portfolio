@@ -244,7 +244,7 @@ export function Header() {
             })}
             <li>
               <Link
-                href="/privacy"
+                href={{ pathname: '/privacy' }}
                 onClick={closeMenu}
                 aria-current={active === 'privacy' ? 'true' : undefined}
                 className={`${linkBase} ${active === 'privacy' ? 'text-primary' : 'opacity-80 hover:text-primary'}`}

@@ -21,10 +21,10 @@ export default function PrivacyPolicy() {
         se activa ningún seguimiento sin tu consentimiento.
       </p>
 
-      <h2 className="text-xl font-semibold mt-8 mb-2">Formularios</h2>
+      <h2 className="text-xl font-semibold mt-8 mb-2">Contacto y formularios</h2>
       <p className="opacity-80">
-        Los datos enviados mediante formularios (nombre, email, mensaje) se usan para responder a tus consultas. En este demo no
-        se almacenan en servidores; el envío es simulado.
+        Actualmente no utilizo formularios en el sitio. Si me contactas por WhatsApp o email, la información que compartas
+        se empleará únicamente para responder a tu solicitud. Este sitio no almacena tus datos en servidores propios.
       </p>
 
       <h2 className="text-xl font-semibold mt-8 mb-2">Galería (APIs de Google)</h2>
@@ -35,7 +35,8 @@ export default function PrivacyPolicy() {
 
       <h2 className="text-xl font-semibold mt-8 mb-2">Contacto</h2>
       <p className="opacity-80">
-  Si tienes preguntas sobre esta política, contáctame mediante el formulario en la sección "Contacto".
+        Si tienes preguntas sobre esta política, puedes escribirme desde la sección <a href="#contact" className="text-primary underline">Contacto</a>
+        , preferiblemente por WhatsApp.
       </p>
 
       <div className="mt-8">

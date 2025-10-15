@@ -219,6 +219,24 @@
 				"$tsc"
 			],
 			"group": "build"
+		},
+		{
+			"label": "Rebuild after removing next export",
+			"type": "shell",
+			"command": "npm run build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Build to verify hero image path",
+			"type": "shell",
+			"command": "npm run build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
 		}
 	]
 }
