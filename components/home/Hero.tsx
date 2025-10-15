@@ -29,13 +29,7 @@ export function Hero() {
             Construyamos juntos la próxima plataforma financiera que cambie las reglas del juego.
           </p>
         </div>
-        <div className="mt-5 flex flex-wrap gap-2 text-sm">
-          <span className="px-3 py-1 rounded-full border border-white/15 bg-white/5">Fintech: crédito · pagos · cripto</span>
-          <span className="px-3 py-1 rounded-full border border-white/15 bg-white/5">Proptech</span>
-          <span className="px-3 py-1 rounded-full border border-white/15 bg-white/5">Scrum/Kanban</span>
-          <span className="px-3 py-1 rounded-full border border-white/15 bg-white/5">Next.js + TypeScript</span>
-          <span className="px-3 py-1 rounded-full border border-white/15 bg-white/5">CI/CD</span>
-        </div>
+        {/* Badges removed per request */}
         <div className="mt-8 flex gap-4">
           <a href="#projects" className="px-6 py-3 rounded bg-primary text-black font-semibold hover:bg-sky-500">Ver Proyectos</a>
           <a href="#contact" className="px-6 py-3 rounded border border-white/20 hover:border-white/40">Contacto</a>
