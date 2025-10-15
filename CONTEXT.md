@@ -46,8 +46,8 @@ Tokens en `styles/globals.css` (`--color-*`) sobrescritos por `.dark`. Tailwind 
 
 ## Navbar Mejorado
 - Fijo, con blur y transición de color según scroll.
-- Dropdown accesible para "Sobre mí" con subsecciones (`about`, `skills`, `experience`, `certifications`).
-- Scroll spy agrupa ratios por subsección para resaltar el grupo.
+ - Dropdown accesible para "Sobre mí" con subsecciones (`about`, `skills`, `experience`).
+ - Scroll spy agrupa ratios por subsección para resaltar el grupo (id interno `about-group`).
 - Toggle de tema (Sol/Luna) como primer item independiente.
 - Íconos para cada item (UserTie, FolderOpen, Images, Envelope, Shield).
 
@@ -57,18 +57,28 @@ Atajos de teclado en dropdown:
 
 Retardo de cierre (160ms) para evitar flicker al mover el cursor.
 
+Navegación por hash y estado activo:
+- Los clicks del navbar actualizan la URL con `#id` mediante `router.push('#id', { shallow: true, scroll: true })` y hacen `scrollIntoView` como respaldo.
+- Se escucha `hashchange` para marcar activo inmediatamente el item correcto (el grupo para `about|skills|experience`, o la sección única como `projects|gallery|contact`).
+- El `IntersectionObserver` usa `rootMargin` sesgado para determinar qué sección está “en foco” y sincroniza el activo; si hay hash fijado, el activo refleja ese estado hasta que el scroll cambie la sección dominante.
+
+IDs de sección garantizados:
+- Cada sección se renderiza con `<section id="...">` en el primer render. En particular, la Galería ahora siempre renderiza su `<section id="gallery">` incluso durante la carga (muestra “Cargando fotos…”), para que el observer y el hash-scroll funcionen correctamente.
+
 ## Variables de Entorno
 Añadir en `.env.local` para desarrollo local y configurar como secretos en Actions para CI:
 - `NEXT_PUBLIC_GOOGLE_API_KEY`: API key de Google con Drive API habilitada.
 - `NEXT_PUBLIC_GOOGLE_DRIVE_FOLDER_ID`: ID de carpeta pública de Drive con imágenes.
 - `NEXT_PUBLIC_META_PIXEL_ID`: Opcional, ID de Meta Pixel. Solo inyecta el pixel con consentimiento.
 - `NEXT_PUBLIC_GH_PAGES_BASE`: Nombre del repo para basePath de GitHub Pages (definido en CI).
+ - `NEXT_PUBLIC_BASE_URL`: URL base pública para generar URLs absolutas en el sitemap (si no se define, el sitemap usa URLs relativas).
 
 ## Galería de Google Drive
 - Lista imágenes usando la API v3 de Google Drive. Requiere carpeta compartida como “Cualquiera con el enlace”.
 - Filtro de consulta: `mimeType contains 'image/' and trashed=false`.
 - Orden de fallback para URLs de imagen: `thumbnailLink` -> `thumbnail?id=ID&sz=w1000` -> `uc?export=view&id=ID` -> `webContentLink`.
 - La grilla usa relación de aspecto fija con `object-cover` para miniaturas consistentes.
+ - Placeholders locales en `public/gallery/placeholder-*.svg` se resuelven respetando el `basePath` de Pages vía `NEXT_PUBLIC_GH_PAGES_BASE` (sin depender de `useRouter` para permitir tests de unidad).
 
 ## Cookies y Seguimiento
 - Estados de consentimiento: `granted | denied | unset` almacenados con `js-cookie` (180 días).
@@ -80,6 +90,11 @@ Añadir en `.env.local` para desarrollo local y configurar como secretos en Acti
 - `postbuild` genera `out/sitemap.xml` automáticamente (ver `scripts/generate-sitemap.cjs`).
 - Para Pages, `NEXT_PUBLIC_GH_PAGES_BASE` se define con el nombre del repo para configurar `basePath`/`assetPrefix`.
 - `NEXT_PUBLIC_BASE_URL` se usa para URLs absolutas en el sitemap (ej: `https://<user>.github.io/<repo>` o dominio propio).
+ - Tratamiento de basePath en assets y rutas internas:
+   - La imagen del hero usa `router.basePath`.
+   - Los enlaces a “Privacidad” usan `href={{ pathname: '/privacy' }}` para que Next.js añada el basePath automáticamente.
+   - `favicon` y `manifest` en `_app` usan `router.basePath`; en `site.webmanifest` los iconos se declaran con rutas relativas.
+   - El enlace a privacidad del banner de cookies usa objeto `{ pathname }` para evitar doble prefijo.
 
 ## Comandos de Desarrollo
 - Iniciar dev: `npm run dev`
