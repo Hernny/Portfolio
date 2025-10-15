@@ -43,17 +43,24 @@ export function Hero() {
       >
         {/* Glow background */}
         <div className="pointer-events-none absolute -top-6 md:-top-10 h-64 w-64 md:h-80 md:w-80 bg-gradient-to-tr from-primary/30 to-white/10 rounded-full blur-3xl" />
-        {/* Demo image */}
+        {/* Portrait image */}
         <img
-          src="/hero-demo.svg"
-          alt="Retrato / imagen de demostración"
+          src="/hernny.jpg"
+          alt="Foto de Hernny Malaver"
           className="relative z-10 h-56 w-56 md:h-72 md:w-72 rounded-2xl ring-1 ring-white/10 shadow-xl object-cover bg-black/10"
           loading="eager"
           decoding="async"
         />
       </motion.div>
-      <div className="col-span-2 flex justify-center mt-6 text-primary animate-bounce">
-        <FaArrowDown />
+      <div className="col-span-2 flex justify-center mt-6">
+        <a
+          href="#about"
+          className="text-primary animate-bounce inline-flex items-center justify-center rounded-full p-3 ring-1 ring-white/10 hover:ring-white/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
+          aria-label="Ir a Sobre mí"
+          title="Ir a Sobre mí"
+        >
+          <FaArrowDown aria-hidden="true" />
+        </a>
       </div>
     </section>
   );
