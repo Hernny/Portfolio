@@ -18,7 +18,7 @@ export function Hero() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.05 }}
           >
-            Ingeniero Full-Stack que Lidera Proyectos Fintech desde el Código hasta la Estrategia
+            Dirección de Proyectos Fintech enfocada en resultados
           </motion.h1>
 
           {/* Subheadline */}
@@ -31,15 +31,7 @@ export function Hero() {
             Technical Project Manager con 12+ años transformando ideas complejas en plataformas escalables. Combino experiencia hands-on en desarrollo con liderazgo ágil para entregar productos que realmente funcionan.
           </motion.p>
 
-          {/* Value Proposition */}
-          <motion.p
-            className="mt-8 text-base md:text-lg opacity-95 bg-white/5 border-l-4 border-sky-300/70 rounded px-4 py-3"
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.12 }}
-          >
-            No solo gestiono proyectos, los construyo. Mi experiencia técnica me permite anticipar problemas, optimizar arquitecturas y liderar equipos con credibilidad desde el código.
-          </motion.p>
+          
 
           {/* Credenciales */}
           <motion.div
@@ -124,12 +116,22 @@ export function Hero() {
             </div>
           </motion.div>
 
+          {/* Value Proposition (movida justo encima de los CTAs) */}
+          <motion.p
+            className="mt-10 text-base md:text-lg opacity-95 bg-white/5 border-l-4 border-sky-300/70 rounded px-4 py-3"
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+          >
+            No solo gestiono proyectos, los construyo. Mi experiencia técnica me permite anticipar problemas, optimizar arquitecturas y liderar equipos con credibilidad desde el código.
+          </motion.p>
+
           {/* CTAs auténticos */}
           <motion.div
             className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.22 }}
+            transition={{ duration: 0.5, delay: 0.24 }}
           >
             <motion.a
               href="#contact"

@@ -274,16 +274,7 @@ export function Header() {
                 </li>
               );
             })}
-            <li>
-              <Link
-                href={{ pathname: '/privacy' }}
-                onClick={closeMenu}
-                aria-current={active === 'privacy' ? 'true' : undefined}
-                className={`${linkBase} ${active === 'privacy' ? 'text-primary' : 'opacity-80 hover:text-primary'}`}
-              >
-                <FaShieldAlt /> Privacidad
-              </Link>
-            </li>
+            {/* Privacy link moved to footer */}
           </ul>
         </nav>
       </div>
