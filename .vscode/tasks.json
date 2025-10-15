@@ -237,6 +237,19 @@
 				"$tsc"
 			],
 			"group": "build"
+		},
+		{
+			"label": "Run unit tests",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"test:unit"
+			],
+			"problemMatcher": [
+				"$eslint-stylish"
+			],
+			"group": "test"
 		}
 	]
 }
