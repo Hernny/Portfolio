@@ -11,9 +11,10 @@ export function Hero() {
           {/* Headline auténtico */}
           <motion.h1
             className="text-4xl md:text-6xl font-extrabold leading-tight"
-            initial={{ opacity: 1, y: 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, ease: 'easeOut' }}
+            initial={{ opacity: 1, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.8 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
           >
             Dirección de Proyectos Fintech enfocada en resultados
           </motion.h1>
@@ -21,9 +22,10 @@ export function Hero() {
           {/* Subheadline */}
           <motion.p
             className="mt-6 md:mt-10 text-lg md:text-2xl font-medium opacity-95"
-            initial={{ opacity: 1, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, ease: 'easeOut', delay: 0.05 }}
+            initial={{ opacity: 1, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.9 }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.05 }}
           >
             Technical Project Manager con 12+ años transformando ideas complejas en plataformas escalables. Combino experiencia hands-on en desarrollo con liderazgo ágil para entregar productos que realmente funcionan.
           </motion.p>
@@ -33,9 +35,10 @@ export function Hero() {
           {/* Credenciales */}
           <motion.div
             className="mt-8 flex flex-wrap items-center justify-center gap-2 text-sm md:text-base opacity-90"
-            initial={{ opacity: 1, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35, ease: 'easeOut', delay: 0.08 }}
+            initial={{ opacity: 1, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.9 }}
+            transition={{ duration: 0.4, ease: 'easeOut', delay: 0.08 }}
           >
             {['Computer Science Degree','Scrum Master','Full-Stack Engineer','Blockchain Specialist'].map((c) => (
               <span key={c} className="bg-white/10 px-3 py-1.5 rounded-full border border-white/10">{c}</span>
@@ -55,9 +58,10 @@ export function Hero() {
               <motion.div
                 key={m.l}
                 className="rounded-xl border border-white/10 bg-white/5 backdrop-blur p-5 text-center"
-                initial={{ opacity: 1, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.35, ease: 'easeOut', delay: 0.06 + i * 0.05 }}
+                initial={{ opacity: 1, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.6 }}
+                transition={{ duration: 0.4, ease: 'easeOut', delay: 0.06 + i * 0.06 }}
               >
                 <span className="block text-3xl md:text-4xl font-bold text-primary">{m.n}</span>
                 <span className="block text-xs md:text-sm opacity-80 mt-1">{m.l}</span>
@@ -68,25 +72,62 @@ export function Hero() {
           {/* Stack Tecnológico Destacado (desktop) */}
           <motion.div
             className="mt-8 md:mt-10 bg-white/5 rounded-xl p-5 border border-white/10 hidden md:block"
-            initial={{ opacity: 1, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35, ease: 'easeOut', delay: 0.12 }}
+            initial={{ opacity: 1, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.4, ease: 'easeOut', delay: 0.12 }}
           >
-            <h3 className="text-sm font-semibold text-sky-300 mb-3">Stack Tecnológico</h3>
-            <div className="grid gap-3 sm:grid-cols-2">
-              <div className="flex items-start gap-2"><span className="text-sky-200 font-medium min-w-[90px]">Backend:</span><span className="opacity-90">Laravel • Java • Python • C#</span></div>
-              <div className="flex items-start gap-2"><span className="text-sky-200 font-medium min-w-[90px]">Frontend:</span><span className="opacity-90">Vue.js • Next.js • TypeScript</span></div>
-              <div className="flex items-start gap-2"><span className="text-sky-200 font-medium min-w-[90px]">Database:</span><span className="opacity-90">PostgreSQL • MySQL • MongoDB</span></div>
-              <div className="flex items-start gap-2"><span className="text-sky-200 font-medium min-w-[90px]">DevOps:</span><span className="opacity-90">Docker • AWS • Terraform</span></div>
+            <h3 className="text-sm font-semibold text-sky-300 mb-4">Stack Tecnológico</h3>
+            <div className="grid gap-6 sm:grid-cols-2">
+              {/* Backend pills */}
+              <div className="text-center">
+                <h4 className="text-sm font-semibold opacity-90">Backend</h4>
+                <div className="mt-2 flex flex-wrap justify-center gap-2">
+                  <a href="https://docs.nestjs.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">NestJS</a>
+                  <a href="https://expressjs.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">Express</a>
+                  <a href="https://laravel.com/docs" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">Laravel</a>
+                  <a href="https://www.anchor-lang.com/docs" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">Anchor</a>
+                </div>
+              </div>
+              {/* Frontend pills */}
+              <div className="text-center">
+                <h4 className="text-sm font-semibold opacity-90">Frontend</h4>
+                <div className="mt-2 flex flex-wrap justify-center gap-2">
+                  <a href="https://vuejs.org/guide/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">Vue</a>
+                  <a href="https://react.dev/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">React</a>
+                  <a href="https://developer.android.com" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">Android</a>
+                </div>
+              </div>
+              {/* Database pills */}
+              <div className="text-center">
+                <h4 className="text-sm font-semibold opacity-90">Database</h4>
+                <div className="mt-2 flex flex-wrap justify-center gap-2">
+                  <a href="https://www.postgresql.org/docs/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">Postgres</a>
+                  <a href="https://dev.mysql.com/doc/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">MySQL</a>
+                  <a href="https://www.mongodb.com/docs/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">MongoDB</a>
+                  <a href="https://redis.io/docs/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">Redis</a>
+                </div>
+              </div>
+              {/* DevOps pills */}
+              <div className="text-center">
+                <h4 className="text-sm font-semibold opacity-90">DevOps</h4>
+                <div className="mt-2 flex flex-wrap justify-center gap-2">
+                  <a href="https://docs.docker.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">Docker</a>
+                  <a href="https://nx.dev/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">Nx</a>
+                  <a href="https://docs.github.com/actions" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">CI/CD</a>
+                  <a href="https://docs.aws.amazon.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">AWS</a>
+                </div>
+              </div>
             </div>
           </motion.div>
 
           {/* Especialización */}
           <motion.div
             className="mt-8"
-            initial={{ opacity: 1, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35, ease: 'easeOut', delay: 0.14 }}
+            initial={{ opacity: 1, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.4, ease: 'easeOut', delay: 0.14 }}
           >
             <h3 className="text-sm font-semibold text-sky-300 mb-3">Especialización</h3>
             <div className="flex flex-wrap justify-center gap-2">
@@ -99,9 +140,10 @@ export function Hero() {
           {/* Proyectos Destacados (desktop) */}
           <motion.div
             className="mt-8 hidden md:block"
-            initial={{ opacity: 1, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35, ease: 'easeOut', delay: 0.16 }}
+            initial={{ opacity: 1, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.4, ease: 'easeOut', delay: 0.16 }}
           >
             <h3 className="text-sm font-semibold text-sky-300 mb-3">Proyectos Destacados</h3>
             <div className="flex flex-wrap justify-center gap-2">
@@ -114,9 +156,10 @@ export function Hero() {
           {/* Value Proposition (movida justo encima de los CTAs) */}
           <motion.p
             className="mt-10 text-base md:text-lg opacity-95 bg-white/5 border-l-4 border-sky-300/70 rounded px-4 py-3"
-            initial={{ opacity: 1, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35, ease: 'easeOut', delay: 0.18 }}
+            initial={{ opacity: 1, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.7 }}
+            transition={{ duration: 0.4, ease: 'easeOut', delay: 0.18 }}
           >
             No solo gestiono proyectos, los construyo. Mi experiencia técnica me permite anticipar problemas, optimizar arquitecturas y liderar equipos con credibilidad desde el código.
           </motion.p>
@@ -124,9 +167,10 @@ export function Hero() {
           {/* CTAs auténticos */}
           <motion.div
             className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
-            initial={{ opacity: 1, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease: 'easeOut', delay: 0.2 }}
+            initial={{ opacity: 1, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.7 }}
+            transition={{ duration: 0.45, ease: 'easeOut', delay: 0.2 }}
           >
             <motion.a
               href="#contact"
@@ -149,9 +193,10 @@ export function Hero() {
           {/* Experiencia Internacional */}
           <motion.div
             className="mt-8 flex flex-wrap items-center justify-center gap-2 text-sm"
-            initial={{ opacity: 1, y: 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35, ease: 'easeOut', delay: 0.22 }}
+            initial={{ opacity: 1, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.7 }}
+            transition={{ duration: 0.4, ease: 'easeOut', delay: 0.22 }}
           >
             <span className="font-semibold opacity-80">Experiencia Internacional:</span>
             {['🇲🇽 México','🇬🇹 Guatemala','🇬🇧 Inglaterra','🇨🇦 Canadá', '🇦🇷 Argentina'].map(c => (
