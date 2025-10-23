@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 export function Hero() {
   return (
     <section id="home" className="section container">
-      {/* Máximo 2 pantallas: dividimos el hero en dos paneles verticales */}
+      {/* Máximo 2 pantallas (sin sub-scroll): dos paneles que usan el scroll de la página */}
       <div className="md:col-span-12 max-w-4xl mx-auto text-center">
         {/* Panel 1: título, resumen, credenciales y métricas */}
         <motion.div className="min-h-[100svh] flex flex-col items-center justify-center py-10">
@@ -67,7 +67,7 @@ export function Hero() {
         </motion.div>
 
         {/* Panel 2: stack, especialización, proyectos, propuesta de valor, CTAs y experiencia */}
-        <motion.div className="min-h-[100svh] flex flex-col items-center justify-center py-10">
+  <motion.div className="min-h-[100svh] flex flex-col items-center justify-center py-10">
           {/* Stack Tecnológico */}
           <motion.div
             className="w-full mt-2 md:mt-0 bg-white/5 rounded-xl p-5 border border-white/10"
@@ -76,7 +76,7 @@ export function Hero() {
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.4, ease: 'easeOut', delay: 0.12 }}
           >
-            <h3 className="text-sm font-semibold text-sky-300 mb-4">Stack Tecnológico</h3>
+            <h3 className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-white text-center mb-4">Stack Tecnológico</h3>
             <div className="grid gap-6 sm:grid-cols-2">
               {/* Backend pills */}
               <div className="text-center">
@@ -128,7 +128,7 @@ export function Hero() {
             viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.4, ease: 'easeOut', delay: 0.14 }}
           >
-            <h3 className="text-sm font-semibold text-sky-300 mb-3">Especialización</h3>
+            <h3 className="text-lg md:text-xl font-semibold text-slate-900 dark:text-white text-center mb-3">Especialización</h3>
             <div className="flex flex-wrap justify-center gap-2">
               {['Fintech','Blockchain','Plataformas de Pago','E-commerce','Sistemas Empresariales'].map(t => (
                 <span key={t} className="px-3 py-1.5 rounded-full text-sm font-medium text-white bg-gradient-to-r from-sky-400 to-sky-500">{t}</span>
@@ -144,7 +144,7 @@ export function Hero() {
             viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.4, ease: 'easeOut', delay: 0.16 }}
           >
-            <h3 className="text-sm font-semibold text-sky-300 mb-3">Proyectos Destacados</h3>
+            <h3 className="text-lg md:text-xl font-semibold text-slate-900 dark:text-white text-center mb-3">Proyectos Destacados</h3>
             <div className="flex flex-wrap justify-center gap-2">
               {['YDPAY Platform','Satstreet Exchange','VisaNet Integration','University Tower System'].map(p => (
                 <span key={p} className="px-3 py-1.5 rounded bg-white/10 border border-sky-300/30 text-sm">{p}</span>
