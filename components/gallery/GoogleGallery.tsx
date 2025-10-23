@@ -78,8 +78,8 @@ export function Gallery() {
 
   // Always render the section so observers and hash navigation work even while loading
   return (
-    <section id="gallery" className="section container">
-      <h2 className="text-3xl font-bold mb-6">Galería</h2>
+    <section id="gallery" className="section container scroll-mt-24 md:scroll-mt-28">
+      <h2 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight text-center mb-4 md:mb-6">Galería</h2>
       {loading ? (
         <p className="opacity-70">Cargando fotos…</p>
       ) : (
@@ -88,13 +88,13 @@ export function Gallery() {
           {images.length === 0 ? (
             <p className="opacity-80">No hay imágenes disponibles.</p>
           ) : (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
               {images.map((img) => (
                 <a key={img.id} href={img.webViewLink} target="_blank" rel="noreferrer" title={img.name}>
                   <div className="aspect-[4/3] overflow-hidden rounded shadow group bg-black/20">
                     <DriveImage file={img} alt={img.name} />
                   </div>
-                  <p className="mt-2 text-sm truncate opacity-80">{img.name}</p>
+                  <p className="mt-2 md:mt-3 text-sm truncate opacity-80">{img.name}</p>
                 </a>
               ))}
             </div>

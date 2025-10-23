@@ -2,11 +2,12 @@ import { motion } from 'framer-motion';
 
 export function Hero() {
   return (
+    // Hero con márgenes homogéneos y reglas responsive (sm/md)
     <section id="home" className="section container">
       {/* Máximo 2 pantallas (sin sub-scroll): dos paneles que usan el scroll de la página */}
-      <div className="md:col-span-12 max-w-4xl mx-auto text-center">
-        {/* Panel 1: título, resumen, credenciales y métricas */}
-        <motion.div className="min-h-[100svh] flex flex-col items-center justify-center py-10">
+      <div className="md:col-span-12 w-full mx-auto text-center">
+  {/* Contenido unificado del hero */}
+  <motion.div className="flex flex-col items-center justify-start">
           {/* Headline auténtico */}
           <motion.h1
             className="text-4xl md:text-6xl font-extrabold leading-tight"
@@ -21,7 +22,7 @@ export function Hero() {
 
           {/* Subheadline */}
           <motion.p
-            className="mt-6 md:mt-8 text-lg md:text-2xl font-medium opacity-95"
+            className="mt-4 md:mt-6 text-lg md:text-2xl font-medium opacity-95"
             initial={{ opacity: 1, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.85 }}
@@ -32,7 +33,7 @@ export function Hero() {
 
           {/* Credenciales */}
           <motion.div
-            className="mt-8 flex flex-wrap items-center justify-center gap-2 text-sm md:text-base opacity-90"
+            className="mt-4 md:mt-6 flex flex-wrap items-center justify-center gap-2 text-sm md:text-base opacity-90"
             initial={{ opacity: 1, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.9 }}
@@ -44,7 +45,7 @@ export function Hero() {
           </motion.div>
 
           {/* Métricas reales */}
-          <motion.div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 mt-10">
+          <motion.div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 mt-6 md:mt-8">
             {[
               { n: '12+', l: 'Años Desarrollo & PM' },
               { n: '4', l: 'Plataformas Fintech' },
@@ -53,7 +54,7 @@ export function Hero() {
             ].map((m, i) => (
               <motion.div
                 key={m.l}
-                className="rounded-xl border border-white/10 bg-white/5 backdrop-blur p-5 text-center"
+                className="rounded-xl border border-white/10 bg-white/5 backdrop-blur p-4 md:p-5 text-center"
                 initial={{ opacity: 1, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.6 }}
@@ -64,24 +65,20 @@ export function Hero() {
               </motion.div>
             ))}
           </motion.div>
-        </motion.div>
-
-        {/* Panel 2: stack, especialización, proyectos, propuesta de valor, CTAs y experiencia */}
-  <motion.div className="min-h-[100svh] flex flex-col items-center justify-center py-10">
           {/* Stack Tecnológico */}
           <motion.div
-            className="w-full mt-2 md:mt-0 bg-white/5 rounded-xl p-5 border border-white/10"
+            className="w-full mt-8 md:mt-12"
             initial={{ opacity: 1, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.4, ease: 'easeOut', delay: 0.12 }}
           >
-            <h3 className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-white text-center mb-4">Stack Tecnológico</h3>
-            <div className="grid gap-6 sm:grid-cols-2">
+            <h3 className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-white text-center mb-4 md:mb-6">Stack Tecnológico</h3>
+            <div className="grid gap-4 md:gap-6 sm:grid-cols-2">
               {/* Backend pills */}
               <div className="text-center">
                 <h4 className="text-sm font-semibold opacity-90">Backend</h4>
-                <div className="mt-2 flex flex-wrap justify-center gap-2">
+                <div className="mt-2 md:mt-3 flex flex-wrap justify-center gap-2">
                   <a href="https://docs.nestjs.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">NestJS</a>
                   <a href="https://expressjs.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">Express</a>
                   <a href="https://laravel.com/docs" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">Laravel</a>
@@ -91,7 +88,7 @@ export function Hero() {
               {/* Frontend pills */}
               <div className="text-center">
                 <h4 className="text-sm font-semibold opacity-90">Frontend</h4>
-                <div className="mt-2 flex flex-wrap justify-center gap-2">
+                <div className="mt-2 md:mt-3 flex flex-wrap justify-center gap-2">
                   <a href="https://vuejs.org/guide/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">Vue</a>
                   <a href="https://react.dev/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">React</a>
                   <a href="https://developer.android.com" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">Android</a>
@@ -100,7 +97,7 @@ export function Hero() {
               {/* Database pills */}
               <div className="text-center">
                 <h4 className="text-sm font-semibold opacity-90">Database</h4>
-                <div className="mt-2 flex flex-wrap justify-center gap-2">
+                <div className="mt-2 md:mt-3 flex flex-wrap justify-center gap-2">
                   <a href="https://www.postgresql.org/docs/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">Postgres</a>
                   <a href="https://dev.mysql.com/doc/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">MySQL</a>
                   <a href="https://www.mongodb.com/docs/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">MongoDB</a>
@@ -110,7 +107,7 @@ export function Hero() {
               {/* DevOps pills */}
               <div className="text-center">
                 <h4 className="text-sm font-semibold opacity-90">DevOps</h4>
-                <div className="mt-2 flex flex-wrap justify-center gap-2">
+                <div className="mt-2 md:mt-3 flex flex-wrap justify-center gap-2">
                   <a href="https://docs.docker.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">Docker</a>
                   <a href="https://nx.dev/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">Nx</a>
                   <a href="https://docs.github.com/actions" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">CI/CD</a>
@@ -122,13 +119,13 @@ export function Hero() {
 
           {/* Especialización */}
           <motion.div
-            className="mt-8"
+            className="mt-8 md:mt-12"
             initial={{ opacity: 1, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.4, ease: 'easeOut', delay: 0.14 }}
           >
-            <h3 className="text-lg md:text-xl font-semibold text-slate-900 dark:text-white text-center mb-3">Especialización</h3>
+            <h3 className="text-lg md:text-xl font-semibold text-slate-900 dark:text-white text-center mb-3 md:mb-4">Especialización</h3>
             <div className="flex flex-wrap justify-center gap-2">
               {['Fintech','Blockchain','Plataformas de Pago','E-commerce','Sistemas Empresariales'].map(t => (
                 <span key={t} className="px-3 py-1.5 rounded-full text-sm font-medium text-white bg-gradient-to-r from-sky-400 to-sky-500">{t}</span>
@@ -138,13 +135,13 @@ export function Hero() {
 
           {/* Proyectos Destacados (desktop) */}
           <motion.div
-            className="mt-8 hidden md:block"
+            className="mt-8 md:mt-12 hidden md:block"
             initial={{ opacity: 1, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.4, ease: 'easeOut', delay: 0.16 }}
           >
-            <h3 className="text-lg md:text-xl font-semibold text-slate-900 dark:text-white text-center mb-3">Proyectos Destacados</h3>
+            <h3 className="text-lg md:text-xl font-semibold text-slate-900 dark:text-white text-center mb-3 md:mb-4">Proyectos Destacados</h3>
             <div className="flex flex-wrap justify-center gap-2">
               {['YDPAY Platform','Satstreet Exchange','VisaNet Integration','University Tower System'].map(p => (
                 <span key={p} className="px-3 py-1.5 rounded bg-white/10 border border-sky-300/30 text-sm">{p}</span>
@@ -154,7 +151,7 @@ export function Hero() {
 
           {/* Value Proposition (movida justo encima de los CTAs) */}
           <motion.blockquote
-            className="mt-10 text-base md:text-lg opacity-95 border border-white/15 bg-white/5 rounded-xl px-5 py-4 italic"
+            className="mt-8 md:mt-10 text-base md:text-lg opacity-95 border border-white/15 bg-white/5 rounded-xl px-4 md:px-6 py-3 md:py-4 italic"
             initial={{ opacity: 1, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.7 }}
@@ -165,7 +162,7 @@ export function Hero() {
 
           {/* CTAs auténticos */}
           <motion.div
-            className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="mt-8 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4"
             initial={{ opacity: 1, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.7 }}
@@ -191,7 +188,7 @@ export function Hero() {
 
           {/* Experiencia Internacional */}
           <motion.div
-            className="mt-8 flex flex-wrap items-center justify-center gap-2 text-sm"
+            className="mt-8 md:mt-12 flex flex-wrap items-center justify-center gap-2 text-sm"
             initial={{ opacity: 1, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.7 }}
@@ -202,7 +199,7 @@ export function Hero() {
               <span key={c} className="bg-white/10 px-3 py-1 rounded-full border border-white/10">{c}</span>
             ))}
           </motion.div>
-        </motion.div>
+        </motion.div> 
       </div>
     </section>
   );
