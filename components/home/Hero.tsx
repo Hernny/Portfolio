@@ -7,16 +7,13 @@ export function Hero() {
         {/* Contenido centrado y a todo lo ancho (sin imagen) */}
         <motion.div
           className="md:col-span-12 max-w-3xl mx-auto text-center"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
         >
           {/* Headline auténtico */}
           <motion.h1
             className="text-4xl md:text-6xl font-extrabold leading-tight"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.05 }}
+            initial={{ opacity: 1, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, ease: 'easeOut' }}
           >
             Dirección de Proyectos Fintech enfocada en resultados
           </motion.h1>
@@ -24,9 +21,9 @@ export function Hero() {
           {/* Subheadline */}
           <motion.p
             className="mt-6 md:mt-10 text-lg md:text-2xl font-medium opacity-95"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            initial={{ opacity: 1, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, ease: 'easeOut', delay: 0.05 }}
           >
             Technical Project Manager con 12+ años transformando ideas complejas en plataformas escalables. Combino experiencia hands-on en desarrollo con liderazgo ágil para entregar productos que realmente funcionan.
           </motion.p>
@@ -36,9 +33,9 @@ export function Hero() {
           {/* Credenciales */}
           <motion.div
             className="mt-8 flex flex-wrap items-center justify-center gap-2 text-sm md:text-base opacity-90"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.14 }}
+            initial={{ opacity: 1, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, ease: 'easeOut', delay: 0.08 }}
           >
             {['Computer Science Degree','Scrum Master','Full-Stack Engineer','Blockchain Specialist'].map((c) => (
               <span key={c} className="bg-white/10 px-3 py-1.5 rounded-full border border-white/10">{c}</span>
@@ -48,21 +45,19 @@ export function Hero() {
           {/* Métricas reales */}
           <motion.div
             className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 mt-10"
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06 } } }}
           >
             {[
               {n:'12+', l:'Años Desarrollo & PM'},
               {n:'4', l:'Plataformas Fintech'},
               {n:'5', l:'Países Experiencia'},
               {n:'15+', l:'Tecnologías Stack'},
-            ].map((m) => (
+            ].map((m, i) => (
               <motion.div
                 key={m.l}
                 className="rounded-xl border border-white/10 bg-white/5 backdrop-blur p-5 text-center"
-                variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }}
+                initial={{ opacity: 1, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.35, ease: 'easeOut', delay: 0.06 + i * 0.05 }}
               >
                 <span className="block text-3xl md:text-4xl font-bold text-primary">{m.n}</span>
                 <span className="block text-xs md:text-sm opacity-80 mt-1">{m.l}</span>
@@ -73,9 +68,9 @@ export function Hero() {
           {/* Stack Tecnológico Destacado (desktop) */}
           <motion.div
             className="mt-8 md:mt-10 bg-white/5 rounded-xl p-5 border border-white/10 hidden md:block"
-            initial={{ opacity: 0, y: 6 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.16 }}
+            initial={{ opacity: 1, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, ease: 'easeOut', delay: 0.12 }}
           >
             <h3 className="text-sm font-semibold text-sky-300 mb-3">Stack Tecnológico</h3>
             <div className="grid gap-3 sm:grid-cols-2">
@@ -89,9 +84,9 @@ export function Hero() {
           {/* Especialización */}
           <motion.div
             className="mt-8"
-            initial={{ opacity: 0, y: 6 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.18 }}
+            initial={{ opacity: 1, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, ease: 'easeOut', delay: 0.14 }}
           >
             <h3 className="text-sm font-semibold text-sky-300 mb-3">Especialización</h3>
             <div className="flex flex-wrap justify-center gap-2">
@@ -104,9 +99,9 @@ export function Hero() {
           {/* Proyectos Destacados (desktop) */}
           <motion.div
             className="mt-8 hidden md:block"
-            initial={{ opacity: 0, y: 6 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
+            initial={{ opacity: 1, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, ease: 'easeOut', delay: 0.16 }}
           >
             <h3 className="text-sm font-semibold text-sky-300 mb-3">Proyectos Destacados</h3>
             <div className="flex flex-wrap justify-center gap-2">
@@ -119,9 +114,9 @@ export function Hero() {
           {/* Value Proposition (movida justo encima de los CTAs) */}
           <motion.p
             className="mt-10 text-base md:text-lg opacity-95 bg-white/5 border-l-4 border-sky-300/70 rounded px-4 py-3"
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
+            initial={{ opacity: 1, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, ease: 'easeOut', delay: 0.18 }}
           >
             No solo gestiono proyectos, los construyo. Mi experiencia técnica me permite anticipar problemas, optimizar arquitecturas y liderar equipos con credibilidad desde el código.
           </motion.p>
@@ -129,9 +124,9 @@ export function Hero() {
           {/* CTAs auténticos */}
           <motion.div
             className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.24 }}
+            initial={{ opacity: 1, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: 'easeOut', delay: 0.2 }}
           >
             <motion.a
               href="#contact"
@@ -154,9 +149,9 @@ export function Hero() {
           {/* Experiencia Internacional */}
           <motion.div
             className="mt-8 flex flex-wrap items-center justify-center gap-2 text-sm"
-            initial={{ opacity: 0, y: 6 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.24 }}
+            initial={{ opacity: 1, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, ease: 'easeOut', delay: 0.22 }}
           >
             <span className="font-semibold opacity-80">Experiencia Internacional:</span>
             {['🇲🇽 México','🇬🇹 Guatemala','🇬🇧 Inglaterra','🇨🇦 Canadá', '🇦🇷 Argentina'].map(c => (
