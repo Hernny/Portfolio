@@ -3,34 +3,32 @@ import { motion } from 'framer-motion';
 export function Hero() {
   return (
     <section id="home" className="section container">
-      <div className="grid gap-10 md:grid-cols-12 md:items-center">
-        {/* Contenido centrado y a todo lo ancho (sin imagen) */}
-        <motion.div
-          className="md:col-span-12 max-w-3xl mx-auto text-center"
-        >
+      {/* Máximo 2 pantallas: dividimos el hero en dos paneles verticales */}
+      <div className="md:col-span-12 max-w-4xl mx-auto text-center">
+        {/* Panel 1: título, resumen, credenciales y métricas */}
+        <motion.div className="min-h-[100svh] flex flex-col items-center justify-center py-10">
           {/* Headline auténtico */}
           <motion.h1
             className="text-4xl md:text-6xl font-extrabold leading-tight"
             initial={{ opacity: 1, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.8 }}
+            viewport={{ once: true, amount: 0.7 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
           >
-            Dirección de Proyectos Fintech enfocada en resultados
+            Dirección de Proyectos Fintech enfocada en{' '}
+            <span className="text-primary">resultados</span>
           </motion.h1>
 
           {/* Subheadline */}
           <motion.p
-            className="mt-6 md:mt-10 text-lg md:text-2xl font-medium opacity-95"
+            className="mt-6 md:mt-8 text-lg md:text-2xl font-medium opacity-95"
             initial={{ opacity: 1, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.9 }}
+            viewport={{ once: true, amount: 0.85 }}
             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.05 }}
           >
             Technical Project Manager con 12+ años transformando ideas complejas en plataformas escalables. Combino experiencia hands-on en desarrollo con liderazgo ágil para entregar productos que realmente funcionan.
           </motion.p>
-
-          
 
           {/* Credenciales */}
           <motion.div
@@ -46,14 +44,12 @@ export function Hero() {
           </motion.div>
 
           {/* Métricas reales */}
-          <motion.div
-            className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 mt-10"
-          >
+          <motion.div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 mt-10">
             {[
-              {n:'12+', l:'Años Desarrollo & PM'},
-              {n:'4', l:'Plataformas Fintech'},
-              {n:'5', l:'Países Experiencia'},
-              {n:'15+', l:'Tecnologías Stack'},
+              { n: '12+', l: 'Años Desarrollo & PM' },
+              { n: '4', l: 'Plataformas Fintech' },
+              { n: '5', l: 'Países Experiencia' },
+              { n: '15+', l: 'Tecnologías Stack' },
             ].map((m, i) => (
               <motion.div
                 key={m.l}
@@ -68,13 +64,16 @@ export function Hero() {
               </motion.div>
             ))}
           </motion.div>
+        </motion.div>
 
-          {/* Stack Tecnológico Destacado (desktop) */}
+        {/* Panel 2: stack, especialización, proyectos, propuesta de valor, CTAs y experiencia */}
+        <motion.div className="min-h-[100svh] flex flex-col items-center justify-center py-10">
+          {/* Stack Tecnológico */}
           <motion.div
-            className="mt-8 md:mt-10 bg-white/5 rounded-xl p-5 border border-white/10 hidden md:block"
+            className="w-full mt-2 md:mt-0 bg-white/5 rounded-xl p-5 border border-white/10"
             initial={{ opacity: 1, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.6 }}
+            viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.4, ease: 'easeOut', delay: 0.12 }}
           >
             <h3 className="text-sm font-semibold text-sky-300 mb-4">Stack Tecnológico</h3>
@@ -154,19 +153,19 @@ export function Hero() {
           </motion.div>
 
           {/* Value Proposition (movida justo encima de los CTAs) */}
-          <motion.p
-            className="mt-10 text-base md:text-lg opacity-95 bg-white/5 border-l-4 border-sky-300/70 rounded px-4 py-3"
+          <motion.blockquote
+            className="mt-10 text-base md:text-lg opacity-95 border border-white/15 bg-white/5 rounded-xl px-5 py-4 italic"
             initial={{ opacity: 1, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.7 }}
             transition={{ duration: 0.4, ease: 'easeOut', delay: 0.18 }}
           >
-            No solo gestiono proyectos, los construyo. Mi experiencia técnica me permite anticipar problemas, optimizar arquitecturas y liderar equipos con credibilidad desde el código.
-          </motion.p>
+            “No solo gestiono proyectos, los construyo. Mi experiencia técnica me permite anticipar problemas, optimizar arquitecturas y liderar equipos con credibilidad desde el código.”
+          </motion.blockquote>
 
           {/* CTAs auténticos */}
           <motion.div
-            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4"
             initial={{ opacity: 1, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.7 }}
@@ -174,7 +173,7 @@ export function Hero() {
           >
             <motion.a
               href="#contact"
-              className="inline-block text-lg font-semibold px-8 py-4 rounded-lg text-white shadow [background-image:linear-gradient(135deg,#38BDF8_0%,#6366F1_100%)] hover:shadow-lg focus-visible:outline-none focus-visible:ring focus-visible:ring-primary/40"
+              className="inline-block text-lg font-semibold px-8 py-4 rounded-lg text-white shadow bg-emerald-600 hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring focus-visible:ring-emerald-300/50"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
             >

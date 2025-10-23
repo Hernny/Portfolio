@@ -261,6 +261,21 @@ export function Header() {
                 );
               }
               const Icon = item.icon;
+              // Contacto como botón verde según el nuevo diseño
+              if (item.id === 'contact') {
+                return (
+                  <li key={item.id} className="md:ml-2">
+                    <a
+                      href={`#${item.sectionIds?.[0] || item.id}`}
+                      onClick={(e) => { e.preventDefault(); gotoSection(item.sectionIds?.[0] || item.id); }}
+                      aria-current={isActive ? 'true' : undefined}
+                      className="flex items-center gap-2 px-4 py-2 rounded-md text-white bg-emerald-600 hover:bg-emerald-500 shadow focus:outline-none focus-visible:ring focus-visible:ring-emerald-300/60"
+                    >
+                      {Icon && Icon} {item.label}
+                    </a>
+                  </li>
+                );
+              }
               return (
                 <li key={item.id}>
                   <a
