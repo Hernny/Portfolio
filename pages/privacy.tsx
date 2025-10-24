@@ -1,7 +1,22 @@
 import Link from 'next/link';
+import { Layout } from '../components/Layout';
 
 export default function PrivacyPolicy() {
   return (
+    <Layout
+      title="Privacidad — Hernny Malaver"
+      description="Política de privacidad del portafolio de Hernny Malaver: cookies, analítica, contacto y uso de APIs (Google Drive para la galería)."
+      keywords={[
+        'privacidad',
+        'cookies',
+        'analítica',
+        'política de privacidad',
+        'Google Drive',
+        'galería',
+        'contacto',
+      ]}
+      canonicalPath="/privacy"
+    >
     <div className="container section">
       <h1 className="text-3xl font-bold mb-4">Política de Privacidad</h1>
       <p className="opacity-80 mb-6">
@@ -43,5 +58,6 @@ export default function PrivacyPolicy() {
         <Link href="/" className="text-primary hover:underline">Volver al inicio</Link>
       </div>
     </div>
+    </Layout>
   );
 }

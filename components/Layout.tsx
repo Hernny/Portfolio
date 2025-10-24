@@ -5,7 +5,7 @@ import { Footer } from './layout/Footer';
 import { Header } from './layout/Header';
 import { AnalyticsPixel } from './tracking/AnalyticsPixel';
 
-export function Layout({ children, title = 'Hernny Malaver — Director de proyectos y desarrollador de software' }: { children: ReactNode; title?: string }) {
+export function Layout({ children, title = 'Hernny Malaver — Director de proyectos y desarrollador de software', description, keywords, canonicalPath }: { children: ReactNode; title?: string; description?: string; keywords?: string | string[]; canonicalPath?: string }) {
   useEffect(() => {
     // Smooth scroll for SPA anchors
     const onClick = (e: Event) => {
@@ -24,7 +24,7 @@ export function Layout({ children, title = 'Hernny Malaver — Director de proye
 
   return (
     <>
-      <Seo title={title} />
+  <Seo title={title} description={description} keywords={keywords} canonicalPath={canonicalPath} />
       <AnalyticsPixel />
   <Header />
   <div className="h-16" aria-hidden />
