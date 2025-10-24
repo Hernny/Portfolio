@@ -91,7 +91,7 @@ export function Gallery() {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
               {images.map((img) => (
                 <a key={img.id} href={img.webViewLink} target="_blank" rel="noreferrer" title={img.name}>
-                  <div className="aspect-[4/3] overflow-hidden rounded shadow group bg-black/20">
+                  <div className="aspect-[4/3] overflow-hidden rounded group border shadow-sm bg-white border-slate-200 dark:bg-white/5 dark:border-white/10 dark:shadow-none">
                     <DriveImage file={img} alt={img.name} />
                   </div>
                   <p className="mt-2 md:mt-3 text-sm truncate opacity-80">{img.name}</p>

@@ -50,7 +50,12 @@ export function Hero() {
             transition={{ duration: 0.4, ease: 'easeOut', delay: 0.08 }}
           >
             {['Computer Science Degree','Scrum Master','Full-Stack Engineer','Blockchain Specialist'].map((c) => (
-              <span key={c} className="bg-white/10 px-3 py-1.5 rounded-full border border-white/10">{c}</span>
+              <span
+                key={c}
+                className="px-3 py-1.5 rounded-full border shadow-sm bg-white border-slate-200 dark:bg-white/10 dark:border-white/10 dark:shadow-none"
+              >
+                {c}
+              </span>
             ))}
           </motion.div>
 
@@ -64,7 +69,7 @@ export function Hero() {
             ].map((m, i) => (
               <motion.div
                 key={m.l}
-                className="rounded-xl border border-white/10 bg-white/5 backdrop-blur p-4 md:p-5 text-center"
+                className="rounded-xl border p-4 md:p-5 text-center shadow-sm bg-white border-slate-200 dark:bg-white/5 dark:border-white/10 dark:shadow-none"
                 initial={{ opacity: 1, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.6 }}
@@ -83,45 +88,45 @@ export function Hero() {
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.4, ease: 'easeOut', delay: 0.12 }}
           >
-            <h3 className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-white text-center mb-4 md:mb-6">Stack Tecnológico</h3>
+            <h3 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight text-center mb-4 md:mb-6">Stack Tecnológico</h3>
             <div className="grid gap-4 md:gap-6 sm:grid-cols-2">
               {/* Backend pills */}
               <div className="text-center">
-                <h4 className="text-sm font-semibold opacity-90">Backend</h4>
+                <h4 className="text-sm md:text-base font-extrabold leading-tight tracking-tight text-primary">Backend</h4>
                 <div className="mt-2 md:mt-3 flex flex-wrap justify-center gap-2">
-                  <a href="https://docs.nestjs.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">NestJS</a>
-                  <a href="https://expressjs.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">Express</a>
-                  <a href="https://laravel.com/docs" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">Laravel</a>
-                  <a href="https://www.anchor-lang.com/docs" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">Anchor</a>
+                  <a href="https://docs.nestjs.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">NestJS</a>
+                  <a href="https://expressjs.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Express</a>
+                  <a href="https://laravel.com/docs" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Laravel</a>
+                  <a href="https://www.anchor-lang.com/docs" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Anchor</a>
                 </div>
               </div>
               {/* Frontend pills */}
               <div className="text-center">
-                <h4 className="text-sm font-semibold opacity-90">Frontend</h4>
+                <h4 className="text-sm md:text-base font-extrabold leading-tight tracking-tight text-primary">Frontend</h4>
                 <div className="mt-2 md:mt-3 flex flex-wrap justify-center gap-2">
-                  <a href="https://vuejs.org/guide/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">Vue</a>
-                  <a href="https://react.dev/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">React</a>
-                  <a href="https://developer.android.com" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">Android</a>
+                  <a href="https://vuejs.org/guide/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Vue</a>
+                  <a href="https://react.dev/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">React</a>
+                  <a href="https://developer.android.com" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Android</a>
                 </div>
               </div>
               {/* Database pills */}
               <div className="text-center">
-                <h4 className="text-sm font-semibold opacity-90">Database</h4>
+                <h4 className="text-sm md:text-base font-extrabold leading-tight tracking-tight text-primary">Database</h4>
                 <div className="mt-2 md:mt-3 flex flex-wrap justify-center gap-2">
-                  <a href="https://www.postgresql.org/docs/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">Postgres</a>
-                  <a href="https://dev.mysql.com/doc/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">MySQL</a>
-                  <a href="https://www.mongodb.com/docs/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">MongoDB</a>
-                  <a href="https://redis.io/docs/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">Redis</a>
+                  <a href="https://www.postgresql.org/docs/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Postgres</a>
+                  <a href="https://dev.mysql.com/doc/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">MySQL</a>
+                  <a href="https://www.mongodb.com/docs/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">MongoDB</a>
+                  <a href="https://redis.io/docs/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Redis</a>
                 </div>
               </div>
               {/* DevOps pills */}
               <div className="text-center">
-                <h4 className="text-sm font-semibold opacity-90">DevOps</h4>
+                <h4 className="text-sm md:text-base font-extrabold leading-tight tracking-tight text-primary">DevOps</h4>
                 <div className="mt-2 md:mt-3 flex flex-wrap justify-center gap-2">
-                  <a href="https://docs.docker.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">Docker</a>
-                  <a href="https://nx.dev/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">Nx</a>
-                  <a href="https://docs.github.com/actions" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">CI/CD</a>
-                  <a href="https://docs.aws.amazon.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium bg-white/10 border border-white/10 hover:border-white/20 hover:bg-white/15">AWS</a>
+                  <a href="https://docs.docker.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Docker</a>
+                  <a href="https://nx.dev/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Nx</a>
+                  <a href="https://docs.github.com/actions" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">CI/CD</a>
+                  <a href="https://docs.aws.amazon.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">AWS</a>
                 </div>
               </div>
             </div>
@@ -135,10 +140,10 @@ export function Hero() {
             viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.4, ease: 'easeOut', delay: 0.14 }}
           >
-            <h3 className="text-lg md:text-xl font-semibold text-slate-900 dark:text-white text-center mb-3 md:mb-4">Especialización</h3>
+            <h3 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight text-center mb-4 md:mb-6">Especialización</h3>
             <div className="flex flex-wrap justify-center gap-2">
               {['Fintech','Blockchain','Plataformas de Pago','E-commerce','Sistemas Empresariales'].map(t => (
-                <span key={t} className="px-3 py-1.5 rounded-full text-sm font-medium text-white bg-gradient-to-r from-sky-400 to-sky-500">{t}</span>
+                <span key={t} className="px-3 py-1.5 rounded-full text-sm font-medium text-white bg-gradient-to-r from-sky-400 to-sky-500 border border-sky-300/40 shadow-sm dark:border-white/10 dark:shadow-none">{t}</span>
               ))}
             </div>
           </motion.div>
@@ -151,10 +156,12 @@ export function Hero() {
             viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.4, ease: 'easeOut', delay: 0.16 }}
           >
-            <h3 className="text-lg md:text-xl font-semibold text-slate-900 dark:text-white text-center mb-3 md:mb-4">Proyectos Destacados</h3>
+            <h3 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight text-center mb-4 md:mb-6">Proyectos Destacados</h3>
             <div className="flex flex-wrap justify-center gap-2">
               {['YDPAY Platform','Satstreet Exchange','VisaNet Integration','University Tower System'].map(p => (
-                <span key={p} className="px-3 py-1.5 rounded bg-white/10 border border-sky-300/30 text-sm">{p}</span>
+                <span key={p} className="px-3 py-1.5 rounded text-sm border shadow-sm bg-white border-slate-200 dark:bg-white/10 dark:border-white/10 dark:shadow-none">
+                  {p}
+                </span>
               ))}
             </div>
           </motion.div>
@@ -206,7 +213,7 @@ export function Hero() {
           >
             <span className="font-semibold opacity-80">Experiencia Internacional:</span>
             {['🇲🇽 México','🇬🇹 Guatemala','🇬🇧 Inglaterra','🇨🇦 Canadá', '🇦🇷 Argentina'].map(c => (
-              <span key={c} className="bg-white/10 px-3 py-1 rounded-full border border-white/10">{c}</span>
+              <span key={c} className="px-3 py-1 rounded-full border shadow-sm bg-white border-slate-200 dark:bg-white/10 dark:border-white/10 dark:shadow-none">{c}</span>
             ))}
           </motion.div>
         </motion.div> 
