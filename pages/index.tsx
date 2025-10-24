@@ -12,14 +12,20 @@ import { ContactSection } from '../components/contact/ContactSection';
 export default function HomePage() {
   return (
   <Layout title="Hernny Malaver — Director de proyectos y desarrollador de software">
-      <Hero />
-      <About />
+    <Hero />
+    <About />
+    <div className="w-full relative overflow-hidden bg-slate-100 dark:bg-slate-900">
       <Skills />
-      <Experience />
-  <Projects />
-  <Gallery />
+    </div>
+    <Experience />
+    <div className="w-full relative overflow-hidden bg-slate-100 dark:bg-slate-900">
+      <Projects />
+    </div>
+    <Gallery />
+    <div className="w-full relative overflow-hidden bg-slate-100 dark:bg-slate-900">
       <Scheduler />
-      <ContactSection />
-    </Layout>
+    </div>
+    <ContactSection />
+  </Layout>
   );
 }

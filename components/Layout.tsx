@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { Seo } from './Seo';
 import { ReactNode, useEffect } from 'react';
 import { CookieBanner } from './cookie/CookieBanner';

@@ -2,15 +2,25 @@ import { motion } from 'framer-motion';
 
 export function Hero() {
   return (
-    // Hero con márgenes homogéneos y reglas responsive (sm/md)
-    <section id="home" className="section container">
+    // Hero con márgenes homogéneos y reglas responsive (sm/md) y fondo diferenciado full-bleed
+  <section id="home" className="section relative overflow-hidden w-full bg-slate-100 dark:bg-slate-900">
+      {/* Lavado muy sutil: gradiente vertical para profundidad (light/dark aware) */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-black/5 via-transparent to-transparent dark:from-black/20 dark:via-transparent dark:to-transparent"
+      />
+      {/* Textura ligera tipo papel: ruido fractal de baja opacidad */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 opacity-10 dark:opacity-10 mix-blend-multiply bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22160%22 viewBox=%220 0 160 160%22><filter id=%22n%22 x=%220%22 y=%220%22 width=%22100%25%22 height=%22100%25%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/></filter><rect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22 opacity=%220.8%22/></svg>')]"
+      />
       {/* Máximo 2 pantallas (sin sub-scroll): dos paneles que usan el scroll de la página */}
-      <div className="md:col-span-12 w-full mx-auto text-center">
-  {/* Contenido unificado del hero */}
-  <motion.div className="flex flex-col items-center justify-start">
+      <div className="container md:col-span-12 w-full mx-auto text-center">
+        {/* Contenido unificado del hero */}
+        <motion.div className="flex flex-col items-center justify-start">
           {/* Headline auténtico */}
           <motion.h1
-            className="text-4xl md:text-6xl font-extrabold leading-tight"
+            className="mt-8 md:mt-12 text-4xl md:text-6xl font-extrabold leading-tight"
             initial={{ opacity: 1, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.7 }}
@@ -22,7 +32,7 @@ export function Hero() {
 
           {/* Subheadline */}
           <motion.p
-            className="mt-4 md:mt-6 text-lg md:text-2xl font-medium opacity-95"
+            className="mt-8 md:mt-12 text-lg md:text-2xl font-medium opacity-95"
             initial={{ opacity: 1, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.85 }}
@@ -33,7 +43,7 @@ export function Hero() {
 
           {/* Credenciales */}
           <motion.div
-            className="mt-4 md:mt-6 flex flex-wrap items-center justify-center gap-2 text-sm md:text-base opacity-90"
+            className="mt-8 md:mt-12 flex flex-wrap items-center justify-center gap-2 text-sm md:text-base opacity-90"
             initial={{ opacity: 1, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.9 }}
@@ -45,7 +55,7 @@ export function Hero() {
           </motion.div>
 
           {/* Métricas reales */}
-          <motion.div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 mt-6 md:mt-8">
+          <motion.div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 mt-8 md:mt-12">
             {[
               { n: '12+', l: 'Años Desarrollo & PM' },
               { n: '4', l: 'Plataformas Fintech' },
