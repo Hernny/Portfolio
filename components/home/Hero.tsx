@@ -26,8 +26,8 @@ export function Hero() {
             viewport={{ once: true, amount: 0.7 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
           >
-            Dirección de Proyectos Fintech enfocada en{' '}
-            <span className="text-primary">resultados</span>
+            Dirección y desarrollo de plataformas Fintech, desde la conceptualización hasta la puesta en{' '}
+            <span className="text-primary">producción</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -38,7 +38,8 @@ export function Hero() {
             viewport={{ once: true, amount: 0.85 }}
             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.05 }}
           >
-            Technical Project Manager con 12+ años transformando ideas complejas en plataformas escalables. Combino experiencia hands-on en desarrollo con liderazgo ágil para entregar productos que realmente funcionan.
+            Experiencia comprobada en integración de tecnologías, automatización de procesos y liderazgo de equipos multidisciplinarios en entornos ágiles.
+            Oriento cada proyecto hacia la escalabilidad, la seguridad y la entrega de valor tangible para el negocio.
           </motion.p>
 
           {/* Credenciales */}
@@ -158,7 +159,7 @@ export function Hero() {
           >
             <h3 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight text-center mb-4 md:mb-6">Proyectos Destacados</h3>
             <div className="flex flex-wrap justify-center gap-2">
-              {['YDPAY Platform','Satstreet Exchange','VisaNet Integration','University Tower System'].map(p => (
+              {['YDPay Platform','Satstreet Exchange','Becca Platform','The Futures Platform'].map(p => (
                 <span key={p} className="px-3 py-1.5 rounded text-sm border shadow-sm bg-white border-slate-200 dark:bg-white/10 dark:border-white/10 dark:shadow-none">
                   {p}
                 </span>
