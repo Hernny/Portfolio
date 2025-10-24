@@ -3,29 +3,49 @@ import { listDriveImages, DriveFile } from '../../lib/googleDrive';
 
 function buildCandidates(file: DriveFile) {
   const directView = `https://drive.google.com/uc?export=view&id=${file.id}`;
-  const thumbApi = `https://drive.google.com/thumbnail?id=${file.id}&sz=w1000`;
+  const thumbApi = (w: number) => `https://drive.google.com/thumbnail?id=${file.id}&sz=w${w}`;
   const list: string[] = [];
   if (file.thumbnailLink) list.push(file.thumbnailLink);
-  list.push(thumbApi);
+  list.push(thumbApi(1000));
   list.push(directView);
   if (file.webContentLink) list.push(file.webContentLink);
   return list;
 }
 
+function buildSrcSet(file: DriveFile) {
+  const widths = [320, 480, 640, 800, 1000, 1280];
+  return widths.map((w) => `https://drive.google.com/thumbnail?id=${file.id}&sz=w${w} ${w}w`).join(', ');
+}
+
 function DriveImage({ file, alt }: { file: DriveFile; alt: string }) {
   const candidates = useMemo(() => buildCandidates(file), [file]);
-  const [idx, setIdx] = useState(0);
-  const src = candidates[idx] || '';
+  const [fallbackIdx, setFallbackIdx] = useState(-1); // -1 means use responsive thumbnail
   const onError = useCallback(() => {
-    setIdx((i) => (i + 1 < candidates.length ? i + 1 : i));
+    setFallbackIdx((i) => {
+      const next = i + 1;
+      return next < candidates.length ? next : i;
+    });
   }, [candidates.length]);
+
+  // Responsive thumbnail defaults
+  const defaultWidth = 800;
+  const src = `https://drive.google.com/thumbnail?id=${file.id}&sz=w${defaultWidth}`;
+  const srcSet = buildSrcSet(file);
+  const sizes = '(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw';
+
+  const finalSrc = fallbackIdx >= 0 ? candidates[fallbackIdx] : src;
+
   return (
     <img
-      src={src}
+      src={finalSrc}
+      {...(fallbackIdx < 0 ? { srcSet, sizes } : {})}
+      width={defaultWidth}
+      height={Math.round(defaultWidth * 0.75)}
       alt={alt}
       referrerPolicy="no-referrer"
       decoding="async"
       loading="lazy"
+  fetchPriority="low"
       onError={onError}
       className="h-full w-full object-cover transition-transform duration-200 group-hover:scale-105"
     />
