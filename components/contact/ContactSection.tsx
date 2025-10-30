@@ -1,6 +1,8 @@
 import { profile } from '../../data/profile';
 import { FaEnvelope, FaLinkedin, FaPhone, FaWhatsapp } from 'react-icons/fa';
 import { useMemo } from 'react';
+import { motion } from 'framer-motion';
+import { fadeUp, staggerContainer } from '../motion/Reveal';
 
 export function ContactSection() {
   const wa = useMemo(() => {
@@ -12,15 +14,23 @@ export function ContactSection() {
   return (
     <section id="contact" className="section container scroll-mt-24 md:scroll-mt-28">
       <div className="max-w-3xl mx-auto text-center mb-8 md:mb-12">
-        <h2 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight mb-4 md:mb-6">Conectemos</h2>
-        <p className="text-lg opacity-80 leading-relaxed">
+        <motion.h2
+          className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight mb-4 md:mb-6"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.7 }}
+          transition={{ duration: 0.45, ease: 'easeOut' }}
+        >
+          Conectemos
+        </motion.h2>
+        <motion.p className="text-lg opacity-80 leading-relaxed" initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.7 }} transition={{ duration: 0.4, ease: 'easeOut', delay: 0.05 }}>
           ¿Tienes un proyecto estratégico, una oportunidad de colaboración o necesitas dirección tecnológica? Escríbeme y
           respondemos por el canal que prefieras. Estoy comprometido con soluciones elegantes, medibles y alineadas al negocio.
-        </p>
+        </motion.p>
       </div>
-      <div className="grid lg:grid-cols-3 gap-6 md:gap-10">
+      <motion.div className="grid lg:grid-cols-3 gap-6 md:gap-10" variants={staggerContainer(0.08)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
         {/* Contact channels */}
-        <div className="space-y-3 md:space-y-4 lg:col-span-1">
+        <motion.div className="space-y-3 md:space-y-4 lg:col-span-1" variants={fadeUp}>
           <div className="text-left">
             <h3 className="font-semibold tracking-wide mb-2 md:mb-3 text-primary">Canales directos</h3>
             <ul className="space-y-2.5 md:space-y-3">
@@ -82,9 +92,9 @@ export function ContactSection() {
           <div className="text-sm opacity-70 leading-relaxed">
             También puedo adaptarme a otras plataformas (Teams, Slack, Meet) una vez iniciado el contacto.
           </div>
-        </div>
+        </motion.div>
         {/* CTA WhatsApp destacado (sin formulario) */}
-        <div className="lg:col-span-2">
+        <motion.div className="lg:col-span-2" variants={fadeUp}>
           <div className="grid gap-4 md:gap-5 bg-white/50 dark:bg-white/5 backdrop-blur rounded-xl p-5 md:p-6 border border-slate-200/70 dark:border-white/10 shadow-md">
             <div className="space-y-2">
               <h3 className="font-semibold tracking-wide">Contacto inmediato</h3>
@@ -97,8 +107,8 @@ export function ContactSection() {
             </div>
             <p className="text-xs opacity-60 leading-relaxed">Al contactar aceptas ser respondido por cualquiera de los canales que indiques.</p>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

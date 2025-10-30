@@ -1,4 +1,6 @@
 import { useEffect, useState, useCallback, useMemo } from 'react';
+import { motion } from 'framer-motion';
+import { fadeUp, staggerContainer } from '../motion/Reveal';
 import { listDriveImages, DriveFile } from '../../lib/googleDrive';
 
 function buildCandidates(file: DriveFile) {
@@ -105,7 +107,15 @@ export function Gallery() {
   // Always render the section so observers and hash navigation work even while loading
   return (
     <section id="gallery" className="section container scroll-mt-24 md:scroll-mt-28">
-      <h2 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight text-center mb-4 md:mb-6">Galería</h2>
+      <motion.h2
+        className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight text-center mb-4 md:mb-6"
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.7 }}
+        transition={{ duration: 0.45, ease: 'easeOut' }}
+      >
+        Galería
+      </motion.h2>
       {loading ? (
         <p className="opacity-70">Cargando fotos…</p>
       ) : (
@@ -114,16 +124,22 @@ export function Gallery() {
           {images.length === 0 ? (
             <p className="opacity-80">No hay imágenes disponibles.</p>
           ) : (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+            <motion.div
+              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4"
+              variants={staggerContainer(0.06)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               {images.map((img) => (
-                <a key={img.id} href={img.webViewLink} target="_blank" rel="noreferrer" title={img.name}>
+                <motion.a key={img.id} href={img.webViewLink} target="_blank" rel="noreferrer" title={img.name} variants={fadeUp}>
                   <div className="aspect-[4/3] overflow-hidden rounded group border shadow-sm bg-white border-slate-200 dark:bg-white/5 dark:border-white/10 dark:shadow-none">
                     <DriveImage file={img} alt={img.name} />
                   </div>
                   <p className="mt-2 md:mt-3 text-sm truncate opacity-80">{img.name}</p>
-                </a>
+                </motion.a>
               ))}
-            </div>
+            </motion.div>
           )}
         </>
       )}

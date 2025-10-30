@@ -1,12 +1,28 @@
 import { projects } from '../../data/projects';
+import { motion } from 'framer-motion';
+import { fadeUp, staggerContainer } from '../motion/Reveal';
 
 export function Projects() {
   return (
     <section id="projects" className="section container scroll-mt-24 md:scroll-mt-28">
-      <h2 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight text-center mb-4 md:mb-6">Proyectos</h2>
-      <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+      <motion.h2
+        className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight text-center mb-4 md:mb-6"
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.7 }}
+        transition={{ duration: 0.45, ease: 'easeOut' }}
+      >
+        Proyectos
+      </motion.h2>
+      <motion.div
+        className="grid md:grid-cols-2 gap-4 md:gap-6"
+        variants={staggerContainer(0.08)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         {projects.map((p) => (
-          <article key={p.title} className="rounded p-4 md:p-5 border shadow-sm bg-white border-slate-200 dark:bg-white/5 dark:border-white/10 dark:shadow-none">
+          <motion.article key={p.title} className="rounded p-4 md:p-5 border shadow-sm bg-white border-slate-200 dark:bg-white/5 dark:border-white/10 dark:shadow-none" variants={fadeUp}>
             <h3 className="font-semibold text-lg">{p.title}</h3>
             <p className="opacity-80 mt-2 md:mt-3">{p.summary}</p>
             <div className="mt-3 md:mt-4 flex flex-wrap gap-2 text-xs opacity-80">
@@ -23,9 +39,9 @@ export function Projects() {
                 ))}
               </div>
             ) : null}
-          </article>
+          </motion.article>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }
