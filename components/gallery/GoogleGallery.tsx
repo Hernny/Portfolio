@@ -19,7 +19,7 @@ function buildSrcSet(file: DriveFile) {
 
 function DriveImage({ file, alt }: { file: DriveFile; alt: string }) {
   const candidates = useMemo(() => buildCandidates(file), [file]);
-  const [fallbackIdx, setFallbackIdx] = useState(-1); // -1 means use responsive thumbnail
+  const [fallbackIdx, setFallbackIdx] = useState(-1); // -1 means use primary strategy
   const onError = useCallback(() => {
     setFallbackIdx((i) => {
       const next = i + 1;
@@ -27,18 +27,24 @@ function DriveImage({ file, alt }: { file: DriveFile; alt: string }) {
     });
   }, [candidates.length]);
 
-  // Responsive thumbnail defaults
+  // Determine if this is a local placeholder image instead of a Drive file
+  const isLocal = (file.id?.startsWith('local-')) || (file.thumbnailLink?.includes('/gallery/placeholder-'));
+
   const defaultWidth = 800;
-  const src = `https://drive.google.com/thumbnail?id=${file.id}&sz=w${defaultWidth}`;
-  const srcSet = buildSrcSet(file);
   const sizes = '(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw';
 
-  const finalSrc = fallbackIdx >= 0 ? candidates[fallbackIdx] : src;
+  // Primary src and responsive set depend on local vs drive
+  const primarySrc = isLocal
+    ? (file.thumbnailLink || file.webViewLink || file.webContentLink || '')
+    : `https://drive.google.com/thumbnail?id=${file.id}&sz=w${defaultWidth}`;
+  const srcSet = isLocal ? undefined : buildSrcSet(file);
+
+  const finalSrc = fallbackIdx >= 0 ? candidates[fallbackIdx] : primarySrc;
 
   return (
     <img
       src={finalSrc}
-      {...(fallbackIdx < 0 ? { srcSet, sizes } : {})}
+      {...(fallbackIdx < 0 && srcSet ? { srcSet, sizes } : {})}
       width={defaultWidth}
       height={Math.round(defaultWidth * 0.75)}
       alt={alt}
