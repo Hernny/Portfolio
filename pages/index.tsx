@@ -50,7 +50,9 @@ export default function HomePage() {
         {/* <Scheduler /> */}
       </div>
     )}
-    <ContactSection />
+    <div className="w-full relative overflow-hidden bg-slate-100 dark:bg-slate-900">
+      <ContactSection />
+    </div>
   </Layout>
   );
 }

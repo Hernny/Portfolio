@@ -15,7 +15,7 @@ export function About() {
         Sobre mí
       </motion.h2>
       <motion.p
-        className="opacity-80 text-center"
+        className="text-base md:text-lg opacity-90 text-center"
         initial={{ opacity: 0, y: 8 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.7 }}
@@ -31,8 +31,26 @@ export function About() {
         viewport={{ once: true, amount: 0.3 }}
       >
         {profile.summary.map((s, i) => (
-          <motion.p key={i} className="opacity-80" variants={fadeUp}>{s}</motion.p>
+          <motion.p key={i} className="opacity-90" variants={fadeUp}>{s}</motion.p>
         ))}
+      </motion.div>
+
+      {/* CTA de contacto, homogenizada con el Hero */}
+      <motion.div
+        className="mt-6 md:mt-8 flex justify-center"
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.6 }}
+        transition={{ duration: 0.45, ease: 'easeOut', delay: 0.08 }}
+      >
+        <motion.a
+          href="#contact"
+          className="inline-block text-lg font-semibold px-8 py-4 rounded-lg text-white shadow bg-emerald-600 hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring focus-visible:ring-emerald-300/50"
+          whileHover={{ y: -2 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          Impulsemos tu plataforma
+        </motion.a>
       </motion.div>
     </section>
   );
