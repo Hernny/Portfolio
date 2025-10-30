@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { fadeUp, staggerContainer } from '../motion/Reveal';
+import { fadeUp, staggerContainer, SlideInOut } from '../motion/Reveal';
 import { listDriveImages, DriveFile } from '../../lib/googleDrive';
 
 function buildCandidates(file: DriveFile) {
@@ -124,22 +124,18 @@ export function Gallery() {
           {images.length === 0 ? (
             <p className="opacity-80">No hay imágenes disponibles.</p>
           ) : (
-            <motion.div
-              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4"
-              variants={staggerContainer(0.06)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.2 }}
-            >
-              {images.map((img) => (
-                <motion.a key={img.id} href={img.webViewLink} target="_blank" rel="noreferrer" title={img.name} variants={fadeUp}>
-                  <div className="aspect-[4/3] overflow-hidden rounded group border shadow-sm bg-white border-slate-200 dark:bg-white/5 dark:border-white/10 dark:shadow-none">
-                    <DriveImage file={img} alt={img.name} />
-                  </div>
-                  <p className="mt-2 md:mt-3 text-sm truncate opacity-80">{img.name}</p>
-                </motion.a>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+              {images.map((img, i) => (
+                <SlideInOut key={img.id} index={i} amount={0.25}>
+                  <a href={img.webViewLink} target="_blank" rel="noreferrer" title={img.name}>
+                    <div className="aspect-[4/3] overflow-hidden rounded group border shadow-sm bg-white border-slate-200 dark:bg-white/5 dark:border-white/10 dark:shadow-none">
+                      <DriveImage file={img} alt={img.name} />
+                    </div>
+                    <p className="mt-2 md:mt-3 text-sm truncate opacity-80">{img.name}</p>
+                  </a>
+                </SlideInOut>
               ))}
-            </motion.div>
+            </div>
           )}
         </>
       )}

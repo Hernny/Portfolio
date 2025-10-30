@@ -1,7 +1,7 @@
 import { profile } from '../../data/profile';
 import { Fragment } from 'react';
 import { motion } from 'framer-motion';
-import { fadeUp, staggerContainer } from '../motion/Reveal';
+import { fadeUp, staggerContainer, SlideInOut } from '../motion/Reveal';
 
 export function Experience() {
   return (
@@ -40,12 +40,11 @@ export function Experience() {
                 <span className="block w-3 h-3 rounded-full bg-primary ring-4 ring-primary/20 shadow" />
               </motion.div>
 
-                {/* 2) Contenedor de fecha (fuera de la tarjeta) + tarjeta */}
-                <motion.div
+                {/* 2) Contenedor de fecha (fuera de la tarjeta) + tarjeta, con efecto de repliegue */}
+                <SlideInOut
                   className="space-y-1.5"
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, amount: 0.35 }}
+                  index={idx}
+                  amount={0.35}
                   transition={{ duration: 0.45, ease: 'easeOut', delay: 0.02 * (idx % 4) }}
                 >
                   {/* Fecha estilo título reducido y primary, fuera del recuadro */}
@@ -76,7 +75,7 @@ export function Experience() {
                       ))}
                     </ul>
                   </motion.article>
-                </motion.div>
+                </SlideInOut>
             </Fragment>
           ))}
         </motion.div>

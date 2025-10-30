@@ -1,6 +1,6 @@
 import { projects } from '../../data/projects';
 import { motion } from 'framer-motion';
-import { fadeUp, staggerContainer } from '../motion/Reveal';
+import { fadeUp, staggerContainer, SlideInOut } from '../motion/Reveal';
 
 export function Projects() {
   return (
@@ -14,15 +14,10 @@ export function Projects() {
       >
         Proyectos
       </motion.h2>
-      <motion.div
-        className="grid md:grid-cols-2 gap-4 md:gap-6"
-        variants={staggerContainer(0.08)}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        {projects.map((p) => (
-          <motion.article key={p.title} className="rounded p-4 md:p-5 border shadow-sm bg-white border-slate-200 dark:bg-white/5 dark:border-white/10 dark:shadow-none" variants={fadeUp}>
+      <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+        {projects.map((p, i) => (
+          <SlideInOut key={p.title} index={i} amount={0.25}>
+            <article className="rounded p-4 md:p-5 border shadow-sm bg-white border-slate-200 dark:bg-white/5 dark:border-white/10 dark:shadow-none">
             <h3 className="font-semibold text-lg">{p.title}</h3>
             <p className="opacity-80 mt-2 md:mt-3">{p.summary}</p>
             <div className="mt-3 md:mt-4 flex flex-wrap gap-2 text-xs opacity-80">
@@ -39,9 +34,10 @@ export function Projects() {
                 ))}
               </div>
             ) : null}
-          </motion.article>
+            </article>
+          </SlideInOut>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }

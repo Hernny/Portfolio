@@ -2,7 +2,7 @@ import { profile } from '../../data/profile';
 import { FaEnvelope, FaLinkedin, FaPhone, FaWhatsapp } from 'react-icons/fa';
 import { useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { fadeUp, staggerContainer } from '../motion/Reveal';
+import { fadeUp, staggerContainer, SlideInOut } from '../motion/Reveal';
 
 export function ContactSection() {
   const wa = useMemo(() => {
@@ -28,9 +28,9 @@ export function ContactSection() {
           respondemos por el canal que prefieras. Estoy comprometido con soluciones elegantes, medibles y alineadas al negocio.
         </motion.p>
       </div>
-      <motion.div className="grid lg:grid-cols-3 gap-6 md:gap-10" variants={staggerContainer(0.08)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
+      <div className="grid lg:grid-cols-3 gap-6 md:gap-10">
         {/* Contact channels */}
-        <motion.div className="space-y-3 md:space-y-4 lg:col-span-1" variants={fadeUp}>
+        <SlideInOut className="space-y-3 md:space-y-4 lg:col-span-1" index={0} amount={0.25}>
           <div className="text-left">
             <h3 className="font-semibold tracking-wide mb-2 md:mb-3 text-primary">Canales directos</h3>
             <ul className="space-y-2.5 md:space-y-3">
@@ -92,9 +92,9 @@ export function ContactSection() {
           <div className="text-sm opacity-70 leading-relaxed">
             También puedo adaptarme a otras plataformas (Teams, Slack, Meet) una vez iniciado el contacto.
           </div>
-        </motion.div>
+        </SlideInOut>
         {/* CTA WhatsApp destacado (sin formulario) */}
-        <motion.div className="lg:col-span-2" variants={fadeUp}>
+        <SlideInOut className="lg:col-span-2" index={1} amount={0.25}>
           <div className="grid gap-4 md:gap-5 bg-white/50 dark:bg-white/5 backdrop-blur rounded-xl p-5 md:p-6 border border-slate-200/70 dark:border-white/10 shadow-md">
             <div className="space-y-2">
               <h3 className="font-semibold tracking-wide">Contacto inmediato</h3>
@@ -107,8 +107,8 @@ export function ContactSection() {
             </div>
             <p className="text-xs opacity-60 leading-relaxed">Al contactar aceptas ser respondido por cualquiera de los canales que indiques.</p>
           </div>
-        </motion.div>
-      </motion.div>
+        </SlideInOut>
+      </div>
     </section>
   );
 }
