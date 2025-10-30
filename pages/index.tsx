@@ -6,7 +6,6 @@ import { Skills } from '../components/profile/Skills';
 import { Experience } from '../components/profile/Experience';
 // Removed separate ContactInfo & ContactForm in favor of unified ContactSection
 import { Projects } from '../components/profile/Projects';
-import { Scheduler } from '../components/schedule/Scheduler';
 import { ContactSection } from '../components/contact/ContactSection';
 
 export default function HomePage() {
@@ -45,9 +44,12 @@ export default function HomePage() {
       <Projects />
     </div>
     <Gallery />
-    <div className="w-full relative overflow-hidden bg-slate-100 dark:bg-slate-900">
-      <Scheduler />
-    </div>
+    {false && (
+      <div className="w-full relative overflow-hidden bg-slate-100 dark:bg-slate-900">
+        {/* Scheduler oculto intencionalmente; se mantiene el código pero no se muestra */}
+        {/* <Scheduler /> */}
+      </div>
+    )}
     <ContactSection />
   </Layout>
   );
