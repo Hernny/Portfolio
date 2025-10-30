@@ -1,3 +1,4 @@
+const path = require('path');
 /** @type {import('next').NextConfig} */
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -10,6 +11,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // Fix workspace root inference when multiple lockfiles exist (Windows/monorepo env)
+  outputFileTracingRoot: path.join(__dirname),
   basePath: isProd && repo ? `/${repo}` : '',
   assetPrefix: isProd && repo ? `/${repo}/` : '',
 };

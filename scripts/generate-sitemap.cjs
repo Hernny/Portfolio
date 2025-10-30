@@ -3,6 +3,26 @@
 const fs = require('fs');
 const path = require('path');
 
+// Best-effort: hydrate env from .env.local if running outside Next's env loader (postbuild)
+try {
+  const envPath = path.join(process.cwd(), '.env.local');
+  if (fs.existsSync(envPath)) {
+    const lines = fs.readFileSync(envPath, 'utf8').split(/\r?\n/);
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('#')) continue;
+      const eq = trimmed.indexOf('=');
+      if (eq > 0) {
+        const key = trimmed.slice(0, eq).trim();
+        const val = trimmed.slice(eq + 1).trim();
+        if (key && !(key in process.env)) {
+          process.env[key] = val;
+        }
+      }
+    }
+  }
+} catch {}
+
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || '';
 if (!BASE_URL) {
   console.warn('NEXT_PUBLIC_BASE_URL is not set; sitemap will use relative URLs.');

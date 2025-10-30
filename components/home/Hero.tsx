@@ -42,18 +42,44 @@ export function Hero() {
             Oriento cada proyecto hacia la escalabilidad, la seguridad y la entrega de valor tangible para el negocio.
           </motion.p>
 
-          {/* Credenciales */}
+          {/* CTAs auténticos (movidos arriba para primera pantalla) */}
+          <motion.div
+            className="mt-8 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4"
+            initial={{ opacity: 1, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.7 }}
+            transition={{ duration: 0.45, ease: 'easeOut', delay: 0.08 }}
+          >
+            <motion.a
+              href="#contact"
+              className="inline-block text-lg font-semibold px-8 py-4 rounded-lg text-white shadow bg-emerald-600 hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring focus-visible:ring-emerald-300/50"
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Conversemos sobre tu Proyecto Técnico
+            </motion.a>
+            <motion.a
+              href="#projects"
+              className="inline-block text-base font-medium px-6 py-3 rounded-lg border border-white/30 hover:border-white/50 focus-visible:outline-none focus-visible:ring focus-visible:ring-primary/30"
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Ver Portfolio de Plataformas
+            </motion.a>
+          </motion.div>
+
+          {/* Credenciales (ahora arriba de las métricas) */}
           <motion.div
             className="mt-8 md:mt-12 flex flex-wrap items-center justify-center gap-2 text-sm md:text-base opacity-90"
             initial={{ opacity: 1, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.9 }}
-            transition={{ duration: 0.4, ease: 'easeOut', delay: 0.08 }}
+            transition={{ duration: 0.4, ease: 'easeOut', delay: 0.1 }}
           >
             {['Computer Science Degree','Scrum Master','Full-Stack Engineer','Blockchain Specialist'].map((c) => (
               <span
                 key={c}
-                className="px-3 py-1.5 rounded-full border shadow-sm bg-white border-slate-200 dark:bg-white/10 dark:border-white/10 dark:shadow-none"
+                className="px-3 py-1.5 rounded-lg border shadow-sm bg-white border-slate-200 dark:bg-white/10 dark:border-white/10 dark:shadow-none"
               >
                 {c}
               </span>
@@ -81,6 +107,19 @@ export function Hero() {
               </motion.div>
             ))}
           </motion.div>
+
+          {/* Experiencia Internacional (chips sin etiqueta) */}
+          <motion.div
+            className="mt-8 md:mt-12 flex flex-wrap items-center justify-center gap-2 text-sm"
+            initial={{ opacity: 1, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.7 }}
+            transition={{ duration: 0.4, ease: 'easeOut', delay: 0.12 }}
+          >
+            {['🇲🇽 México','🇬🇹 Guatemala','🇬🇧 Inglaterra','🇨🇦 Canadá', '🇦🇷 Argentina'].map(c => (
+              <span key={c} className="px-3 py-1.5 rounded-lg border shadow-sm bg-white border-slate-200 dark:bg-white/10 dark:border-white/10 dark:shadow-none">{c}</span>
+            ))}
+          </motion.div>
           {/* Stack Tecnológico */}
           <motion.div
             className="w-full mt-8 md:mt-12"
@@ -95,39 +134,39 @@ export function Hero() {
               <div className="text-center">
                 <h4 className="text-sm md:text-base font-extrabold leading-tight tracking-tight text-primary">Backend</h4>
                 <div className="mt-2 md:mt-3 flex flex-wrap justify-center gap-2">
-                  <a href="https://docs.nestjs.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">NestJS</a>
-                  <a href="https://expressjs.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Express</a>
-                  <a href="https://laravel.com/docs" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Laravel</a>
-                  <a href="https://www.anchor-lang.com/docs" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Anchor</a>
+                  <a href="https://docs.nestjs.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-lg text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">NestJS</a>
+                  <a href="https://expressjs.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-lg text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Express</a>
+                  <a href="https://laravel.com/docs" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-lg text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Laravel</a>
+                  <a href="https://www.anchor-lang.com/docs" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-lg text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Anchor</a>
                 </div>
               </div>
               {/* Frontend pills */}
               <div className="text-center">
                 <h4 className="text-sm md:text-base font-extrabold leading-tight tracking-tight text-primary">Frontend</h4>
                 <div className="mt-2 md:mt-3 flex flex-wrap justify-center gap-2">
-                  <a href="https://vuejs.org/guide/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Vue</a>
-                  <a href="https://react.dev/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">React</a>
-                  <a href="https://developer.android.com" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Android</a>
+                  <a href="https://vuejs.org/guide/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-lg text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Vue</a>
+                  <a href="https://react.dev/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-lg text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">React</a>
+                  <a href="https://developer.android.com" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-lg text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Android</a>
                 </div>
               </div>
               {/* Database pills */}
               <div className="text-center">
                 <h4 className="text-sm md:text-base font-extrabold leading-tight tracking-tight text-primary">Database</h4>
                 <div className="mt-2 md:mt-3 flex flex-wrap justify-center gap-2">
-                  <a href="https://www.postgresql.org/docs/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Postgres</a>
-                  <a href="https://dev.mysql.com/doc/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">MySQL</a>
-                  <a href="https://www.mongodb.com/docs/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">MongoDB</a>
-                  <a href="https://redis.io/docs/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Redis</a>
+                  <a href="https://www.postgresql.org/docs/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-lg text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Postgres</a>
+                  <a href="https://dev.mysql.com/doc/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-lg text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">MySQL</a>
+                  <a href="https://www.mongodb.com/docs/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-lg text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">MongoDB</a>
+                  <a href="https://redis.io/docs/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-lg text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Redis</a>
                 </div>
               </div>
               {/* DevOps pills */}
               <div className="text-center">
                 <h4 className="text-sm md:text-base font-extrabold leading-tight tracking-tight text-primary">DevOps</h4>
                 <div className="mt-2 md:mt-3 flex flex-wrap justify-center gap-2">
-                  <a href="https://docs.docker.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Docker</a>
-                  <a href="https://nx.dev/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Nx</a>
-                  <a href="https://docs.github.com/actions" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">CI/CD</a>
-                  <a href="https://docs.aws.amazon.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-full text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">AWS</a>
+                  <a href="https://docs.docker.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-lg text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Docker</a>
+                  <a href="https://nx.dev/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-lg text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Nx</a>
+                  <a href="https://docs.github.com/actions" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-lg text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">CI/CD</a>
+                  <a href="https://docs.aws.amazon.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-lg text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">AWS</a>
                 </div>
               </div>
             </div>
@@ -144,7 +183,7 @@ export function Hero() {
             <h3 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight text-center mb-4 md:mb-6">Especialización</h3>
             <div className="flex flex-wrap justify-center gap-2">
               {['Fintech','Blockchain','Plataformas de Pago','E-commerce','Sistemas Empresariales'].map(t => (
-                <span key={t} className="px-3 py-1.5 rounded-full text-sm font-medium text-white bg-gradient-to-r from-sky-400 to-sky-500 border border-sky-300/40 shadow-sm dark:border-white/10 dark:shadow-none">{t}</span>
+                <span key={t} className="px-3 py-1.5 rounded-lg text-sm font-medium text-white bg-gradient-to-r from-sky-400 to-sky-500 border border-sky-300/40 shadow-sm dark:border-white/10 dark:shadow-none">{t}</span>
               ))}
             </div>
           </motion.div>
@@ -160,14 +199,14 @@ export function Hero() {
             <h3 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight text-center mb-4 md:mb-6">Proyectos Destacados</h3>
             <div className="flex flex-wrap justify-center gap-2">
               {['YDPay Platform','Satstreet Exchange','Becca Platform','The Futures Platform'].map(p => (
-                <span key={p} className="px-3 py-1.5 rounded text-sm border shadow-sm bg-white border-slate-200 dark:bg-white/10 dark:border-white/10 dark:shadow-none">
+                <span key={p} className="px-3 py-1.5 rounded-lg text-sm border shadow-sm bg-white border-slate-200 dark:bg-white/10 dark:border-white/10 dark:shadow-none">
                   {p}
                 </span>
               ))}
             </div>
           </motion.div>
 
-          {/* Value Proposition (movida justo encima de los CTAs) */}
+          {/* Value Proposition */}
           <motion.blockquote
             className="mt-8 md:mt-10 text-base md:text-lg opacity-95 border border-white/15 bg-white/5 rounded-xl px-4 md:px-6 py-3 md:py-4 italic"
             initial={{ opacity: 1, y: 10 }}
@@ -178,45 +217,7 @@ export function Hero() {
             “No solo gestiono proyectos, los construyo. Mi experiencia técnica me permite anticipar problemas, optimizar arquitecturas y liderar equipos con credibilidad desde el código.”
           </motion.blockquote>
 
-          {/* CTAs auténticos */}
-          <motion.div
-            className="mt-8 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4"
-            initial={{ opacity: 1, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.7 }}
-            transition={{ duration: 0.45, ease: 'easeOut', delay: 0.2 }}
-          >
-            <motion.a
-              href="#contact"
-              className="inline-block text-lg font-semibold px-8 py-4 rounded-lg text-white shadow bg-emerald-600 hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring focus-visible:ring-emerald-300/50"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Conversemos sobre tu Proyecto Técnico
-            </motion.a>
-            <motion.a
-              href="#projects"
-              className="inline-block text-base font-medium px-6 py-3 rounded-lg border border-white/30 hover:border-white/50 focus-visible:outline-none focus-visible:ring focus-visible:ring-primary/30"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Ver Portfolio de Plataformas
-            </motion.a>
-          </motion.div>
 
-          {/* Experiencia Internacional */}
-          <motion.div
-            className="mt-8 md:mt-12 flex flex-wrap items-center justify-center gap-2 text-sm"
-            initial={{ opacity: 1, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.7 }}
-            transition={{ duration: 0.4, ease: 'easeOut', delay: 0.22 }}
-          >
-            <span className="font-semibold opacity-80">Experiencia Internacional:</span>
-            {['🇲🇽 México','🇬🇹 Guatemala','🇬🇧 Inglaterra','🇨🇦 Canadá', '🇦🇷 Argentina'].map(c => (
-              <span key={c} className="px-3 py-1 rounded-full border shadow-sm bg-white border-slate-200 dark:bg-white/10 dark:border-white/10 dark:shadow-none">{c}</span>
-            ))}
-          </motion.div>
         </motion.div> 
       </div>
     </section>
