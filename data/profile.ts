@@ -27,6 +27,14 @@ export const profile = {
       'Stakeholder management',
       'Métricas & KPIs (lead time, throughput, calidad)'
     ],
+    Personales: [
+      'Sentido común',
+      'Responsabilidad',
+      'Liderazgo',
+      'Pensamiento analítico',
+      'Lógica avanzada',
+      'Compañerismo',
+    ],
     frontend: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Accesibilidad (a11y)'],
     backend: ['Node.js', 'REST APIs', 'Auth/OAuth', 'zod', 'date-fns'],
     devops: ['GitHub Actions', 'CI/CD', 'Git', 'GitHub Pages', 'Pruebas (Vitest, Playwright)'],

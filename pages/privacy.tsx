@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { Layout } from '../components/Layout';
 
 export default function PrivacyPolicy() {
@@ -55,7 +54,7 @@ export default function PrivacyPolicy() {
       </p>
 
       <div className="mt-8">
-        <Link href="/" className="text-primary hover:underline">Volver al inicio</Link>
+        <a href="/" className="text-primary hover:underline">Volver al inicio</a>
       </div>
     </div>
     </Layout>
