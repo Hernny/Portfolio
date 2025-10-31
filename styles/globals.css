@@ -94,3 +94,24 @@ body {
 .section {
   @apply py-16 md:py-24;
 }
+
+/* Flip card primitives */
+.flip {
+  perspective: 1000px;
+}
+.flip-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 600ms cubic-bezier(0.2, 0.65, 0.2, 1);
+}
+.group:hover .flip-inner,
+.group:focus-within .flip-inner {
+  transform: rotateY(var(--flip-rotate, 180deg));
+}
+.flip-face {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+.flip-back {
+  transform: rotateY(var(--back-rotate, 180deg));
+}
