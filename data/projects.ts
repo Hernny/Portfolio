@@ -7,18 +7,6 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: 'Dashboard de métricas de proyectos',
-    summary:
-      'Tablero operativo con KPIs de entrega y calidad (lead time, throughput, fallas), integrado con GitHub Actions y reportes periódicos para la toma de decisiones.',
-    stack: ['Next.js', 'TypeScript', 'GitHub Actions'],
-  },
-  {
-    title: 'Portal de portafolio personal',
-    summary:
-      'SPA estática con animaciones refinadas, theming light/dark, dropdown accesibles y galería resiliente vía Google Drive (fallback locales), optimizada para GitHub Pages.',
-    stack: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'Google APIs'],
-  },
-  {
     title: 'Plataforma de intercambio de criptoactivos (Satstreet)',
     summary:
       '2020–2024 · Definición de objetivos técnicos/estratégicos, modelado de datos (wallets y transacciones), wireframes para web/móvil y coordinación Scrum de equipo.',
