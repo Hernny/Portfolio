@@ -43,16 +43,17 @@ export default function HomePage() {
     <div className="w-full relative overflow-hidden bg-slate-100 dark:bg-slate-900">
       <Projects />
     </div>
-    <Gallery />
+    {/* <Gallery /> */}
     {false && (
       <div className="w-full relative overflow-hidden bg-slate-100 dark:bg-slate-900">
         {/* Scheduler oculto intencionalmente; se mantiene el código pero no se muestra */}
         {/* <Scheduler /> */}
       </div>
     )}
-    <div className="w-full relative overflow-hidden bg-slate-100 dark:bg-slate-900">
-      <ContactSection />
-    </div>
+    <ContactSection />
+    {/* <div className="w-full relative overflow-hidden bg-slate-100 dark:bg-slate-900">
+      
+    </div> */}
   </Layout>
   );
 }

@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 mt-20">
+    <footer className="border-t border-white/10">
       <div className="container py-8 flex flex-col md:flex-row items-center gap-3 text-sm">
         <p className="opacity-70">© {new Date().getFullYear()} Hernny Malaver. Todos los derechos reservados.</p>
         <div className="ml-auto flex items-center gap-6">

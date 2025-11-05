@@ -28,11 +28,10 @@ export function ContactSection() {
           respondemos por el canal que prefieras. Estoy comprometido con soluciones elegantes, medibles y alineadas al negocio.
         </motion.p>
       </div>
-      <div className="grid lg:grid-cols-3 gap-6 md:gap-10">
+      <div className="grid lg:grid-cols-3 gap-6 md:gap-10 items-stretch">
         {/* Contact channels */}
-        <SlideInOut className="space-y-3 md:space-y-4 lg:col-span-1" index={0} amount={0.25}>
+        <SlideInOut className="space-y-3 md:space-y-4 lg:col-span-1 h-full" index={0} amount={0.25}>
           <div className="text-left">
-            <h3 className="font-semibold tracking-wide mb-2 md:mb-3 text-primary">Canales directos</h3>
             <ul className="space-y-2.5 md:space-y-3">
               <li>
                 <a href={`mailto:${profile.email}`} className="group flex items-center gap-3 rounded-lg border border-slate-200/60 dark:border-white/10 hover:border-primary/60 px-4 py-3 bg-white/40 dark:bg-white/5 backdrop-blur transition">
@@ -56,7 +55,7 @@ export function ContactSection() {
                   </div>
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href={`tel:${profile.phone.replace(/\s+/g, '')}`} className="group flex items-center gap-3 rounded-lg border border-slate-200/60 dark:border-white/10 hover:border-primary/60 px-4 py-3 bg-white/40 dark:bg-white/5 backdrop-blur transition">
                   <span className="p-2 rounded-md bg-primary/10 text-primary group-hover:bg-primary group-hover:text-black transition">
                     <FaPhone />
@@ -66,7 +65,7 @@ export function ContactSection() {
                     <p className="opacity-70">{profile.phone}</p>
                   </div>
                 </a>
-              </li>
+              </li> */}
               <li>
                 {/* WhatsApp link using wa.me (remove + and spaces) with preset message */}
                 {(() => {
@@ -89,13 +88,10 @@ export function ContactSection() {
               </li>
             </ul>
           </div>
-          <div className="text-sm opacity-70 leading-relaxed">
-            También puedo adaptarme a otras plataformas (Teams, Slack, Meet) una vez iniciado el contacto.
-          </div>
         </SlideInOut>
         {/* CTA WhatsApp destacado (sin formulario) */}
-        <SlideInOut className="lg:col-span-2" index={1} amount={0.25}>
-          <div className="grid gap-4 md:gap-5 bg-white/50 dark:bg-white/5 backdrop-blur rounded-xl p-5 md:p-6 border border-slate-200/70 dark:border-white/10 shadow-md">
+        <SlideInOut className="lg:col-span-2 h-full" index={1} amount={0.25}>
+          <div className="h-full flex flex-col gap-4 md:gap-5 bg-white/50 dark:bg-white/5 backdrop-blur rounded-xl p-5 md:p-6 border border-slate-200/70 dark:border-white/10 shadow-md">
             <div className="space-y-2">
               <h3 className="font-semibold tracking-wide">Contacto inmediato</h3>
               <p className="opacity-80">Prefiero conversaciones ágiles. Escríbeme por WhatsApp y coordinamos.</p>
@@ -105,10 +101,19 @@ export function ContactSection() {
                 Contactar por WhatsApp
               </a>
             </div>
-            <p className="text-xs opacity-60 leading-relaxed">Al contactar aceptas ser respondido por cualquiera de los canales que indiques.</p>
+            <p className="text-xs opacity-60 leading-relaxed mt-auto">Al contactar aceptas ser respondido por cualquiera de los canales que indiques.</p>
           </div>
         </SlideInOut>
       </div>
+      <motion.p
+        className="mt-8 md:mt-10 text-center text-sm italic opacity-70"
+        initial={{ opacity: 0, y: 6 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.6 }}
+        transition={{ duration: 0.35, ease: 'easeOut' }}
+      >
+        También puedo adaptarme a otras plataformas (Teams, Slack, Meet) una vez iniciado el contacto.
+      </motion.p>
     </section>
   );
 }
