@@ -28,7 +28,7 @@ const NAV: NavGroup[] = [
     ],
   },
   { id: 'projects', label: 'Proyectos', icon: <FaFolderOpen />, sectionIds: ['projects'] },
-  { id: 'gallery', label: 'Galería', icon: <FaImages />, sectionIds: ['gallery'] },
+  // { id: 'gallery', label: 'Galería', icon: <FaImages />, sectionIds: ['gallery'] }, // ocultado temporalmente
   { id: 'contact', label: 'Contacto', icon: <FaEnvelope />, sectionIds: ['contact'] },
 ];
 
@@ -116,7 +116,7 @@ export function Header() {
       if (!hash) return;
       if (['about', 'skills', 'experience'].includes(hash)) {
         setActive('about-group');
-      } else if (['projects', 'gallery', 'contact'].includes(hash)) {
+      } else if (['projects', 'contact'].includes(hash)) {
         setActive(hash);
       }
     };
