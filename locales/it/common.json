@@ -1,0 +1,215 @@
+{
+  "nav": {
+    "aboutGroup": "Chi sono",
+    "about": "Profilo",
+    "skills": "Competenze",
+    "experience": "Esperienza",
+    "projects": "Progetti",
+    "contact": "Contatto",
+    "openMenu": "Apri menu",
+    "themeToLight": "Passa al tema chiaro",
+    "themeToDark": "Passa al tema scuro"
+  },
+  "hero": {
+    "title": "Direzione e sviluppo di piattaforme Fintech, dalla concezione alla messa in <0>produzione</0>",
+    "sub": "Esperienza comprovata nell'integrazione di tecnologie, automazione dei processi e guida di team multidisciplinari in ambienti agili. Guido ogni progetto verso scalabilità, sicurezza e valore tangibile per il business.",
+    "ctaPrimary": "Parliamo del tuo progetto tecnico",
+    "ctaSecondary": "Vedi portfolio delle piattaforme",
+    "metrics": {
+      "years": "Anni Dev & PM",
+      "platforms": "Piattaforme Fintech",
+      "countries": "Paesi di esperienza",
+      "stack": "Tecnologie dello stack"
+    },
+    "countries": ["🇲🇽 Messico","🇬🇹 Guatemala","🇬🇧 Inghilterra","🇨🇦 Canada","🇦🇷 Argentina"],
+    "stackTitle": "Stack Tecnologico",
+    "backend": "Backend",
+    "frontend": "Frontend",
+    "database": "Database",
+    "devops": "DevOps",
+    "specializationTitle": "Specializzazione",
+    "specializations": ["Fintech","Blockchain","Piattaforme di Pagamento","E-commerce","Sistemi Aziendali"],
+    "featuredTitle": "Progetti in evidenza",
+    "quote": "“Non solo gestisco progetti: li costruisco. La mia esperienza tecnica mi permette di anticipare i problemi, ottimizzare le architetture e guidare i team con credibilità partendo dal codice.”"
+  },
+  "skills": {
+      "showCategory": "Mostra competenze per {{cat}}",
+      "categories": {
+        "gestion": "Gestione",
+        "personales": "Personali",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "devops": "DevOps",
+        "herramientas": "Strumenti"
+      },
+      "items": {
+        "gestion": [
+          "Direzione progetti",
+          "Scrum/Kanban (approccio empirico)",
+          "Roadmapping e priorità basata sull’impatto",
+          "Gestione stakeholder",
+          "Metriche e KPI (lead time, throughput, qualità)"
+        ],
+        "personales": [
+          "Buon senso",
+          "Responsabilità",
+          "Leadership",
+          "Pensiero analitico",
+          "Logica avanzata",
+          "Spirito di squadra"
+        ],
+        "frontend": [
+          "React",
+          "Next.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "Framer Motion",
+          "Accessibilità (a11y)"
+        ],
+        "backend": [
+          "Node.js",
+          "API REST",
+          "Auth/OAuth",
+          "zod",
+          "date-fns"
+        ],
+        "devops": [
+          "GitHub Actions",
+          "CI/CD",
+          "Git",
+          "GitHub Pages",
+          "Test (Vitest, Playwright)"
+        ],
+        "herramientas": [
+          "Jira",
+          "Confluence",
+          "GitHub",
+          "Postman"
+        ]
+      }
+  },
+  "experience": {
+    "items": [
+      {
+        "role": "Project Manager",
+        "company": "XDait — Banco dei Pegni (piattaforma YDPAY)",
+        "period": "2025 – Presente",
+        "highlights": [
+          "Coordinamento dello sviluppo della piattaforma YDPAY dagli aspetti tecnici e strategici.",
+          "Supervisione dei processi di integrazione con sistemi finanziari e amministrativi.",
+          "Leadership di un team multidisciplinare focalizzato su deliverable funzionali e scalabili."
+        ]
+      },
+      {
+        "role": "Project Manager",
+        "company": "Smart Apps — Progetto Becca (Inventario e Incassi)",
+        "period": "2024 – 2025",
+        "highlights": [
+          "Integrazione di VisaNet con il sistema amministrativo SmartApp tramite un'app Android.",
+          "Progettazione di wireframe per la gestione dei prodotti all'interno dell'app.",
+          "Selezione e costituzione del team tecnico tramite colloqui e screening.",
+          "Gestione agile del progetto con definizione e tracciamento delle attività chiave."
+        ]
+      },
+      {
+        "role": "Project Manager",
+        "company": "Dedica — Banco dei Pegni (piattaforma YDPAY)",
+        "period": "2024 – 2025",
+        "highlights": [
+          "Raccolta di informazioni tecniche per identificare problemi, proporre miglioramenti e supportare l'ideazione.",
+          "Valutazione e segmentazione del personale con assegnazione strategica dei ruoli.",
+          "Direzione dei team con Scrum, garantendo il raggiungimento degli obiettivi del sistema di credito su pegno."
+        ]
+      },
+      {
+        "role": "Project Manager",
+        "company": "Satstreet — Piattaforma di scambio di criptoasset",
+        "period": "2020 – 2024",
+        "highlights": [
+          "Definizione degli obiettivi strategici e tecnici per lo sviluppo di una piattaforma di scambio di criptovalute.",
+          "Coordinamento dei team con metodologia Scrum, tracciamento delle attività e rimozione dei blocchi.",
+          "Progettazione del database per la gestione di wallet, transazioni e report finanziari.",
+          "Creazione di wireframe per interfacce web e mobile, ottimizzando l'esperienza utente."
+        ]
+      },
+      {
+        "role": "Project Manager",
+        "company": "Soy Agencia — Sviluppo Web e Prestiti su Busta Paga",
+        "period": "2019",
+        "highlights": [
+          "Progetto web: analisi del sistema, definizione degli obiettivi funzionali/tecnici, coordinamento Scrum, progettazione del database e wireframe dell'interfaccia principale.",
+          "Prestiti su busta paga: riattivazione di un progetto fermo, coordinamento fino alla produzione e validazione delle funzionalità chiave garantendo stabilità."
+        ]
+      },
+      {
+        "role": "Project Manager",
+        "company": "THE FUTURE",
+        "period": "2017 – 2018",
+        "highlights": [
+          "Gestione end-to-end di progetti tecnologici, coordinando i team e garantendo consegne allineate agli obiettivi di business."
+        ]
+      },
+      {
+        "role": "Team Leader Full Stack / Co‑Project Manager",
+        "company": "SFANET.NET (Venezuela)",
+        "period": "2017",
+        "highlights": [
+          "Sviluppo del sistema amministrativo completo con moduli per gestione aziendale, inventario, attivazione, blocco e ricarica di linee GSM.",
+          "Implementazione di connessioni B2B per abilitare l'erogazione di internet GSM e ricariche dai punti autorizzati.",
+          "Integrazione di report finanziari e contabili con tracciabilità e controlli per l'efficienza operativa."
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "items": [
+      {
+        "title": "Piattaforma di scambio di criptoasset (Satstreet)",
+        "summary": "2020–2024 · Definizione degli obiettivi tecnici/strategici, modellazione dei dati (wallet e transazioni), wireframe web/mobile e coordinamento Scrum.",
+        "stack": ["Scrum", "Modellazione dati", "UX Wireframing"]
+      },
+      {
+        "title": "Becca — Inventario e Incassi (Smart Apps)",
+        "summary": "2024–2025 · Integrazione di VisaNet con il sistema amministrativo tramite app Android; progettazione dei wireframe e formazione del team tecnico.",
+        "stack": ["Android", "VisaNet", "Wireframing", "Agile"]
+      },
+      {
+        "titleSuffix": "Gestione Immobiliare",
+        "summary": "Raccolta dei processi, proposta di soluzione e database per messaggistica interna, segnalazione guasti e gestione aziendale.",
+        "stack": ["Analisi dei processi", "Modellazione dati", "Agile"]
+      },
+      {
+        "title": "YDPAY — Credito su pegno (Dedica/XDait)",
+        "summary": "2024–Presente · Direzione e coordinamento tecnico/strategico della piattaforma, integrazioni con sistemi finanziari e gestione agile del team.",
+        "stack": ["Scrum", "Fintech", "Integrazioni"]
+      }
+    ]
+  },
+  "sections": {
+    "about": "Chi sono",
+    "skills": "Competenze",
+    "experience": "Esperienza",
+    "projects": "Progetti",
+    "contact": "Connettiamoci"
+  },
+  "about": {
+    "cta": "Potenzia la tua piattaforma"
+  },
+  "contact": {
+    "intro": "Hai un progetto strategico, un'opportunità di collaborazione o ti serve direzione tecnologica? Scrivimi e useremo il canale che preferisci. Sono impegnato in soluzioni eleganti, misurabili e allineate al business.",
+    "immediate": "Contatto immediato",
+    "immediateText": "Preferisco conversazioni agili. Scrivimi su WhatsApp e ci coordiniamo.",
+    "legal": "Contattandomi, accetti di essere ricontattato tramite i canali che fornisci.",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "whatsapp": "WhatsApp",
+    "whatsappHint": "Chat immediata",
+    "footerNote": "Posso adattarmi anche ad altre piattaforme (Teams, Slack, Meet) una volta avviato il contatto."
+  }
+  ,
+  "footer": {
+    "privacy": "Politiche e Privacy",
+    "policiesAria": "Politiche",
+    "copyright": "© {{year}} Hernny Malaver. Tutti i diritti riservati."
+  }
+}

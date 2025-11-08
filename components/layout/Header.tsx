@@ -3,6 +3,7 @@ import { useEffect, useState, useCallback, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { FaImages, FaEnvelope, FaShieldAlt, FaBars, FaTimes, FaSun, FaMoon, FaChevronDown, FaUserTie, FaFolderOpen } from 'react-icons/fa';
 import { useTheme } from '../../hooks/useTheme';
+import { useTranslation } from 'react-i18next';
 
 // Navigation model with group (dropdown) support
 interface NavGroup {
@@ -15,28 +16,12 @@ interface NavGroup {
   items?: { id: string; label: string }[];
 }
 
-const NAV: NavGroup[] = [
-  {
-    id: 'about-group',
-    label: 'Sobre mí',
-    icon: <FaUserTie />,
-    sectionIds: ['about', 'skills', 'experience'],
-    items: [
-      { id: 'about', label: 'Perfil' },
-      { id: 'skills', label: 'Habilidades' },
-      { id: 'experience', label: 'Experiencia' },
-    ],
-  },
-  { id: 'projects', label: 'Proyectos', icon: <FaFolderOpen />, sectionIds: ['projects'] },
-  // { id: 'gallery', label: 'Galería', icon: <FaImages />, sectionIds: ['gallery'] }, // ocultado temporalmente
-  { id: 'contact', label: 'Contacto', icon: <FaEnvelope />, sectionIds: ['contact'] },
-];
-
-// Flat list of section ids to observe
-const OBSERVE_IDS = Array.from(new Set(NAV.flatMap(n => n.sectionIds || [])));
+// We'll build NAV from translations inside the component
+// Flat list of section ids to observe will be computed after NAV creation
 
 export function Header() {
   const router = useRouter();
+  const { t, i18n } = useTranslation('common');
   const [open, setOpen] = useState(false); // mobile menu
   const [active, setActive] = useState<string>('about-group');
   const [scrolled, setScrolled] = useState(false);
@@ -54,6 +39,27 @@ export function Header() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // Build NAV based on current translations
+  const NAV: NavGroup[] = [
+    {
+      id: 'about-group',
+      label: t('nav.aboutGroup'),
+      icon: <FaUserTie />,
+      sectionIds: ['about', 'skills', 'experience'],
+      items: [
+        { id: 'about', label: t('nav.about') },
+        { id: 'skills', label: t('nav.skills') },
+        { id: 'experience', label: t('nav.experience') },
+      ],
+    },
+    { id: 'projects', label: t('nav.projects'), icon: <FaFolderOpen />, sectionIds: ['projects'] },
+    // { id: 'gallery', label: t('nav.gallery'), icon: <FaImages />, sectionIds: ['gallery'] }, // ocultado temporalmente
+    { id: 'contact', label: t('nav.contact'), icon: <FaEnvelope />, sectionIds: ['contact'] },
+  ];
+
+  // Flat list of section ids to observe
+  const OBSERVE_IDS = Array.from(new Set(NAV.flatMap(n => n.sectionIds || [])));
 
   // IntersectionObserver for active section (group aware)
   useEffect(() => {
@@ -167,7 +173,7 @@ export function Header() {
       <div className="container flex items-center justify-between py-3 md:py-4">
         <Link href="#home" className="font-bold tracking-wide" onClick={closeMenu}>Hernny Malaver</Link>
         <div className="flex items-center gap-2 md:gap-4">
-          <button aria-label="Abrir menú" className="md:hidden p-2 rounded hover:bg-slate-900/5 dark:hover:bg-white/10" onClick={toggleMenu}>
+          <button aria-label={t('nav.openMenu')} className="md:hidden p-2 rounded hover:bg-slate-900/5 dark:hover:bg-white/10" onClick={toggleMenu}>
             {open ? <FaTimes /> : <FaBars />}
           </button>
         </div>
@@ -183,12 +189,20 @@ export function Header() {
             {/* Theme toggle standalone (desktop first item) */}
             <li className="order-last md:order-none md:flex">
               <button
-                aria-label={theme === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'}
+                aria-label={theme === 'dark' ? t('nav.themeToLight') : t('nav.themeToDark')}
                 onClick={toggleTheme}
                 className="p-2 rounded hover:bg-slate-900/5 dark:hover:bg-white/10 focus:outline-none focus-visible:ring focus-visible:ring-primary/50"
               >
                 {theme === 'dark' ? <FaSun className="text-amber-400" /> : <FaMoon className="text-slate-600" />}
               </button>
+            </li>
+            {/* Language selector */}
+            <li className="order-last md:order-none">
+              <div className="flex items-center gap-1 border border-slate-200/70 dark:border-white/10 rounded px-1 py-0.5 bg-white/50 dark:bg-white/5">
+                <button aria-label="Español" className={`px-2 py-1 rounded hover:bg-slate-900/5 dark:hover:bg-white/10 ${i18n.language === 'es' ? 'ring-2 ring-primary/50' : ''}`} onClick={() => i18n.changeLanguage('es')}>🇪🇸</button>
+                <button aria-label="English" className={`px-2 py-1 rounded hover:bg-slate-900/5 dark:hover:bg-white/10 ${i18n.language === 'en' ? 'ring-2 ring-primary/50' : ''}`} onClick={() => i18n.changeLanguage('en')}>🇬🇧</button>
+                <button aria-label="Italiano" className={`px-2 py-1 rounded hover:bg-slate-900/5 dark:hover:bg-white/10 ${i18n.language === 'it' ? 'ring-2 ring-primary/50' : ''}`} onClick={() => i18n.changeLanguage('it')}>🇮🇹</button>
+              </div>
             </li>
             {NAV.map(item => {
               const isActive = active === item.id;

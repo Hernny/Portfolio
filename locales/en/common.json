@@ -1,0 +1,215 @@
+{
+  "nav": {
+    "aboutGroup": "About",
+    "about": "Profile",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "themeToLight": "Switch to light theme",
+    "themeToDark": "Switch to dark theme"
+  },
+  "hero": {
+    "title": "Leadership and development of Fintech platforms, from concept to <0>production</0>",
+    "sub": "Proven experience in technology integration, process automation, and leading multidisciplinary teams in agile environments. I steer every project towards scalability, security, and tangible business value.",
+    "ctaPrimary": "Let's discuss your technical project",
+    "ctaSecondary": "View platform portfolio",
+    "metrics": {
+      "years": "Years Dev & PM",
+      "platforms": "Fintech platforms",
+      "countries": "Countries experience",
+      "stack": "Stack technologies"
+    },
+    "countries": ["🇲🇽 Mexico","🇬🇹 Guatemala","🇬🇧 England","🇨🇦 Canada","🇦🇷 Argentina"],
+    "stackTitle": "Tech Stack",
+    "backend": "Backend",
+    "frontend": "Frontend",
+    "database": "Database",
+    "devops": "DevOps",
+    "specializationTitle": "Specialization",
+    "specializations": ["Fintech","Blockchain","Payment Platforms","E-commerce","Enterprise Systems"],
+    "featuredTitle": "Featured Projects",
+    "quote": "“I don't just manage projects — I build them. My technical background lets me anticipate issues, optimize architectures, and lead teams credibly from the code.”"
+  },
+  "skills": {
+    "showCategory": "Show skills for {{cat}}",
+    "categories": {
+      "gestion": "Management",
+      "personales": "Personal",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "devops": "DevOps",
+      "herramientas": "Tools"
+    },
+    "items": {
+      "gestion": [
+        "Project leadership",
+        "Scrum/Kanban (empirical approach)",
+        "Roadmapping and impact-based prioritization",
+        "Stakeholder management",
+        "Metrics & KPIs (lead time, throughput, quality)"
+      ],
+      "personales": [
+        "Common sense",
+        "Responsibility",
+        "Leadership",
+        "Analytical thinking",
+        "Advanced logic",
+        "Team spirit"
+      ],
+      "frontend": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Accessibility (a11y)"
+      ],
+      "backend": [
+        "Node.js",
+        "REST APIs",
+        "Auth/OAuth",
+        "zod",
+        "date-fns"
+      ],
+      "devops": [
+        "GitHub Actions",
+        "CI/CD",
+        "Git",
+        "GitHub Pages",
+        "Tests (Vitest, Playwright)"
+      ],
+      "herramientas": [
+        "Jira",
+        "Confluence",
+        "GitHub",
+        "Postman"
+      ]
+    }
+  },
+  "experience": {
+    "items": [
+      {
+        "role": "Project Manager",
+        "company": "XDait — Pawn Shop (YDPAY Platform)",
+        "period": "2025 – Present",
+        "highlights": [
+          "Coordination of the YDPAY platform development from both technical and strategic angles.",
+          "Oversight of integration processes with financial and administrative systems.",
+          "Leadership of a multidisciplinary team focused on functional and scalable deliverables."
+        ]
+      },
+      {
+        "role": "Project Manager",
+        "company": "Smart Apps — Becca Project (Inventory & Collections)",
+        "period": "2024 – 2025",
+        "highlights": [
+          "Integration of VisaNet with the SmartApp administrative system via an Android application.",
+          "Wireframe design for product management within the app.",
+          "Recruitment and formation of the technical team through interviews and screening.",
+          "Agile project management with definition and tracking of key tasks."
+        ]
+      },
+      {
+        "role": "Project Manager",
+        "company": "Dedica — Pawn Shop (YDPAY Platform)",
+        "period": "2024 – 2025",
+        "highlights": [
+          "Technical discovery to identify issues, propose improvements, and advise on idea definition.",
+          "Personnel evaluation and segmentation with strategic role assignment.",
+          "Team leadership under Scrum, ensuring objectives of the pawn credit system were met."
+        ]
+      },
+      {
+        "role": "Project Manager",
+        "company": "Satstreet — Cryptoasset Exchange Platform",
+        "period": "2020 – 2024",
+        "highlights": [
+          "Definition of strategic and technical objectives for a crypto exchange platform.",
+          "Team coordination using Scrum, task tracking, and blocker resolution.",
+          "Database design for managing wallets, transactions, and financial reports.",
+          "Creation of wireframes for web and mobile interfaces, optimizing user experience."
+        ]
+      },
+      {
+        "role": "Project Manager",
+        "company": "Soy Agencia — Web Development and Payroll Loans",
+        "period": "2019",
+        "highlights": [
+          "Web project: system analysis, functional/technical goal setting, Scrum coordination, database design, and main interface wireframes.",
+          "Payroll loans: reactivated a stalled project, coordinated to production, and validated key functionalities ensuring stability."
+        ]
+      },
+      {
+        "role": "Project Manager",
+        "company": "THE FUTURE",
+        "period": "2017 – 2018",
+        "highlights": [
+          "End-to-end management of technology projects, coordinating teams and ensuring delivery aligned with business goals."
+        ]
+      },
+      {
+        "role": "Team Leader Full Stack / Co‑Project Manager",
+        "company": "SFANET.NET (Venezuela)",
+        "period": "2017",
+        "highlights": [
+          "Development of the full administrative system with modules for business management, inventory, activation, blocking, and GSM line top-ups.",
+          "Implementation of B2B connections enabling GSM internet delivery and top-ups from authorized points.",
+          "Integration of financial and accounting reports with traceability and controls for operational efficiency."
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "items": [
+      {
+        "title": "Cryptoasset exchange platform (Satstreet)",
+        "summary": "2020–2024 · Definition of technical/strategic objectives, data modeling (wallets and transactions), web/mobile wireframes, and Scrum coordination.",
+        "stack": ["Scrum", "Data modeling", "UX Wireframing"]
+      },
+      {
+        "title": "Becca — Inventory and Collections (Smart Apps)",
+        "summary": "2024–2025 · VisaNet integration with the administrative system via Android app; wireframe design and technical team formation.",
+        "stack": ["Android", "VisaNet", "Wireframing", "Agile"]
+      },
+      {
+        "titleSuffix": "Real Estate Management",
+        "summary": "Process discovery, solution proposal, and database for internal messaging, incident reporting, and business management.",
+        "stack": ["Process analysis", "Data modeling", "Agile"]
+      },
+      {
+        "title": "YDPAY — Pawn credit (Dedica/XDait)",
+        "summary": "2024–Present · Technical/strategic direction and coordination of the platform, integrations with financial systems, and agile team management.",
+        "stack": ["Scrum", "Fintech", "Integrations"]
+      }
+    ]
+  },
+  "sections": {
+    "about": "About me",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Let's connect"
+  },
+  "about": {
+    "cta": "Let's boost your platform"
+  },
+  "contact": {
+    "intro": "Do you have a strategic project, a collaboration opportunity, or need tech leadership? Write to me and we'll use your preferred channel. I'm committed to elegant, measurable, and business-aligned solutions.",
+    "immediate": "Immediate contact",
+    "immediateText": "I prefer agile conversations. Message me on WhatsApp and we’ll coordinate.",
+    "legal": "By contacting, you agree to be contacted through the channels you provide.",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "whatsapp": "WhatsApp",
+    "whatsappHint": "Instant chat",
+    "footerNote": "I can also adapt to other platforms (Teams, Slack, Meet) once contact is initiated."
+  }
+  ,
+  "footer": {
+    "privacy": "Policies & Privacy",
+    "policiesAria": "Policies",
+    "copyright": "© {{year}} Hernny Malaver. All rights reserved."
+  }
+}

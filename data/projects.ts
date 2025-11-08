@@ -30,10 +30,4 @@ export const projects: Project[] = [
       '2024–Actualidad · Dirección y coordinación técnica/estratégica de la plataforma, integraciones con sistemas financieros y administración ágil del equipo.',
     stack: ['Scrum', 'Fintech', 'Integraciones'],
   },
-  {
-    title: 'Soy Agencia — Web y préstamos por nómina',
-    summary:
-      '2019 · Análisis del sistema, definición técnica, diseño de base de datos y wireframes. Reactivación y puesta en producción de proyecto de préstamos por nómina.',
-    stack: ['Scrum', 'Wireframing', 'Modelado de datos', 'Delivery'],
-  },
 ];

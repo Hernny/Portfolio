@@ -1,0 +1,119 @@
+{
+  "nav": {
+    "aboutGroup": "Sobre mí",
+    "about": "Perfil",
+    "skills": "Habilidades",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "openMenu": "Abrir menú",
+    "themeToLight": "Cambiar a tema claro",
+    "themeToDark": "Cambiar a tema oscuro"
+  },
+  "hero": {
+    "title": "Dirección y desarrollo de plataformas Fintech, desde la conceptualización hasta la puesta en <0>producción</0>",
+    "sub": "Experiencia comprobada en integración de tecnologías, automatización de procesos y liderazgo de equipos multidisciplinarios en entornos ágiles. Oriento cada proyecto hacia la escalabilidad, la seguridad y la entrega de valor tangible para el negocio.",
+    "ctaPrimary": "Conversemos sobre tu Proyecto Técnico",
+    "ctaSecondary": "Ver Portfolio de Plataformas",
+    "metrics": {
+      "years": "Años Desarrollo & PM",
+      "platforms": "Plataformas Fintech",
+      "countries": "Países Experiencia",
+      "stack": "Tecnologías Stack"
+    },
+    "countries": ["🇲🇽 México","🇬🇹 Guatemala","🇬🇧 Inglaterra","🇨🇦 Canadá","🇦🇷 Argentina"],
+    "stackTitle": "Stack Tecnológico",
+    "backend": "Backend",
+    "frontend": "Frontend",
+    "database": "Database",
+    "devops": "DevOps",
+    "specializationTitle": "Especialización",
+    "specializations": ["Fintech","Blockchain","Plataformas de Pago","E-commerce","Sistemas Empresariales"],
+    "featuredTitle": "Proyectos Destacados",
+    "quote": "“No solo gestiono proyectos, los construyo. Mi experiencia técnica me permite anticipar problemas, optimizar arquitecturas y liderar equipos con credibilidad desde el código.”"
+  },
+  "skills": {
+    "showCategory": "Mostrar habilidades de {{cat}}"
+      ,
+      "categories": {
+        "gestion": "Gestión",
+        "personales": "Personales",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "devops": "DevOps",
+        "herramientas": "Herramientas"
+      },
+      "items": {
+        "gestion": [
+          "Dirección de proyectos",
+          "Scrum/Kanban (enfoque empírico)",
+          "Roadmapping y priorización por impacto",
+          "Stakeholder management",
+          "Métricas & KPIs (lead time, throughput, calidad)"
+        ],
+        "personales": [
+          "Sentido común",
+          "Responsabilidad",
+          "Liderazgo",
+          "Pensamiento analítico",
+          "Lógica avanzada",
+          "Compañerismo"
+        ],
+        "frontend": [
+          "React",
+          "Next.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "Framer Motion",
+          "Accesibilidad (a11y)"
+        ],
+        "backend": [
+          "Node.js",
+          "APIs REST",
+          "Auth/OAuth",
+          "zod",
+          "date-fns"
+        ],
+        "devops": [
+          "GitHub Actions",
+          "CI/CD",
+          "Git",
+          "GitHub Pages",
+          "Pruebas (Vitest, Playwright)"
+        ],
+        "herramientas": [
+          "Jira",
+          "Confluence",
+          "GitHub",
+          "Postman"
+        ]
+      }
+  },
+  "sections": {
+    "about": "Sobre mí",
+    "skills": "Habilidades",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "contact": "Conectemos"
+  },
+  "about": {
+    "cta": "Impulsemos tu plataforma"
+  },
+  "contact": {
+    "intro": "¿Tienes un proyecto estratégico, una oportunidad de colaboración o necesitas dirección tecnológica? Escríbeme y respondemos por el canal que prefieras. Estoy comprometido con soluciones elegantes, medibles y alineadas al negocio.",
+    "immediate": "Contacto inmediato",
+    "immediateText": "Prefiero conversaciones ágiles. Escríbeme por WhatsApp y coordinamos.",
+    "legal": "Al contactar aceptas ser respondido por cualquiera de los canales que indiques.",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "whatsapp": "WhatsApp",
+    "whatsappHint": "Chat inmediato",
+    "footerNote": "También puedo adaptarme a otras plataformas (Teams, Slack, Meet) una vez iniciado el contacto."
+  }
+  ,
+  "footer": {
+    "privacy": "Políticas y Privacidad",
+    "policiesAria": "Políticas",
+    "copyright": "© {{year}} Hernny Malaver. Todos los derechos reservados."
+  }
+}
