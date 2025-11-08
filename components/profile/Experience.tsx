@@ -2,8 +2,10 @@ import { profile } from '../../data/profile';
 import { Fragment } from 'react';
 import { motion } from 'framer-motion';
 import { fadeUp, staggerContainer, SlideInOut } from '../motion/Reveal';
+import { useTranslation } from 'react-i18next';
 
 export function Experience() {
+  const { t } = useTranslation('common');
   return (
     <section id="experience" className="section container scroll-mt-24 md:scroll-mt-28">
       <motion.h2
@@ -13,7 +15,7 @@ export function Experience() {
         viewport={{ once: true, amount: 0.7 }}
         transition={{ duration: 0.45, ease: 'easeOut' }}
       >
-        Experiencia
+        {t('sections.experience')}
       </motion.h2>
       {/* Timeline layout: left vertical line + right content cards (fecha integrada arriba de la tarjeta) */}
       <div className="relative">
@@ -55,7 +57,7 @@ export function Experience() {
                     viewport={{ once: false, amount: 0.6 }}
                     transition={{ duration: 0.35, ease: 'easeOut', delay: 0.06 + 0.02 * (idx % 4) }}
                   >
-                    {e.period}
+                    {t(`experience.items.${idx}.period`, e.period)}
                   </motion.div>
                   <motion.article
                     className="rounded p-4 md:p-5 border shadow-sm bg-white border-slate-200 dark:bg-white/5 dark:border-white/10 dark:shadow-none"
@@ -65,12 +67,18 @@ export function Experience() {
                     viewport={{ once: false, amount: 0.35 }}
                     transition={{ duration: 0.45, ease: 'easeOut', delay: 0.02 * (idx % 4) }}
                   >
-                    <h3 className="font-semibold">{e.role} — {e.company}</h3>
+                    <h3 className="font-semibold">{t(`experience.items.${idx}.role`, e.role)} — {t(`experience.items.${idx}.company`, e.company)}</h3>
                     {e.location ? (
-                      <p className="text-sm opacity-80">{e.location}</p>
+                      <p className="text-sm opacity-80">{t(`experience.items.${idx}.location`, e.location)}</p>
                     ) : null}
                     <ul className="list-disc list-inside mt-2 md:mt-3 opacity-90">
-                      {e.highlights.map((h, i) => (
+                      {(
+                        Array.isArray(
+                          (t(`experience.items.${idx}.highlights`, { returnObjects: true }) as unknown)
+                        )
+                          ? (t(`experience.items.${idx}.highlights`, { returnObjects: true }) as string[])
+                          : e.highlights
+                      ).map((h, i) => (
                         <li key={i}>{h}</li>
                       ))}
                     </ul>

@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import { SlideInOut } from '../motion/Reveal';
+import { useTranslation, Trans } from 'react-i18next';
 
 export function Hero() {
+  const { t } = useTranslation('common');
   return (
     // Hero con márgenes homogéneos y reglas responsive (sm/md) y fondo diferenciado full-bleed
   <section id="home" className="section relative overflow-hidden w-full bg-slate-100 dark:bg-slate-900">
@@ -27,15 +29,13 @@ export function Hero() {
             viewport={{ once: true, amount: 0.7 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
           >
-            Dirección y desarrollo de plataformas Fintech, desde la conceptualización hasta la puesta en{' '}
-            <span className="text-primary">producción</span>
+            <Trans i18nKey="hero.title" components={{ 0: <span className="text-primary" /> }} />
           </motion.h1>
 
           {/* Subheadline con repliegue lateral */}
           <SlideInOut direction="right" amount={0.85}>
             <p className="mt-8 md:mt-12 text-lg md:text-2xl font-medium opacity-95">
-              Experiencia comprobada en integración de tecnologías, automatización de procesos y liderazgo de equipos multidisciplinarios en entornos ágiles.
-              Oriento cada proyecto hacia la escalabilidad, la seguridad y la entrega de valor tangible para el negocio.
+              {t('hero.sub')}
             </p>
           </SlideInOut>
 
@@ -46,13 +46,13 @@ export function Hero() {
                 href="#contact"
                 className="inline-block text-lg font-semibold px-8 py-4 rounded-lg text-white shadow bg-emerald-600 hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring focus-visible:ring-emerald-300/50"
               >
-                Conversemos sobre tu Proyecto Técnico
+                {t('hero.ctaPrimary')}
               </a>
               <a
                 href="#projects"
                 className="inline-block text-base font-medium px-6 py-3 rounded-lg border border-white/30 hover:border-white/50 focus-visible:outline-none focus-visible:ring focus-visible:ring-primary/30"
               >
-                Ver Portfolio de Plataformas
+                {t('hero.ctaSecondary')}
               </a>
             </div>
           </SlideInOut>
@@ -74,13 +74,13 @@ export function Hero() {
           </SlideInOut>
 
           {/* Métricas reales */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 mt-8 md:mt-12">
-            {[
-              { n: '12+', l: 'Años Desarrollo & PM' },
-              { n: '4', l: 'Plataformas Fintech' },
-              { n: '5', l: 'Países Experiencia' },
-              { n: '15+', l: 'Tecnologías Stack' },
-            ].map((m, i) => (
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 mt-8 md:mt-12">
+              {[
+                { n: '12+', l: t('hero.metrics.years') },
+                { n: '4', l: t('hero.metrics.platforms') },
+                { n: '5', l: t('hero.metrics.countries') },
+                { n: '15+', l: t('hero.metrics.stack') },
+              ].map((m, i) => (
               <SlideInOut key={m.l} index={i} amount={0.6}>
                 <div className="rounded-xl border p-4 md:p-5 text-center shadow-sm bg-white border-slate-200 dark:bg-white/5 dark:border-white/10 dark:shadow-none">
                   <span className="block text-3xl md:text-4xl font-bold text-primary">{m.n}</span>
@@ -93,7 +93,7 @@ export function Hero() {
           {/* Experiencia Internacional (chips sin etiqueta) */}
           <SlideInOut index={2} amount={0.7}>
             <div className="mt-8 md:mt-12 flex flex-wrap items-center justify-center gap-2 text-sm">
-            {['🇲🇽 México','🇬🇹 Guatemala','🇬🇧 Inglaterra','🇨🇦 Canadá', '🇦🇷 Argentina'].map(c => (
+            {(t('hero.countries', { returnObjects: true }) as string[]).map(c => (
               <span key={c} className="px-3 py-1.5 rounded-lg border shadow-sm bg-white border-slate-200 dark:bg-white/10 dark:border-white/10 dark:shadow-none">{c}</span>
             ))}
             </div>
@@ -101,11 +101,11 @@ export function Hero() {
           {/* Stack Tecnológico */}
           <SlideInOut index={3} amount={0.5}>
             <div className="w-full mt-8 md:mt-12">
-            <h3 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight text-center mb-4 md:mb-6">Stack Tecnológico</h3>
+            <h3 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight text-center mb-4 md:mb-6">{t('hero.stackTitle')}</h3>
             <div className="grid gap-4 md:gap-6 sm:grid-cols-2">
               {/* Backend pills */}
               <div className="text-center">
-                <h4 className="text-sm md:text-base font-extrabold leading-tight tracking-tight text-primary">Backend</h4>
+                <h4 className="text-sm md:text-base font-extrabold leading-tight tracking-tight text-primary">{t('hero.backend')}</h4>
                 <div className="mt-2 md:mt-3 flex flex-wrap justify-center gap-2">
                   <a href="https://docs.nestjs.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-lg text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">NestJS</a>
                   <a href="https://expressjs.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-lg text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Express</a>
@@ -115,7 +115,7 @@ export function Hero() {
               </div>
               {/* Frontend pills */}
               <div className="text-center">
-                <h4 className="text-sm md:text-base font-extrabold leading-tight tracking-tight text-primary">Frontend</h4>
+                <h4 className="text-sm md:text-base font-extrabold leading-tight tracking-tight text-primary">{t('hero.frontend')}</h4>
                 <div className="mt-2 md:mt-3 flex flex-wrap justify-center gap-2">
                   <a href="https://vuejs.org/guide/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-lg text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Vue</a>
                   <a href="https://react.dev/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-lg text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">React</a>
@@ -124,7 +124,7 @@ export function Hero() {
               </div>
               {/* Database pills */}
               <div className="text-center">
-                <h4 className="text-sm md:text-base font-extrabold leading-tight tracking-tight text-primary">Database</h4>
+                <h4 className="text-sm md:text-base font-extrabold leading-tight tracking-tight text-primary">{t('hero.database')}</h4>
                 <div className="mt-2 md:mt-3 flex flex-wrap justify-center gap-2">
                   <a href="https://www.postgresql.org/docs/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-lg text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Postgres</a>
                   <a href="https://dev.mysql.com/doc/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-lg text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">MySQL</a>
@@ -134,7 +134,7 @@ export function Hero() {
               </div>
               {/* DevOps pills */}
               <div className="text-center">
-                <h4 className="text-sm md:text-base font-extrabold leading-tight tracking-tight text-primary">DevOps</h4>
+                <h4 className="text-sm md:text-base font-extrabold leading-tight tracking-tight text-primary">{t('hero.devops')}</h4>
                 <div className="mt-2 md:mt-3 flex flex-wrap justify-center gap-2">
                   <a href="https://docs.docker.com/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-lg text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Docker</a>
                   <a href="https://nx.dev/" target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-lg text-sm font-medium border shadow-sm bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:bg-white/10 dark:border-white/10 dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/15">Nx</a>
@@ -149,10 +149,10 @@ export function Hero() {
           {/* Especialización */}
           <SlideInOut index={4} amount={0.6}>
             <div className="mt-8 md:mt-12">
-            <h3 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight text-center mb-4 md:mb-6">Especialización</h3>
+            <h3 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight text-center mb-4 md:mb-6">{t('hero.specializationTitle')}</h3>
             <div className="flex flex-wrap justify-center gap-2">
-              {['Fintech','Blockchain','Plataformas de Pago','E-commerce','Sistemas Empresariales'].map(t => (
-                <span key={t} className="px-3 py-1.5 rounded-lg text-sm font-medium text-white bg-gradient-to-r from-sky-400 to-sky-500 border border-sky-300/40 shadow-sm dark:border-white/10 dark:shadow-none">{t}</span>
+              {(t('hero.specializations', { returnObjects: true }) as string[]).map(s => (
+                <span key={s} className="px-3 py-1.5 rounded-lg text-sm font-medium text-white bg-gradient-to-r from-sky-400 to-sky-500 border border-sky-300/40 shadow-sm dark:border-white/10 dark:shadow-none">{s}</span>
               ))}
             </div>
             </div>
@@ -161,7 +161,7 @@ export function Hero() {
           {/* Proyectos Destacados (desktop) */}
           <SlideInOut index={5} amount={0.6}>
             <div className="mt-8 md:mt-12 hidden md:block">
-            <h3 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight text-center mb-4 md:mb-6">Proyectos Destacados</h3>
+            <h3 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight text-center mb-4 md:mb-6">{t('hero.featuredTitle')}</h3>
             <div className="flex flex-wrap justify-center gap-2">
               {['YDPay Platform','Satstreet Exchange','Becca Platform','The Futures Platform'].map(p => (
                 <span key={p} className="px-3 py-1.5 rounded-lg text-sm border shadow-sm bg-white border-slate-200 dark:bg-white/10 dark:border-white/10 dark:shadow-none">
@@ -175,7 +175,7 @@ export function Hero() {
           {/* Value Proposition */}
           <SlideInOut index={6} amount={0.7}>
             <blockquote className="mt-8 md:mt-10 text-base md:text-lg opacity-95 border border-white/15 bg-white/5 rounded-xl px-4 md:px-6 py-3 md:py-4 italic">
-              “No solo gestiono proyectos, los construyo. Mi experiencia técnica me permite anticipar problemas, optimizar arquitecturas y liderar equipos con credibilidad desde el código.”
+              {t('hero.quote')}
             </blockquote>
           </SlideInOut>
 
