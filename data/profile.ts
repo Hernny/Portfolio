@@ -36,7 +36,7 @@ export const profile = {
       'Compañerismo',
     ],
   frontend: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Vue', 'Bootstrap'],
-    backend: ['Node.js', 'REST APIs', 'Auth/OAuth', 'zod', 'date-fns'],
+  backend: ['REST APIs', 'Auth/OAuth', 'NestJS', 'Anchor', 'GraphQL'],
     devops: ['GitHub Actions', 'CI/CD', 'Git', 'GitHub Pages', 'Pruebas (Vitest, Playwright)'],
     herramientas: ['Jira', 'Confluence', 'GitHub', 'Postman']
   },

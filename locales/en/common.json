@@ -67,11 +67,11 @@
         "Bootstrap"
       ],
       "backend": [
-        "Node.js",
         "REST APIs",
         "Auth/OAuth",
-        "zod",
-        "date-fns"
+        "NestJS",
+        "Anchor",
+        "GraphQL"
       ],
       "devops": [
         "GitHub Actions",
