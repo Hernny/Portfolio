@@ -35,7 +35,7 @@ export const profile = {
       'Lógica avanzada',
       'Compañerismo',
     ],
-    frontend: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Accesibilidad (a11y)'],
+  frontend: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Vue', 'Bootstrap'],
     backend: ['Node.js', 'REST APIs', 'Auth/OAuth', 'zod', 'date-fns'],
     devops: ['GitHub Actions', 'CI/CD', 'Git', 'GitHub Pages', 'Pruebas (Vitest, Playwright)'],
     herramientas: ['Jira', 'Confluence', 'GitHub', 'Postman']

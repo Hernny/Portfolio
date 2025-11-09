@@ -63,8 +63,8 @@
         "Next.js",
         "TypeScript",
         "Tailwind CSS",
-        "Framer Motion",
-        "Accessibility (a11y)"
+        "Vue",
+        "Bootstrap"
       ],
       "backend": [
         "Node.js",
