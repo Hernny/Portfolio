@@ -69,7 +69,7 @@
       "backend": [
         "REST APIs",
         "Auth/OAuth",
-        "NestJS",
+        "n8n",
         "Anchor",
         "GraphQL"
       ],
@@ -82,7 +82,8 @@
       ],
       "herramientas": [
         "Jira",
-        "Confluence",
+        "Linear",
+        "Slack",
         "GitHub",
         "Postman"
       ]
