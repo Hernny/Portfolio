@@ -37,7 +37,7 @@ export const profile = {
     ],
   frontend: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Vue', 'Bootstrap'],
   backend: ['REST APIs', 'Auth/OAuth', 'NestJS', 'Anchor', 'GraphQL'],
-    devops: ['GitHub Actions', 'CI/CD', 'Git', 'GitHub Pages', 'Pruebas (Vitest, Playwright)'],
+  devops: ['GitHub Actions', 'CI/CD', 'AWS', 'NX', 'Docker Compose'],
     herramientas: ['Jira', 'Confluence', 'GitHub', 'Postman']
   },
   experience: [

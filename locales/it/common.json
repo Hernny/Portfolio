@@ -76,9 +76,9 @@
         "devops": [
           "GitHub Actions",
           "CI/CD",
-          "Git",
-          "GitHub Pages",
-          "Test (Vitest, Playwright)"
+          "AWS",
+          "NX",
+          "Docker Compose"
         ],
         "herramientas": [
           "Jira",
