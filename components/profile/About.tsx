@@ -25,10 +25,12 @@ export function About() {
       >
         {profile.name} — {profile.title}
       </motion.p>
-      <div className="mt-4 md:mt-6 grid gap-3 md:gap-4">
-        {profile.summary.map((s, i) => (
+      <div className="mt-4 md:mt-6 grid gap-3 md:gap-4 max-w-3xl mx-auto">
+        {(
+          (t('about.summary', { returnObjects: true }) as string[]) || profile.summary
+        ).map((s, i) => (
           <SlideInOut key={i} index={i} amount={0.4}>
-            <p className="opacity-90">{s}</p>
+            <p className="opacity-90 text-justify">{s}</p>
           </SlideInOut>
         ))}
       </div>

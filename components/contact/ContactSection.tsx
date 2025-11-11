@@ -1,5 +1,5 @@
 import { profile } from '../../data/profile';
-import { FaEnvelope, FaLinkedin, FaPhone, FaWhatsapp } from 'react-icons/fa';
+import { FaEnvelope, FaLinkedin, FaPhone, FaWhatsapp, FaTelegramPlane, FaDiscord } from 'react-icons/fa';
 import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { fadeUp, staggerContainer, SlideInOut } from '../motion/Reveal';
@@ -33,6 +33,7 @@ export function ContactSection() {
         {/* Contact channels */}
         <SlideInOut className="space-y-3 md:space-y-4 lg:col-span-1 h-full" index={0} amount={0.25}>
           <div className="text-left">
+            <h3 className="font-semibold tracking-wide text-primary mb-2">{t('contact.channelsTitle')}</h3>
             <ul className="space-y-2.5 md:space-y-3">
               <li>
                 <a href={`mailto:${profile.email}`} className="group flex items-center gap-3 rounded-lg border border-slate-200/60 dark:border-white/10 hover:border-primary/60 px-4 py-3 bg-white/40 dark:bg-white/5 backdrop-blur transition">
@@ -56,6 +57,17 @@ export function ContactSection() {
                   </div>
                 </a>
               </li>
+              <li>
+                <a href="https://discord.gg/tfA8CX3h" target="_blank" rel="noreferrer" className="group flex items-center gap-3 rounded-lg border border-slate-200/60 dark:border-white/10 hover:border-primary/60 px-4 py-3 bg-white/40 dark:bg-white/5 backdrop-blur transition" aria-label="Discord invite">
+                  <span className="p-2 rounded-md bg-primary/10 text-primary group-hover:bg-primary group-hover:text-black transition">
+                    <FaDiscord />
+                  </span>
+                  <div className="text-sm text-left">
+                    <p className="font-medium">Discord</p>
+                    <p className="opacity-70 truncate max-w-[180px]">discord.gg/tfA8CX3h</p>
+                  </div>
+                </a>
+              </li>
               {/* <li>
                 <a href={`tel:${profile.phone.replace(/\s+/g, '')}`} className="group flex items-center gap-3 rounded-lg border border-slate-200/60 dark:border-white/10 hover:border-primary/60 px-4 py-3 bg-white/40 dark:bg-white/5 backdrop-blur transition">
                   <span className="p-2 rounded-md bg-primary/10 text-primary group-hover:bg-primary group-hover:text-black transition">
@@ -67,54 +79,56 @@ export function ContactSection() {
                   </div>
                 </a>
               </li> */}
-              <li>
-                {/* WhatsApp link using wa.me (remove + and spaces) with preset message */}
-                {(() => {
-                  const raw = profile.phone;
-                  const digits = raw.replace(/[^0-9]/g, '');
-                  const msg = encodeURIComponent('Hola Hernny, me gustaría conversar sobre un proyecto.');
-                  const wa = `https://wa.me/${digits}?text=${msg}`;
-                  return (
-                    <a href={wa} target="_blank" rel="noreferrer" className="group flex items-center gap-3 rounded-lg border border-green-200/60 dark:border-green-500/20 hover:border-green-500/70 px-4 py-3 bg-green-50/70 dark:bg-green-500/10 backdrop-blur transition">
-                      <span className="p-2 rounded-md bg-green-500/15 text-green-600 dark:text-green-400 group-hover:bg-green-500 group-hover:text-white transition">
-                        <FaWhatsapp />
-                      </span>
-                      <div className="text-sm text-left">
-                        <p className="font-medium">{t('contact.whatsapp')}</p>
-                        <p className="opacity-70">{t('contact.whatsappHint')}</p>
-                      </div>
-                    </a>
-                  );
-                })()}
-              </li>
+              {/* WhatsApp moved to Immediate Contact section */}
             </ul>
           </div>
         </SlideInOut>
-        {/* CTA WhatsApp destacado (sin formulario) */}
+        {/* CTA inmediato con tarjetas (WhatsApp + Telegram) */}
         <SlideInOut className="lg:col-span-2 h-full" index={1} amount={0.25}>
           <div className="h-full flex flex-col gap-4 md:gap-5 bg-white/50 dark:bg-white/5 backdrop-blur rounded-xl p-5 md:p-6 border border-slate-200/70 dark:border-white/10 shadow-md">
             <div className="space-y-2">
-              <h3 className="font-semibold tracking-wide">{t('contact.immediate')}</h3>
+              <h3 className="font-semibold tracking-wide text-primary">{t('contact.immediate')}</h3>
               <p className="opacity-80">{t('contact.immediateText')}</p>
             </div>
-            <div className="flex items-center gap-4 flex-wrap">
-              <a href={wa} target="_blank" rel="noreferrer" className="px-6 py-3 rounded-lg bg-primary text-black font-semibold shadow hover:shadow-md hover:bg-primary-400 focus-visible:outline-none focus-visible:ring focus-visible:ring-primary/40 transition">
-                {t('contact.whatsapp')}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <a href={wa} target="_blank" rel="noreferrer" className="group flex items-center gap-3 rounded-lg border border-green-200/60 dark:border-green-500/20 hover:border-green-500/70 px-4 py-3 bg-green-50/70 dark:bg-green-500/10 backdrop-blur transition">
+                <span className="p-2 rounded-md bg-green-500/15 text-green-600 dark:text-green-400 group-hover:bg-green-500 group-hover:text-white transition">
+                  <FaWhatsapp />
+                </span>
+                <div className="text-sm text-left">
+                  <p className="font-medium">{t('contact.whatsapp')}</p>
+                  <p className="opacity-70">{t('contact.whatsappHint')}</p>
+                </div>
+              </a>
+              <a href="https://t.me/HernnyMalaver" target="_blank" rel="noreferrer" className="group flex items-center gap-3 rounded-lg border border-sky-200/70 dark:border-sky-500/20 hover:border-sky-500/70 px-4 py-3 bg-sky-50/70 dark:bg-sky-500/10 backdrop-blur transition">
+                <span className="p-2 rounded-md bg-sky-500/15 text-sky-600 dark:text-sky-400 group-hover:bg-sky-500 group-hover:text-white transition">
+                  <FaTelegramPlane />
+                </span>
+                <div className="text-sm text-left">
+                  <p className="font-medium">Telegram</p>
+                  <p className="opacity-70">{t('contact.whatsappHint')}</p>
+                </div>
               </a>
             </div>
             <p className="text-xs opacity-60 leading-relaxed mt-auto">{t('contact.legal')}</p>
           </div>
         </SlideInOut>
-      </div>
-      <motion.p
-        className="mt-8 md:mt-10 text-center text-sm italic opacity-70"
+        <motion.figure
+          className="col-span-1 lg:col-span-3"
         initial={{ opacity: 0, y: 6 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.6 }}
         transition={{ duration: 0.35, ease: 'easeOut' }}
       >
-        {t('contact.footerNote')}
-      </motion.p>
+        <blockquote className="relative pl-5 md:pl-6 text-base md:text-lg italic leading-relaxed">
+          <span aria-hidden="true" className="absolute left-0 top-0 h-full w-1 rounded bg-amber-500/80 dark:bg-amber-400/70" />
+          {t('contact.footerQuote')}
+        </blockquote>
+        <figcaption className="mt-2 md:mt-3 text-sm opacity-75">
+          {t('contact.footerQuoteSource')}
+        </figcaption>
+        </motion.figure>
+      </div>
     </section>
   );
 }

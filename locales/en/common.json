@@ -194,18 +194,28 @@
     "contact": "Let's connect"
   },
   "about": {
-    "cta": "Let's boost your platform"
+    "cta": "Let's boost your platform",
+    "summary": [
+      "I lead the build of Fintech and transaction-heavy platforms end-to-end: discovery, architecture, execution and iteration.",
+      "My background mixing hands-on development with project management lets me align technical decisions to business impact early.",
+      "I work with metrics (lead time, throughput, defect rate) to keep teams predictable while protecting code quality and velocity.",
+      "Experience across payment processing, asset custody, internal tooling and operational automation in regulated contexts.",
+      "I prioritize scalable patterns: domain clarity, security by design, lean integration layers and maintainable delivery pipelines.",
+      "If you need someone who can both speak with stakeholders and dive into architectural trade‑offs, we should talk."
+    ]
   },
   "contact": {
-    "intro": "Do you have a strategic project, a collaboration opportunity, or need tech leadership? Write to me and we'll use your preferred channel. I'm committed to elegant, measurable, and business-aligned solutions.",
+    "intro": "If you're here, you want your platform to move forward without friction. I provide technical leadership and execution focused on value: clarify scope, prioritize by impact, and turn ideas into measurable, secure deliverables. Message me today and let's take the first step.",
     "immediate": "Immediate contact",
-    "immediateText": "I prefer agile conversations. Message me on WhatsApp and we’ll coordinate.",
+  "immediateText": "For an agile start: message me and within minutes we begin real progress on your project.",
+    "channelsTitle": "Contact channels",
     "legal": "By contacting, you agree to be contacted through the channels you provide.",
     "email": "Email",
     "linkedin": "LinkedIn",
     "whatsapp": "WhatsApp",
     "whatsappHint": "Instant chat",
-    "footerNote": "I can also adapt to other platforms (Teams, Slack, Meet) once contact is initiated."
+  "footerQuote": "Adapt or die. Clinging to the old way of doing things—command-and-control and rigid predictability—leads to failure. Meanwhile, competitors willing to change will leave you in the dust.",
+  "footerQuoteSource": "— Jeff Sutherland · Scrum: The Art of Doing Twice the Work in Half the Time (2014)"
   }
   ,
   "footer": {

@@ -98,18 +98,28 @@
     "contact": "Conectemos"
   },
   "about": {
-    "cta": "Impulsemos tu plataforma"
+    "cta": "Impulsemos tu plataforma",
+    "summary": [
+      "Lidero la construcción de plataformas Fintech y de transacciones de punta a punta: discovery, arquitectura, ejecución iterativa y estabilización.",
+      "Combino experiencia técnica full‑stack con gestión de proyectos para traducir objetivos de negocio en hojas de ruta accionables tempranamente.",
+      "Opero con métricas (lead time, throughput, defectos) para mantener previsibilidad sin sacrificar calidad y seguridad.",
+      "Experiencia en procesamiento de pagos, custodia de activos, automatización operativa y herramientas internas en contextos regulados.",
+      "Prioridad a patrones escalables: claridad de dominio, seguridad desde el diseño, capas de integración ligeras y pipelines mantenibles.",
+      "Si necesitas alguien que pueda hablar con stakeholders y evaluar trade‑offs arquitectónicos con criterio técnico, conversemos."
+    ]
   },
   "contact": {
-    "intro": "¿Tienes un proyecto estratégico, una oportunidad de colaboración o necesitas dirección tecnológica? Escríbeme y respondemos por el canal que prefieras. Estoy comprometido con soluciones elegantes, medibles y alineadas al negocio.",
+    "intro": "Si estás aquí, es porque quieres que tu plataforma avance sin fricción. Te ayudo con dirección técnica y ejecución enfocada en valor: aclaramos el alcance, priorizamos por impacto y convertimos ideas en entregables medibles y seguros. Escríbeme hoy y damos el primer paso.",
     "immediate": "Contacto inmediato",
-    "immediateText": "Prefiero conversaciones ágiles. Escríbeme por WhatsApp y coordinamos.",
+  "immediateText": "Para una gestión ágil: escríbeme y en minutos iniciamos el progreso real de tu proyecto.",
+    "channelsTitle": "Canales de contacto",
     "legal": "Al contactar aceptas ser respondido por cualquiera de los canales que indiques.",
     "email": "Email",
     "linkedin": "LinkedIn",
     "whatsapp": "WhatsApp",
     "whatsappHint": "Chat inmediato",
-    "footerNote": "También puedo adaptarme a otras plataformas (Teams, Slack, Meet) una vez iniciado el contacto."
+  "footerQuote": "Renovarse o morir. Aferrarse a la antigua manera de hacer las cosas, de mando y control y rígida predictibilidad, conduce al fracaso. Entre tanto, tus competidores dispuestos a cambiar te harán morder el polvo.",
+  "footerQuoteSource": "— Jeff Sutherland · Scrum. El arte de hacer el doble del trabajo en la mitad del tiempo (2014)"
   }
   ,
   "footer": {
