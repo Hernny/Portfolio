@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 
 export function Footer() {
@@ -13,9 +13,15 @@ export function Footer() {
             <Link href={{ pathname: '/privacy' }} className="opacity-80 hover:text-primary">{t('footer.privacy')}</Link>
           </nav>
           <div className="flex gap-4 text-xl">
-          <a href="https://github.com" target="_blank" rel="noreferrer" className="hover:text-primary" aria-label="GitHub"><FaGithub /></a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-primary" aria-label="LinkedIn"><FaLinkedin /></a>
-          <a href="https://twitter.com" target="_blank" rel="noreferrer" className="hover:text-primary" aria-label="Twitter"><FaTwitter /></a>
+            <a
+              href="https://github.com/Hernny"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-primary"
+              aria-label="GitHub"
+            >
+              <FaGithub />
+            </a>
           </div>
         </div>
       </div>

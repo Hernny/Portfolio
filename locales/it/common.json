@@ -194,18 +194,28 @@
     "contact": "Connettiamoci"
   },
   "about": {
-    "cta": "Potenzia la tua piattaforma"
+    "cta": "Potenzia la tua piattaforma",
+    "summary": [
+      "Guido la realizzazione di piattaforme Fintech e ad alto volume di transazioni end‑to‑end: discovery, architettura, esecuzione e iterazione.",
+      "Unisco background tecnico hands‑on e project management per allineare le decisioni tecniche all’impatto di business fin dalle prime fasi.",
+      "Lavoro con metriche (lead time, throughput, tasso di difetti) per mantenere prevedibilità proteggendo qualità e sicurezza.",
+      "Esperienza su pagamenti, custodia di asset, automazione operativa e tooling interno in contesti regolamentati.",
+      "Privilegio pattern scalabili: chiarezza del dominio, security by design, layer di integrazione snelli e pipeline di delivery mantenibili.",
+      "Se cerchi qualcuno in grado di dialogare con gli stakeholder e discutere trade‑off architetturali con credibilità tecnica, parliamone."
+    ]
   },
   "contact": {
-    "intro": "Hai un progetto strategico, un'opportunità di collaborazione o ti serve direzione tecnologica? Scrivimi e useremo il canale che preferisci. Sono impegnato in soluzioni eleganti, misurabili e allineate al business.",
+    "intro": "Se è qui è perché desidera che la sua piattaforma avanzi senza attriti. Le offro direzione tecnica ed esecuzione orientata al valore: chiarire l'ambito, priorità per impatto e trasformare idee in deliverable misurabili e sicuri. Mi scriva oggi e facciamo il primo passo.",
     "immediate": "Contatto immediato",
-    "immediateText": "Preferisco conversazioni agili. Scrivimi su WhatsApp e ci coordiniamo.",
+  "immediateText": "Per una partenza agile: mi scriva e in pochi minuti iniziamo il progresso reale del suo progetto.",
+    "channelsTitle": "Canali di contatto",
     "legal": "Contattandomi, accetti di essere ricontattato tramite i canali che fornisci.",
     "email": "Email",
     "linkedin": "LinkedIn",
     "whatsapp": "WhatsApp",
     "whatsappHint": "Chat immediata",
-    "footerNote": "Posso adattarmi anche ad altre piattaforme (Teams, Slack, Meet) una volta avviato il contatto."
+  "footerQuote": "Innovarsi o morire. Aggrapparsi al vecchio modo di fare le cose — comando e controllo e rigida prevedibilità — porta al fallimento. Nel frattempo, i concorrenti disposti a cambiare ti lasceranno indietro.",
+  "footerQuoteSource": "— Jeff Sutherland · Scrum. L’arte di fare il doppio del lavoro nella metà del tempo (2014)"
   }
   ,
   "footer": {
