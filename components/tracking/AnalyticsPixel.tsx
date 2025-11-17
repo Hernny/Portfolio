@@ -7,15 +7,14 @@ export function AnalyticsPixel() {
   const { consent } = useCookieConsent();
   const router = useRouter();
 
-  // Respect cookie consent
-  if (consent !== 'granted') return null;
-
   // Allow override from env; fallback to the provided ID if env is not set
   const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-RSVNH1T50D';
   const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 
   // pageview helper for SPA route changes
+  // Always register the hook in the same order — guard inside the effect by consent
   useEffect(() => {
+    if (consent !== 'granted') return;
     if (!GA_ID) return;
 
     const handleRouteChange = (url: string) => {
@@ -28,13 +27,15 @@ export function AnalyticsPixel() {
         }
       } catch (err) {
         // swallow errors to avoid breaking navigation
-        // console.debug('gtag pageview error', err)
       }
     };
 
     router.events.on('routeChangeComplete', handleRouteChange);
     return () => router.events.off('routeChangeComplete', handleRouteChange);
-  }, [GA_ID, router.events]);
+  }, [consent, GA_ID, router.events]);
+
+  // Only render analytics scripts when consent is granted
+  if (consent !== 'granted') return null;
 
   return (
     <>
